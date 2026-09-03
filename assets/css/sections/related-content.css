@@ -1,0 +1,40 @@
+/* ========================================
+   RELATED CONTENT
+======================================== */
+
+.related-info-section {
+  padding: 100px 0;
+
+  background: var(--neutral-01);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.related-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+}
+
+/* ========================================
+   TITLE
+======================================== */
+
+.related-title {
+  color: var(--neutral-11);
+}
+
+/* ========================================
+   RELATED PRESTASI
+======================================== */
+
+.related-content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}

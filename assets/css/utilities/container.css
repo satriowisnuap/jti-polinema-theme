@@ -1,0 +1,73 @@
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1440px);
+  margin-inline: auto;
+  padding-inline: var(--container-padding, 120px);
+}
+
+.container-fluid {
+  width: 100%;
+  padding-inline: var(--container-padding, 120px);
+}
+
+/* Wide Container Modifier */
+.container--wide {
+  --container-max-width: 1600px;
+  --container-padding: 60px;
+}
+
+/* Large Desktop */
+@media (max-width: 1440px) {
+  .container {
+    --container-padding: 80px;
+  }
+  .container-fluid {
+    --container-padding: 80px;
+  }
+  .container--wide {
+    --container-padding: 40px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .container {
+    --container-padding: 48px;
+  }
+  .container-fluid {
+    --container-padding: 48px;
+  }
+  .container--wide {
+    --container-padding: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    --container-padding: 24px;
+  }
+  .container-fluid {
+    --container-padding: 24px;
+  }
+  .container--wide {
+    --container-padding: 24px;
+  }
+}
+
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+  .container {
+    --container-padding: 16px;
+  }
+  .container-fluid {
+    --container-padding: 16px;
+  }
+  .container--wide {
+    --container-padding: 16px;
+  }
+}

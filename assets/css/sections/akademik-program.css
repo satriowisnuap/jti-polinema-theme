@@ -1,0 +1,232 @@
+/* ========================================
+   AKADEMIK PROGRAM SECTION STYLES
+   WebJTI Theme
+======================================== */
+
+.akademik-program-section {
+  display: grid;
+  gap: 24px;
+}
+
+.akademik-program-section__intro,
+.akademik-program-section__card {
+  background: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.akademik-program-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(238, 109, 8, 0.12);
+  color: var(--orange-2-07, #EE6D08);
+  font-size: 12px;
+  font-weight: var(--fw-semibold, 600);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.akademik-program-section__intro p,
+.akademik-program-section__card p,
+.akademik-program-section__card li {
+  font-size: var(--b3-size, 16px);
+  line-height: 1.75;
+  color: var(--neutral-07, #57534E);
+}
+
+.akademik-program-section__intro p:first-child {
+  margin-top: 0;
+}
+
+.akademik-program-section__intro p:last-child {
+  margin-bottom: 0;
+}
+
+.akademik-program-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.akademik-program-section__card h2,
+.akademik-program-section__card h3 {
+  margin: 0 0 14px;
+  color: var(--neutral-10, #1C1917);
+}
+
+.akademik-program-section__card h2 {
+  font-size: var(--h5-size, 22px);
+  font-weight: var(--fw-semibold, 600);
+}
+
+.akademik-program-section__card h3 {
+  font-size: var(--b2-size, 18px);
+  font-weight: var(--fw-semibold, 600);
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.akademik-program-section__dot-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.akademik-program-section__dot-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+.akademik-program-section__dot-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange-2-07, #EE6D08);
+  box-shadow: 0 0 0 4px rgba(238, 109, 8, 0.12);
+}
+
+.akademik-program-section__card li + li {
+  margin-top: 10px;
+}
+
+.akademik-program-section__competencies {
+  display: grid;
+  gap: 16px;
+}
+
+.akademik-program-section__competency {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(238, 109, 8, 0.06), rgba(255, 255, 255, 0.95));
+  border: 1px solid rgba(238, 109, 8, 0.14);
+}
+
+.akademik-program-section__competency p {
+  margin: 0;
+}
+
+/* Specialization sub-section header inside mata-kuliah panel */
+.akademik-program-section__spec-header {
+  margin-top: 12px;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(238, 109, 8, 0.08), transparent);
+  border-left: 4px solid var(--orange-2-07, #EE6D08);
+  border-radius: 0 12px 12px 0;
+}
+
+.akademik-program-section__spec-title {
+  margin: 0 !important;
+  font-size: var(--b2-size, 18px) !important;
+  font-weight: var(--fw-bold, 700) !important;
+  color: var(--neutral-09, #292524) !important;
+}
+
+/* Numbered list for bidang keahlian lecturers */
+
+.akademik-program-section__numbered-list {
+  margin: 12px 0 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: lecturer-counter;
+}
+
+.bidang-keahlian__lec-item {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 18px;
+  counter-increment: lecturer-counter;
+}
+
+.bidang-keahlian__lec-item:last-child {
+  margin-bottom: 0;
+}
+
+.bidang-keahlian__lec-item::before {
+  content: counter(lecturer-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-weight: var(--fw-bold, 700);
+  font-size: 14px;
+  color: var(--orange-2-07, #EE6D08);
+  min-width: 24px;
+}
+
+.bidang-keahlian__group-title {
+  font-size: var(--b2-size, 18px) !important;
+  font-weight: var(--fw-bold, 700) !important;
+  color: var(--neutral-10, #1C1917) !important;
+  margin: 0 0 6px !important;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(238, 109, 8, 0.20);
+}
+
+.bidang-keahlian__group-desc {
+  margin: 0 0 12px !important;
+  font-size: 14px;
+  color: var(--neutral-06, #78716C);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.bidang-keahlian__lec-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.bidang-keahlian__lec-name {
+  font-weight: var(--fw-semibold, 600);
+  font-size: var(--b3-size, 16px);
+  color: var(--neutral-09, #292524);
+}
+
+.bidang-keahlian__lec-email {
+  font-size: 13px;
+  color: var(--orange-2-07, #EE6D08);
+  font-weight: var(--fw-medium, 500);
+}
+
+.bidang-keahlian__expertise {
+  font-size: 13px;
+  color: var(--neutral-06, #78716C);
+  line-height: 1.65;
+  padding-left: 10px;
+  border-left: 2px solid rgba(238, 109, 8, 0.25);
+  margin-top: 4px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+  .akademik-program-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .akademik-program-section__intro,
+  .akademik-program-section__card {
+    padding: 22px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .akademik-program-section__intro,
+  .akademik-program-section__card {
+    padding: 18px;
+  }
+}

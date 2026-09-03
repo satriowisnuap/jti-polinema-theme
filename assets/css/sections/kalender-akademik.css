@@ -1,0 +1,304 @@
+/* ========================================
+   KALENDER AKADEMIK SECTION STYLES
+   WebJTI Theme
+======================================== */
+
+.kalender-akademik-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.kalender-akademik__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.kalender-akademik__title {
+  font-size: var(--h3-size, 32px);
+  font-weight: var(--fw-bold, 700);
+  line-height: 1.25;
+  color: var(--neutral-10, #1C1917);
+  margin: 0;
+}
+
+.kalender-akademik__description,
+.kalender-akademik__description p,
+.kalender-akademik__description span,
+.kalender-akademik__description div,
+.kalender-akademik__description li,
+.kalender-akademik__custom-content,
+.kalender-akademik__custom-content p,
+.kalender-akademik__custom-content span,
+.kalender-akademik__custom-content li {
+  font-size: var(--b1-size, 20px) !important;
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.75 !important;
+  color: var(--neutral-08, #44403B);
+}
+
+.kalender-akademik__description p,
+.kalender-akademik__custom-content p {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.kalender-akademik__description p:last-child,
+.kalender-akademik__custom-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------
+   LARGE IMAGE DISPLAY CONTAINER
+---------------------------------------- */
+
+.kalender-akademik__image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--neutral-00, #FFFFFF);
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(12, 10, 9, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kalender-akademik__image-container:hover {
+  box-shadow: 0 16px 40px rgba(12, 10, 9, 0.09);
+}
+
+.kalender-akademik__image-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: var(--neutral-01, #FAFAF9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--neutral-02, #F5F5F4);
+  cursor: pointer;
+  user-select: none;
+}
+
+.kalender-akademik__image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 14px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kalender-akademik__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 14px;
+  z-index: 2;
+}
+
+.kalender-akademik__overlay-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #ffffff;
+  color: var(--neutral-11, #0C0A09);
+  font-weight: var(--fw-semibold, 600);
+  font-size: 15px;
+  border-radius: 100px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kalender-akademik__overlay-content i {
+  font-size: 20px;
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.kalender-akademik__image-wrapper:hover .kalender-akademik__image-overlay {
+  opacity: 1;
+}
+
+.kalender-akademik__image-wrapper:hover .kalender-akademik__overlay-content {
+  transform: translateY(0);
+}
+
+.kalender-akademik__image-wrapper:hover .kalender-akademik__image {
+  transform: scale(1.02);
+}
+
+.kalender-akademik__image-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.kalender-akademik__zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: var(--fw-semibold, 600);
+  color: var(--orange-2-07, #EE6D08);
+  background: var(--orange-2-01, #FFF9ED);
+  border: 1.5px solid var(--orange-2-03, #FFDFA9);
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(238, 109, 8, 0.08);
+}
+
+.kalender-akademik__zoom-btn i {
+  font-size: 18px;
+}
+
+.kalender-akademik__zoom-btn:hover {
+  background: var(--orange-2-07, #EE6D08);
+  color: #ffffff;
+  border-color: var(--orange-2-07, #EE6D08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(238, 109, 8, 0.25);
+}
+
+/* ----------------------------------------
+   DOWNLOAD BOX BELOW IMAGE
+---------------------------------------- */
+
+.kalender-akademik__download-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, var(--orange-2-01, #FFF9ED) 0%, #FFFFFF 100%);
+  border: 1.5px solid var(--orange-2-03, #FFDFA9);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(238, 109, 8, 0.06);
+}
+
+.kalender-akademik__download-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.kalender-akademik__download-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--orange-2-07, #EE6D08);
+  color: #ffffff;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(238, 109, 8, 0.3);
+}
+
+.kalender-akademik__download-text {
+  font-size: var(--b1-size, 20px) !important;
+  font-weight: var(--fw-semibold, 600);
+  color: var(--neutral-09, #292524);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.kalender-akademik__download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: var(--b2-size, 18px);
+  font-weight: var(--fw-bold, 700);
+  color: #ffffff;
+  background: var(--orange-2-07, #EE6D08);
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(238, 109, 8, 0.28);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kalender-akademik__download-link:hover {
+  background: var(--orange-2-08, #C55209);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(238, 109, 8, 0.38);
+  color: #ffffff;
+}
+
+/* ----------------------------------------
+   RESPONSIVE
+---------------------------------------- */
+
+@media (max-width: 768px) {
+  .kalender-akademik__image-container {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .kalender-akademik__download-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .kalender-akademik__download-text {
+    font-size: var(--b2-size, 18px) !important;
+  }
+
+  .kalender-akademik__download-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .kalender-akademik__description,
+  .kalender-akademik__description p,
+  .kalender-akademik__description span,
+  .kalender-akademik__description div,
+  .kalender-akademik__description li,
+  .kalender-akademik__custom-content,
+  .kalender-akademik__custom-content p,
+  .kalender-akademik__custom-content span,
+  .kalender-akademik__custom-content li {
+    font-size: var(--b2-size, 18px) !important;
+  }
+}
+/* ----------------------------------------
+   CONTENT-BLOCK WRAPPER (KALENDER)
+   Override agar section kalender tampil
+   rapi di dalam container content-block
+---------------------------------------- */
+
+.kalender-akademik-block .content-block__body {
+  padding: 24px;
+}
+
+/* Cegah override tipografi p:first-child dari content-block.css
+   memengaruhi elemen di dalam section kalender */
+.kalender-akademik-block .content-block__body p:first-child:not(:last-child) {
+  font-size: inherit !important;
+  font-weight: inherit;
+  margin-bottom: inherit !important;
+}
+

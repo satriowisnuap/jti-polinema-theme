@@ -1,0 +1,100 @@
+/* ========================================
+   MISSION LIST
+======================================== */
+
+.mission-list {
+  counter-reset: mission-counter;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+}
+
+/* ========================================
+   ITEM
+======================================== */
+
+.mission-list-item {
+  position: relative;
+
+  padding-left: 56px;
+
+  margin-bottom: 16px !important;
+
+  list-style-type: none !important;
+}
+
+.mission-list-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   NUMBER
+======================================== */
+
+.mission-list-item::before {
+  content: counter(mission-counter, decimal-leading-zero);
+
+  counter-increment: mission-counter;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border:
+    1px solid var(--yellow-05);
+
+  border-radius: var(--radius-lg);
+
+  background: var(--yellow-01);
+
+  box-shadow:
+    0 1px 2px rgba(12, 10, 9, 0.06);
+
+  font-family: var(--font-family-mono);
+
+  color: var(--yellow-09);
+}
+
+/* ========================================
+   TITLE
+======================================== */
+
+.mission-list-title {
+  font-size: var(--b2-size);
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: var(--b2-spacing);
+  color: var(--neutral-11);
+}
+
+/* ========================================
+   DESC
+======================================== */
+
+.mission-list-desc {
+  color: var(--neutral-08) !important;
+  font-size: var(--b3-size);
+  line-height: var(--b3-line);
+  letter-spacing: var(--b3-spacing);
+}
+
+/* ========================================
+   INTRO
+======================================== */
+
+.mission-intro-text {
+  font-size: var(--h6-size);
+  font-weight: 500;
+  letter-spacing: var(--h6-spacing);
+  margin-bottom: 24px;
+  color: var(--neutral-11);
+}

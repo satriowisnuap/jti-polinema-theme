@@ -1,0 +1,223 @@
+/* ========================================
+   LIGHTBOX
+======================================== */
+
+/* Premium Fullscreen Lightbox popup modal (integrated with global gallery-lightbox.js) */
+.gallery-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox[aria-hidden="false"] {
+  display: flex;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(12, 10, 9, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  display: block;
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-lightbox[aria-hidden="false"] .lightbox-content {
+  animation: lightboxFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+  z-index: 3;
+}
+
+.lightbox-close:hover {
+  color: var(--yellow-05, #FFD81C);
+  transform: scale(1.1);
+}
+
+/* Premium Left/Right carets for navigation */
+.gallery-lightbox .prev,
+.gallery-lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 3;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.gallery-lightbox .prev {
+  left: 48px;
+}
+
+.gallery-lightbox .next {
+  right: 48px;
+}
+
+.gallery-lightbox .prev:hover,
+.gallery-lightbox .next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--yellow-05, #FFD81C);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* ----------------------------------------
+   LIGHTBOX TOOLBAR & INTERACTIVE ZOOM
+---------------------------------------- */
+
+.lightbox-toolbar {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(18, 16, 14, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.lightbox-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.lightbox-tool-btn i {
+  font-size: 18px;
+  color: var(--yellow-05, #FFD81C);
+}
+
+.lightbox-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--yellow-05, #FFD81C);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.lightbox-tool-btn--primary {
+  background: var(--orange-2-07, #EE6D08);
+  border-color: var(--orange-2-07, #EE6D08);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.lightbox-tool-btn--primary i {
+  color: #ffffff;
+}
+
+.lightbox-tool-btn--primary:hover {
+  background: var(--orange-2-08, #C55209);
+  border-color: var(--orange-2-08, #C55209);
+  color: #ffffff;
+}
+
+.lightbox-content {
+  cursor: zoom-in;
+  transform-origin: center center;
+}
+
+.lightbox-content.is-zoomed {
+  cursor: grab;
+}
+
+.lightbox-content.is-dragging {
+  cursor: grabbing !important;
+}
+
+@media (max-width: 768px) {
+  .lightbox-close {
+    top: 16px;
+    right: 20px;
+    font-size: 32px;
+  }
+
+  .lightbox-toolbar {
+    top: auto;
+    bottom: 24px;
+    padding: 6px 12px;
+    gap: 6px;
+    max-width: 90%;
+  }
+
+  .lightbox-tool-btn {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .gallery-lightbox .prev {
+    left: 12px;
+  }
+
+  .gallery-lightbox .next {
+    right: 12px;
+  }
+}

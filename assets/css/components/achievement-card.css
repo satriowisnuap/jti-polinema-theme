@@ -1,0 +1,23 @@
+/* ========================================
+   PRESTASI CARD
+======================================== */
+
+.prestasi-card {
+  overflow: hidden;
+
+  border: 1px solid var(--neutral-02);
+  border-radius: var(--radius-2xl);
+
+  background: var(--neutral-00);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.prestasi-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}

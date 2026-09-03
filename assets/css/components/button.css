@@ -1,0 +1,191 @@
+/* ========================================
+   BUTTON
+======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+background: var(--neutral-00);
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+    
+}
+
+/* ========================================
+   PRIMARY
+======================================== */
+
+.btn--primary {
+  background: var(--gradient-yellow);
+
+  border-color: var(--yellow-05);
+
+  color: var(--yellow-11);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  border-color: var(--yellow-07);
+}
+
+/* ========================================
+   OUTLINE
+======================================== */
+
+.btn--outline {
+  background: var(--neutral-00);
+  border-color: var(--neutral-03);
+
+  color: var(--neutral-11);
+
+  box-shadow:
+    0 1px 2px rgba(12, 10, 9, 0.06);
+}
+
+.btn--outline:hover {
+  background: var(--neutral-01);
+  border-color: var(--neutral-04);
+}
+
+/* ========================================
+   SHARE BUTTON
+======================================== */
+
+.share-btn-img {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--neutral-11);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.share-btn-img:hover {
+  transform: scale(1.2);
+}
+
+.share-btn-img img {
+  width: 32px;
+  height: 32px;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   BUTTON VIDEO
+======================================== */
+
+.btn-video {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 44px;
+
+  padding:
+    10px 16px;
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  border-radius: var(--radius-sm);
+
+  background:
+    rgba(255,255,255,0.2);
+
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+
+  box-shadow:
+    0 1px 2px rgba(12,10,9,0.06);
+
+  color: var(--neutral-00);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-video:hover {
+  background:
+    rgba(255,255,255,0.3);
+
+  transform: translateY(-2px);
+}
+
+.btn-video i {
+  font-size: 24px;
+}
+
+/* ========================================
+   BUTTON YOUTUBE
+======================================== */
+
+.btn-youtube {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 44px;
+
+  padding:
+    10px 16px;
+
+  border: 1px solid var(--neutral-03);
+  border-radius: var(--radius-sm);
+
+  background: var(--neutral-00);
+
+  box-shadow:
+    0 1px 2px rgba(12,10,9,0.06);
+
+  color: var(--neutral-11);
+}
+
+.btn-youtube:hover {
+  background: var(--neutral-01);
+
+  border-color: var(--neutral-04);
+
+  transform: translateY(-1px);
+
+}
+
+.btn-youtube i {
+  font-size: 20px;
+
+  color: #FF0000;
+}

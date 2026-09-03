@@ -1,0 +1,483 @@
+/* ========================================
+   ATURAN AKADEMIK - ACCORDION SECTION
+   WebJTI Theme
+======================================== */
+
+/* ----------------------------------------
+   SECTION WRAPPER
+---------------------------------------- */
+
+.aturan-akademik-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+/* ----------------------------------------
+   PAGE HEADER
+---------------------------------------- */
+
+.aturan-akademik__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, var(--orange-2-01, #FFF9ED) 0%, #FFFFFF 70%);
+  border: 1.5px solid var(--orange-2-03, #FFDFA9);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(238, 109, 8, 0.06);
+}
+
+.aturan-akademik__header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--orange-2-07, #EE6D08);
+  color: #ffffff;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(238, 109, 8, 0.30);
+}
+
+.aturan-akademik__header-icon i {
+  line-height: 1;
+}
+
+.aturan-akademik__header-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aturan-akademik__page-title {
+  font-size: var(--h4-size, 28px);
+  font-weight: var(--fw-bold, 700);
+  line-height: 1.25;
+  color: var(--neutral-10, #1C1917);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.aturan-akademik__page-intro {
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.65;
+  color: var(--neutral-06, #79716B);
+  margin: 0;
+}
+
+/* ----------------------------------------
+   ACCORDION WRAPPER
+---------------------------------------- */
+
+.aturan-akademik__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid var(--neutral-03, #E7E5E4);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ----------------------------------------
+   ACCORDION ITEM
+---------------------------------------- */
+
+.aa-accordion-item {
+  border-bottom: 1px solid var(--neutral-03, #E7E5E4);
+  background: var(--neutral-00, #FFFFFF);
+  transition: background 0.25s ease;
+}
+
+.aa-accordion-item:last-child {
+  border-bottom: none;
+}
+
+.aa-accordion-item--open {
+  background: var(--neutral-00, #FFFFFF);
+}
+
+/* ----------------------------------------
+   ACCORDION TRIGGER (HEADER BUTTON)
+---------------------------------------- */
+
+.aa-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+  transition: background 0.2s ease;
+}
+
+.aa-accordion-trigger:hover {
+  background: var(--neutral-01, #FAFAF9);
+}
+
+.aa-accordion-item--open .aa-accordion-trigger {
+  background: linear-gradient(90deg, var(--orange-2-01, #FFF9ED) 0%, transparent 100%);
+}
+
+.aa-accordion-trigger:focus-visible {
+  outline: 2px solid var(--orange-2-07, #EE6D08);
+  outline-offset: -2px;
+}
+
+/* Left side */
+.aa-accordion-trigger__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Icon Wrap */
+.aa-accordion-trigger__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--neutral-02, #F5F5F4);
+  color: var(--neutral-06, #79716B);
+  font-size: 19px;
+  flex-shrink: 0;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.aa-accordion-trigger__icon-wrap i {
+  line-height: 1;
+}
+
+.aa-accordion-item--open .aa-accordion-trigger__icon-wrap {
+  background: var(--orange-2-07, #EE6D08);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(238, 109, 8, 0.25);
+}
+
+/* Number badge */
+.aa-accordion-trigger__number {
+  font-size: var(--b5-size, 12px);
+  font-weight: var(--fw-bold, 700);
+  color: var(--neutral-04, #D6D3D1);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+  min-width: 22px;
+}
+
+.aa-accordion-item--open .aa-accordion-trigger__number {
+  color: var(--orange-2-05, #FEA539);
+}
+
+/* Title */
+.aa-accordion-trigger__title {
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-semibold, 600);
+  color: var(--neutral-09, #292524);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  transition: color 0.25s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aa-accordion-item--open .aa-accordion-trigger__title {
+  color: var(--orange-2-08, #C55209);
+}
+
+/* Chevron icon */
+.aa-accordion-trigger__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--neutral-02, #F5F5F4);
+  color: var(--neutral-05, #A6A09B);
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aa-accordion-trigger__chevron i {
+  line-height: 1;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.aa-accordion-item--open .aa-accordion-trigger__chevron {
+  background: var(--orange-2-02, #FFF1D4);
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.aa-accordion-item--open .aa-accordion-trigger__chevron i {
+  transform: rotate(-180deg);
+}
+
+/* ----------------------------------------
+   ACCORDION BODY (CONTENT AREA)
+---------------------------------------- */
+
+.aa-accordion-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s ease;
+}
+
+.aa-accordion-item--open .aa-accordion-body {
+  max-height: 2000px; /* high limit to fit content and image */
+  opacity: 1;
+}
+
+.aa-accordion-body__inner {
+  padding: 6px 24px 28px 76px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid var(--neutral-02, #F5F5F4);
+}
+
+/* ----------------------------------------
+   WYSIWYG CONTENT STYLES
+---------------------------------------- */
+
+.aa-accordion-body__content {
+  color: var(--neutral-07, #57534E);
+  font-size: var(--b3-size, 16px);
+  line-height: 1.75;
+}
+
+.aa-accordion-body__content p {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.aa-accordion-body__content p:last-child {
+  margin-bottom: 0;
+}
+
+.aa-accordion-body__content ul,
+.aa-accordion-body__content ol {
+  padding-left: 28px;
+  margin: 0 0 14px;
+  display: block; /* jangan flex agar ::marker tetap tampil */
+}
+
+.aa-accordion-body__content ul {
+  list-style-type: disc; /* bullet bulat */
+}
+
+.aa-accordion-body__content ul ul {
+  list-style-type: circle;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.aa-accordion-body__content ol {
+  list-style-type: decimal; /* penomoran 1. 2. 3. */
+}
+
+.aa-accordion-body__content ol ol {
+  list-style-type: lower-alpha;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.aa-accordion-body__content li {
+  padding-left: 4px;
+  color: var(--neutral-07, #57534E);
+  line-height: 1.7;
+  margin-bottom: 6px;
+  display: list-item; /* pastikan list-item display */
+}
+
+.aa-accordion-body__content li:last-child {
+  margin-bottom: 0;
+}
+
+.aa-accordion-body__content ul li::marker {
+  color: var(--orange-2-07, #EE6D08);
+  font-size: 1.1em;
+}
+
+.aa-accordion-body__content ol li::marker {
+  font-weight: var(--fw-bold, 700);
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.aa-accordion-body__content strong {
+  font-weight: var(--fw-semibold, 600);
+  color: var(--neutral-09, #292524);
+}
+
+.aa-accordion-body__content h3,
+.aa-accordion-body__content h4,
+.aa-accordion-body__content h5 {
+  font-weight: var(--fw-semibold, 600);
+  color: var(--neutral-09, #292524);
+  margin: 20px 0 10px;
+}
+
+.aa-accordion-body__content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: var(--b4-size, 14px);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--neutral-03, #E7E5E4);
+}
+
+.aa-accordion-body__content th {
+  background: var(--orange-2-07, #EE6D08);
+  color: #ffffff;
+  font-weight: var(--fw-semibold, 600);
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.aa-accordion-body__content td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--neutral-02, #F5F5F4);
+  color: var(--neutral-07, #57534E);
+}
+
+.aa-accordion-body__content tr:last-child td {
+  border-bottom: none;
+}
+
+.aa-accordion-body__content tr:nth-child(even) td {
+  background: var(--neutral-01, #FAFAF9);
+}
+
+/* ----------------------------------------
+   IMAGE IN ACCORDION
+---------------------------------------- */
+
+.aa-accordion-body__figure {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.aa-accordion-body__image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aa-accordion-body__figure a:hover .aa-accordion-body__image {
+  transform: scale(1.005);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+.aa-accordion-body__caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--b4-size, 14px);
+  color: var(--neutral-05, #A6A09B);
+  font-style: italic;
+  padding: 6px 12px;
+  background: var(--neutral-01, #FAFAF9);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.aa-accordion-body__caption i {
+  font-size: 14px;
+  color: var(--orange-2-05, #FEA539);
+  font-style: normal;
+}
+
+/* ----------------------------------------
+   RESPONSIVE
+---------------------------------------- */
+
+@media (max-width: 768px) {
+  .aturan-akademik__header {
+    padding: 16px 18px;
+  }
+
+  .aturan-akademik__header-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .aturan-akademik__page-title {
+    font-size: 22px;
+  }
+
+  .aa-accordion-trigger {
+    padding: 16px 18px;
+    gap: 12px;
+  }
+
+  .aa-accordion-trigger__left {
+    gap: 10px;
+  }
+
+  .aa-accordion-trigger__icon-wrap {
+    width: 34px;
+    height: 34px;
+    font-size: 17px;
+  }
+
+  .aa-accordion-trigger__title {
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .aa-accordion-body__inner {
+    padding: 8px 18px 22px 18px;
+  }
+
+
+  .aa-accordion-body__content {
+    font-size: var(--b4-size, 14px);
+  }
+}
+
+/* ----------------------------------------
+   CONTENT-BLOCK WRAPPER (ATURAN AKADEMIK)
+   Override agar accordion tampil rapi
+   di dalam container content-block
+---------------------------------------- */
+
+.aturan-akademik-block .content-block__body {
+  padding: 24px;
+}
+
+/* Cegah override tipografi p:first-child dari content-block.css
+   memengaruhi konten accordion */
+.aturan-akademik-block .content-block__body p:first-child:not(:last-child) {
+  font-size: inherit !important;
+  font-weight: inherit;
+  margin-bottom: inherit !important;
+}

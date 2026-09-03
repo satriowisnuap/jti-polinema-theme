@@ -1,0 +1,285 @@
+/* ========================================
+   SIDEBAR SUBMENU
+   WebJTI Theme (100% High-Fidelity)
+======================================== */
+
+.sidebar-submenu,
+aside.sidebar-submenu,
+aside.sidebar {
+  position: sticky;
+  top: 140px;
+  width: 224px;
+  min-width: 224px;
+  max-width: 224px;
+  height: fit-content;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.sidebar-inner {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-groups-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   GROUP
+======================================== */
+
+.sidebar-group {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 28px;
+}
+
+.sidebar-group:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   GROUP TITLE
+======================================== */
+
+.sidebar-group-title {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 8px 0;
+  padding: 0 12px;
+  color: var(--neutral-06, #78716c);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-family: var(--font-family-primary, 'Inter', sans-serif);
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* ========================================
+   MENU LIST
+======================================== */
+
+.sidebar-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   MENU ITEM
+======================================== */
+
+.sidebar-menu-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+/* ========================================
+   MENU LINK
+======================================== */
+
+.sidebar-menu-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #6B655F;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.38;
+  text-decoration: none;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  font-family: var(--font-family-primary, 'Inter', sans-serif);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-menu-link:hover {
+  background: var(--neutral-02, #f5f5f4);
+  color: var(--orange-2-07, #ee6d08);
+}
+
+.sidebar-menu-link:hover .sidebar-menu-icon,
+.sidebar-menu-link:hover .sidebar-menu-text {
+  color: var(--orange-2-07, #ee6d08);
+}
+
+/* ========================================
+   ACTIVE
+======================================== */
+
+.sidebar-menu-item.active .sidebar-menu-link,
+.sidebar-menu-item.current-menu-item .sidebar-menu-link,
+.sidebar-menu-item.current_page_item .sidebar-menu-link,
+.sidebar-menu-item.current-menu-ancestor .sidebar-menu-link {
+  background: var(--neutral-02, #f4f4f5);
+  color: var(--orange-2-07, #ee6d08) !important;
+  font-weight: 600;
+}
+
+.sidebar-menu-item.active .sidebar-menu-text,
+.sidebar-menu-item.current-menu-item .sidebar-menu-text,
+.sidebar-menu-item.current_page_item .sidebar-menu-text,
+.sidebar-menu-item.current-menu-ancestor .sidebar-menu-text {
+  color: var(--orange-2-07, #ee6d08) !important;
+  font-weight: 600;
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.sidebar-menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  max-width: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--neutral-06, #78716c);
+  transition: color 0.15s ease;
+}
+
+.sidebar-menu-icon i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ========================================
+   ACTIVE ICON
+======================================== */
+
+.sidebar-menu-item.active .sidebar-menu-icon,
+.sidebar-menu-item.current-menu-item .sidebar-menu-icon,
+.sidebar-menu-item.current_page_item .sidebar-menu-icon,
+.sidebar-menu-item.current-menu-ancestor .sidebar-menu-icon {
+  color: var(--orange-2-07, #ee6d08) !important;
+}
+
+/* ========================================
+   TEXT & LABEL
+======================================== */
+
+.sidebar-menu-text,
+.sidebar-menu-label {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+  font-size: 13.5px;
+  line-height: 1.38;
+  color: inherit;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* ========================================
+   WP NAV MENU OVERRIDES
+   Neutralize leaked header.css styles on
+   .menu-item / .menu-link inside sidebar
+======================================== */
+
+/* header.css sets .menu-item { height:100%; display:flex; align-items:center }
+   which breaks sidebar layout */
+.sidebar-submenu .menu-item,
+.sidebar .menu-item,
+.sidebar-groups-wrapper .menu-item {
+  position: static;
+  height: auto;
+  display: list-item;
+  align-items: initial;
+  border-bottom: none;
+  flex-direction: initial;
+}
+
+/* header.css sets :is(.menu-item > a, .menu-link) with height:100%, padding,
+   border-bottom, margin-bottom that break sidebar links */
+.sidebar-submenu .menu-item > a,
+.sidebar .menu-item > a,
+.sidebar-groups-wrapper .menu-item > a {
+  height: auto;
+  border-bottom: none !important;
+  margin-bottom: 0;
+  white-space: normal;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.38;
+}
+
+/* header.css sets .current-menu-item > :is(a, .menu-link) with
+   border-bottom orange which should not appear in sidebar */
+.sidebar-submenu .current-menu-item > a,
+.sidebar .current-menu-item > a,
+.sidebar-groups-wrapper .current-menu-item > a,
+.sidebar-submenu .menu-item.active > a,
+.sidebar .menu-item.active > a,
+.sidebar-groups-wrapper .menu-item.active > a {
+  border-bottom: none !important;
+  margin-bottom: 0;
+}
+
+/* Ensure sidebar-menu-item class overrides WordPress menu-item class */
+.sidebar-menu-item.menu-item {
+  position: static;
+  height: auto;
+  display: list-item;
+  align-items: initial;
+  border-bottom: none;
+  flex-direction: initial;
+}
+
+.sidebar-menu-item.menu-item > .sidebar-menu-link {
+  height: auto;
+  border-bottom: none !important;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   RESPONSIVE: HIDE COMPLETELY ON MOBILE
+======================================== */
+
+@media (max-width: 1024px) {
+  .sidebar-submenu,
+  aside.sidebar-submenu,
+  aside.sidebar,
+  .sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+  }
+}

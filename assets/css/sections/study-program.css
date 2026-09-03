@@ -1,0 +1,78 @@
+/* ========================================
+   STUDY PROGRAMS SECTION
+   WebJTI Theme
+======================================== */
+
+.study-programs-section {
+  width: 100%;
+
+  padding: 100px 60px;
+
+  background: var(--neutral-00, #FFFFFF);
+}
+
+/* ========================================
+   GRID
+======================================= */
+
+.study-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+
+  margin-bottom: 60px;
+
+  align-items: stretch;
+}
+
+/* ========================================
+   ACTION AREA
+======================================== */
+
+.study-programs-action {
+  display: flex;
+  justify-content: center;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1200px) {
+  .study-programs-section {
+    padding: 80px 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .study-programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .study-programs-section {
+    padding: 60px 24px;
+  }
+
+  .study-programs-grid {
+    grid-template-columns: 1fr;
+
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .study-programs-section {
+    padding: 48px 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .study-programs-section {
+    padding: 40px 16px;
+  }
+}

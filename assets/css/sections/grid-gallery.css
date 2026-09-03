@@ -1,0 +1,187 @@
+/* ========================================
+   GRID GALLERY SECTION
+   WebJTI Theme
+======================================== */
+
+.grid-gallery-section {
+  margin-bottom: 60px;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.grid-gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 32px;
+}
+
+/* ========================================
+   TITLE WRAPPER
+======================================== */
+
+.grid-gallery-title-wrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.grid-gallery-title {
+  color: var(--neutral-11);
+}
+
+/* ========================================
+   COUNT BADGE
+======================================== */
+
+.grid-gallery-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 32px;
+  height: 32px;
+
+  padding: 0 10px;
+
+  border-radius: 999px;
+
+  background: var(--neutral-02);
+
+  color: var(--neutral-07);
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.grid-gallery-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.grid-gallery-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid var(--neutral-03);
+  border-radius: 50%;
+
+  background: var(--neutral-00);
+
+  color: var(--neutral-06);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.grid-gallery-nav-btn:hover {
+  border-color: var(--orange-2-05);
+
+  background: var(--orange-2-01);
+
+  color: var(--orange-2-09);
+
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   SLIDER
+======================================== */
+
+.grid-gallery-slider {
+  overflow-x: auto;
+
+  padding-bottom: 8px;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.grid-gallery-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   TRACK
+======================================== */
+
+.grid-gallery-track {
+  display: flex;
+
+  gap: 24px;
+}
+
+/* ========================================
+   ITEM
+======================================== */
+
+.grid-gallery-item {
+  flex: 0 0 calc(33.333% - 16px);
+
+  min-width: 0;
+
+  scroll-snap-align: start;
+}
+
+/* ========================================
+   GRID MODE
+======================================== */
+
+.grid-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1200px) {
+
+  .grid-gallery-item {
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  .grid-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .grid-gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid-gallery-item {
+    flex: 0 0 100%;
+  }
+
+  .grid-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

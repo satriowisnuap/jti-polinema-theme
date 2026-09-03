@@ -1,0 +1,180 @@
+/* ========================================
+   TIMELINE SECTION
+======================================== */
+
+.timeline-container {
+  position: relative;
+  padding-left: 72px;
+  margin-top: 24px;
+}
+
+/* ========================================
+   TIMELINE ITEM
+======================================== */
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   LINE CONNECTOR
+======================================== */
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -48px; /* Pixel-perfect center of the 48px marker */
+  top: 48px;
+  bottom: -48px;
+  width: 2px;
+  background: #f5f5f4; /* Neutral/02 */
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+/* ========================================
+   CIRCULAR MARKER
+======================================== */
+
+.timeline-marker {
+  position: absolute;
+  top: 0;
+  left: -72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #ffffff;
+  border-radius: 99px;
+  background: #f5f5f4; /* Neutral/02 */
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-marker i,
+.timeline-marker img {
+  width: 20px; /* Precise Figma icon size */
+  height: 20px;
+  object-fit: contain;
+  color: #bd4a45; /* Red/07 brand theme color */
+  font-size: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   TIMELINE YEAR BADGE
+======================================== */
+
+.timeline-year {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffdea; /* Yellow/01 */
+  border: 1px solid #ffd81c; /* Yellow/05 */
+  border-radius: 6px;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+  font-family: 'Chivo Mono', 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: #974e09; /* Yellow/09 */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0px 1px 1px rgba(12, 10, 9, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   TIMELINE CONTENT
+======================================== */
+
+.timeline-content {
+  flex-direction: column;
+  gap: 8px; /* Clean gap matching Figma */
+  transition: transform 0.3s ease;
+
+}
+
+.timeline-title {
+  font-family: 'Helvetica', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--neutral-11); /* Neutral/11 */
+  letter-spacing: -0.01em; /* -0.18px tracking */
+  margin: 0 0 4px 0;
+}
+
+.timeline-desc {
+  font-family: 'Helvetica', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: justify;
+  margin: 0;
+}
+
+.timeline-desc p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--neutral-07); /* Neutral/07 */
+
+}
+
+/* ========================================
+   PREMIUM MICRO-INTERACTIONS
+======================================== */
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(6px);
+}
+
+.timeline-item:hover .timeline-marker {
+  transform: scale(1.08);
+  border-color: #ffd81c; /* Elevate border to active Yellow/05 */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+.timeline-item:hover .timeline-marker i {
+  color: #974e09; /* Switch icon color to Yellow/09 */
+  transform: rotate(5deg) scale(1.05);
+}
+
+.timeline-item:hover::before {
+  background-color: #ffd81c; /* Highlight connecting line */
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+
+  .timeline-container {
+    padding-left: 56px;
+  }
+
+  .timeline-marker {
+    left: -56px;
+  }
+
+  .timeline-item::before {
+    left: -32px; /* Pixel-perfect center on mobile viewport */
+  }
+
+  .timeline-item:hover .timeline-content {
+    transform: translateX(4px); /* Smaller translate on mobile */
+  }
+
+}

@@ -1,0 +1,457 @@
+/* ============================================================
+   ACHIEVEMENT PAGE STYLES (Figma High-Fidelity)
+   WebJTI Theme
+   ============================================================ */
+
+/* Override parent flex gap to enforce exact requested spacing */
+.page-layout.with-sidebar .page-content.achievement-page-content {
+  gap: 0 !important;
+}
+
+/* Metrics Section Grid */
+.achievement-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+/* Metric Cards */
+.achievement-metric-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 4px; /* Figma has p-[4px] with inner cards */
+  background: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  box-shadow: 0 1px 2px rgba(12, 10, 9, 0.06);
+  min-height: 140px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: clip;
+  box-sizing: border-box;
+}
+
+.achievement-metric-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Card Inner Parts */
+.achievement-metric-card__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background: var(--neutral-02, #f5f5f4);
+  border-radius: 16px 16px 0 0;
+  box-sizing: border-box;
+}
+
+.achievement-metric-card__top i {
+  font-size: 20px;
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.achievement-metric-card__top span {
+  font-size: 16px;
+  font-weight: var(--fw-medium, 500);
+  color: var(--neutral-11, #0c0a09);
+  letter-spacing: -0.01em;
+}
+
+.achievement-metric-card__value {
+  padding: 20px;
+  background: var(--neutral-00, #ffffff);
+  border-radius: 0 0 16px 16px;
+  font-family: 'Chivo Mono', monospace;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--neutral-11, #0c0a09);
+  letter-spacing: -0.04em;
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   FILTERS & SEARCH BAR
+   ------------------------------------------------------------ */
+.prestasi-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Prefix Selector container style */
+.prestasi-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--neutral-01, #fafaf9);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230c0a09' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  border-radius: 12px;
+  padding: 10px 36px 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-11, #0c0a09);
+  box-shadow: 0 1px 1px rgba(12, 10, 9, 0.06);
+  cursor: pointer;
+  height: 44px;
+  min-width: 120px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.prestasi-select:hover, .prestasi-select:focus {
+  border-color: var(--neutral-05, #a6a09b);
+  outline: none;
+}
+
+/* Search Box wrapper */
+.prestasi-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 320px;
+}
+
+.prestasi-search-wrapper i {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  color: var(--neutral-05, #a6a09b);
+  pointer-events: none;
+}
+
+.prestasi-search-input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  background-color: var(--neutral-01, #fafaf9);
+  border-radius: 12px;
+  padding: 10px 16px 10px 44px;
+  font-size: 14px;
+  color: var(--neutral-11, #0c0a09);
+  box-shadow: 0 1px 1px rgba(12, 10, 9, 0.06);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.prestasi-search-input::placeholder {
+  color: var(--neutral-05, #a6a09b);
+}
+
+.prestasi-search-input:focus {
+  outline: none;
+  border-color: var(--neutral-05, #a6a09b);
+  background-color: var(--neutral-00, #ffffff);
+}
+
+/* ------------------------------------------------------------
+   TABLE & CUSTOM BADGES
+   ------------------------------------------------------------ */
+
+.achievement-table-section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Table styles */
+.tabular-data-wrapper {
+  padding: 4px;
+  border-radius: 16px;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  background: var(--neutral-00, #ffffff);
+  box-shadow: 0 1px 2px rgba(12, 10, 9, 0.06);
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.tabular-data-table {
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  min-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.tabular-data-table thead tr {
+  height: 48px;
+}
+
+.tabular-data-table th {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-06, #79716b);
+  background: var(--neutral-02, #f5f5f4);
+  border-bottom: 1px solid var(--neutral-03, #e7e5e4);
+  text-align: left;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.tabular-data-table tbody tr {
+  height: 56px;
+}
+
+.tabular-data-table td {
+  height: 56px;
+  padding: 0 16px;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--neutral-11, #0c0a09);
+  border-bottom: 1px solid var(--neutral-03, #e7e5e4);
+  text-align: left;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.tabular-data-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Prodi column truncation */
+.td-prodi {
+  font-weight: 500;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Judul column truncation */
+.td-judul {
+  font-weight: 500;
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Action button style */
+.btn-detail-table {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 16px;
+  background: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  border-radius: 7px;
+  color: var(--neutral-11, #0c0a09);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+  box-shadow: 0 1px 2px rgba(12, 10, 9, 0.06);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-detail-table:hover {
+  background: var(--neutral-01, #fafaf9);
+  border-color: var(--neutral-04, #d6d3d1);
+}
+
+/* Custom Year Badge */
+.badge-tahun {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: var(--neutral-01, #fafaf9);
+  border: 1px solid var(--neutral-04, #d6d3d1);
+  color: var(--neutral-07, #57534d);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------
+   AWARDS (JUARA) RADICAL THEME BADGES
+   ------------------------------------------------------------ */
+.badge-juara {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+/* Juara 1: Emas (Gold) */
+.badge-juara.juara-1 {
+  background: #fff7dc !important;
+  border: 1px solid #ffee83 !important;
+  color: #876803 !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* Juara 2: Perak (Silver) */
+.badge-juara.juara-2 {
+  background: #efefef !important;
+  border: 1px solid #d5d5d5 !important;
+  color: #636363 !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* Juara 3: Perunggu (Bronze) */
+.badge-juara.juara-3 {
+  background: #ffead5 !important;
+  border: 1px solid #ffdfbe !important;
+  color: #8f4800 !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* Other placements */
+.badge-juara.harapan-1,
+.badge-juara.harapan-2,
+.badge-juara.finalis {
+  background: var(--neutral-01, #fafaf9);
+  border: 1px solid var(--neutral-04, #d6d3d1);
+  color: var(--neutral-07, #57534d);
+}
+
+/* ------------------------------------------------------------
+   LEVELS (TINGKAT) BADGES
+   ------------------------------------------------------------ */
+.badge-tingkat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+/* Internasional: Purple */
+.badge-tingkat.tingkat-internasional {
+  background: #fbf7fe !important;
+  border: 1px solid #ead5f9 !important;
+  color: #8145b5 !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* Nasional: Blue */
+.badge-tingkat.tingkat-nasional {
+  background: #eef7ff !important;
+  border: 1px solid #badfff !important;
+  color: #1349ba !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* Regional: Orange */
+.badge-tingkat.tingkat-regional {
+  background: #fff9ed !important;
+  border: 1px solid #ffdfa9 !important;
+  color: #ee6d08 !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* Lokal: Grey */
+.badge-tingkat.tingkat-lokal {
+  background: #fafaf9 !important;
+  border: 1px solid #d6d3d1 !important;
+  color: #57534d !important;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* ------------------------------------------------------------
+   PAGINATION SECTION
+   ------------------------------------------------------------ */
+.prestasi-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-bottom: 80px;
+}
+
+.prestasi-pagination .page-info {
+  font-size: 14px;
+  color: var(--neutral-06, #79716b);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.prestasi-pagination .pagination-container {
+  margin-bottom: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .achievement-metrics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .prestasi-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .prestasi-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .prestasi-search-wrapper {
+    width: 100%;
+  }
+
+  .prestasi-pagination {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-metrics__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .filter-group {
+    grid-template-columns: 1fr;
+  }
+}

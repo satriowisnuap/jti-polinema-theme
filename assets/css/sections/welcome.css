@@ -1,0 +1,246 @@
+/* ========================================
+   WELCOME SECTION / BANNER SAMBUTAN
+======================================== */
+
+.welcome-section,
+.banner-sambutan {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 280px;
+  min-height: 280px;
+
+  padding: 48px;
+
+  border-radius: 24px;
+
+  background: var(--gradient-orange);
+
+  color: var(--neutral-00);
+  box-shadow: 0px 1px 8px 0px rgba(12, 10, 9, 0.16);
+}
+
+/* ========================================
+   CONTENT
+======================================= */
+
+.welcome-section__content,
+.banner-sambutan-content {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+
+  gap: 32px;
+
+  max-width: 480px;
+}
+
+.welcome-section__title,
+.banner-sambutan-title {
+  color: var(--neutral-00);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ========================================
+   VIDEO BUTTON
+======================================== */
+
+.welcome-section .video-button,
+.welcome-section .video-button-trigger,
+.banner-sambutan .video-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  box-shadow: 0px 1px 2px 0px rgba(12, 10, 9, 0.06);
+  color: var(--neutral-00);
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.welcome-section .video-button:hover,
+.welcome-section .video-button-trigger:hover,
+.banner-sambutan .video-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.welcome-section .video-button i,
+.banner-sambutan .video-button i {
+  font-size: 20px;
+  color: var(--neutral-00);
+}
+
+/* ========================================
+   CIRCLES
+======================================== */
+
+.welcome-section__circles,
+.banner-sambutan-circles {
+  position: absolute;
+
+  top: 50%;
+  right: 32px;
+
+  transform: translateY(-50%);
+
+  width: 383px;
+  height: 383px;
+
+  pointer-events: none;
+}
+
+.welcome-section__circles::before,
+.welcome-section__circles::after,
+.banner-sambutan-circles::before,
+.banner-sambutan-circles::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.welcome-section__circles::before,
+.banner-sambutan-circles::before {
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.welcome-section__circles::after,
+.banner-sambutan-circles::after {
+  width: 291px;
+  height: 291px;
+
+  top: 46px;
+  left: 46px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.welcome-section__image-wrapper,
+.banner-sambutan-image-wrapper {
+  position: absolute;
+
+  right: 64px;
+  bottom: 0;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  width: 383px;
+  height: 100%;
+}
+
+.welcome-section__image,
+.banner-sambutan-image {
+  height: 100%;
+  transform: translateY(14px);
+  transform: translateX(40px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.welcome-section__image img,
+.banner-sambutan-image img {
+  height: 271px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0px 8px 18px rgba(204, 99, 0, 0.1));
+}
+
+/* ========================================
+   NAME TAG
+======================================== */
+
+.welcome-section__name-tag,
+.banner-sambutan-name-tag {
+  position: absolute;
+  bottom: 0;
+  right: 32px;
+
+  z-index: 7;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 24px;
+
+  border-radius: 12px 12px 0 0;
+
+  background: #9c4110;
+
+  color: var(--neutral-00);
+  font-size: 16px;
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1024px) {
+  .welcome-section,
+  .banner-sambutan {
+    min-height: auto;
+    height: auto;
+    padding: 40px;
+  }
+
+  .welcome-section__content,
+  .banner-sambutan-content {
+    height: auto;
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .welcome-section__image-wrapper,
+  .banner-sambutan-image-wrapper,
+  .welcome-section__circles,
+  .banner-sambutan-circles {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section,
+  .banner-sambutan {
+    padding: 32px;
+    border-radius: 16px;
+  }
+
+  .welcome-section__title,
+  .banner-sambutan-title {
+    font-size: 24px;
+  }
+}
