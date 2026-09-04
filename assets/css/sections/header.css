@@ -13,14 +13,14 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  background-color: var(--neutral-00);
+  background-color: #284C67;
 }
 
 /* ----------------------------------------------------------
    2. TOP HEADER BAR
    ---------------------------------------------------------- */
 .top-header {
-  background: var(--gradient-yellow);
+  background: #FEBE11;
   height: 48px;
   width: 100%;
   display: flex;
@@ -165,7 +165,7 @@
    3. MAIN NAVIGATION BAR
    ---------------------------------------------------------- */
 .main-navigation {
-  background-color: var(--neutral-00);
+  background-color: #284C67;
   border-bottom: 1px solid var(--neutral-03);
   height: 72px;
   display: flex;
@@ -201,7 +201,7 @@
 }
 
 .nav-logo {
-  height: 32px;
+  height: 56px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -245,7 +245,7 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
   line-height: 1.5;
-  color: var(--neutral-11);
+  color: white;
   text-decoration: none;
   white-space: nowrap;
   background: none;
@@ -572,11 +572,11 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--neutral-00);
+  background: #284C67;
   border: 1px solid var(--neutral-03);
   border-radius: 99px;
   cursor: pointer;
-  color: var(--neutral-11);
+  color: white;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
 }

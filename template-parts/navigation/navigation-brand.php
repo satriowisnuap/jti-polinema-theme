@@ -9,7 +9,7 @@
     <img
       src="<?php echo esc_url(
         get_template_directory_uri()
-        . '/assets/images/logos/Logos Jurusan.svg'
+        . '/assets/images/logos/logo-JTI.png'
       ); ?>"
       alt="Logo JTI Polinema"
       class="nav-logo"
