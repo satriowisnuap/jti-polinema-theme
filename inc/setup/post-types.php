@@ -760,7 +760,7 @@ function webjti_register_theme_post_types() {
         'public'             => true,
         'publicly_queryable' => false,
         'show_ui'            => true,
-        'show_in_menu'       => true,
+        'show_in_menu'       => 'edit.php?post_type=study_program',
         'query_var'          => true,
         'rewrite'            => ['slug' => 'mata-kuliah', 'with_front' => false],
         'capability_type'    => 'post',
@@ -796,7 +796,7 @@ function webjti_register_theme_post_types() {
         'public'             => true,
         'publicly_queryable' => false,
         'show_ui'            => true,
-        'show_in_menu'       => 'edit.php?post_type=mata_kuliah',
+        'show_in_menu'       => 'edit.php?post_type=study_program',
         'query_var'          => true,
         'rewrite'            => false,
         'capability_type'    => 'post',
@@ -830,7 +830,7 @@ function webjti_register_theme_post_types() {
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
-        'show_in_menu'       => true,
+        'show_in_menu'       => 'edit.php?post_type=study_program',
         'query_var'          => true,
         'rewrite'            => ['slug' => 'bahan-kajian', 'with_front' => false],
         'capability_type'    => 'post',
@@ -866,7 +866,7 @@ function webjti_register_theme_post_types() {
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
-        'show_in_menu'       => true,
+        'show_in_menu'       => 'edit.php?post_type=study_program',
         'query_var'          => true,
         'rewrite'            => ['slug' => 'bidang-keahlian', 'with_front' => false],
         'capability_type'    => 'post',
@@ -895,7 +895,7 @@ function webjti_register_theme_post_types() {
         'back_to_items'     => __('← Kembali ke Kategori', 'webjti'),
     ];
 
-    register_taxonomy('kategori_program_studi', ['profil_lulusan', 'capaian_lulusan', 'peta_jalan_cpl', 'mata_kuliah'], [
+    register_taxonomy('kategori_program_studi', ['study_program', 'profil_lulusan', 'capaian_lulusan', 'peta_jalan_cpl', 'mata_kuliah'], [
         'labels'            => $kat_prodi_labels,
         'hierarchical'      => true,
         'public'            => false,
@@ -942,7 +942,7 @@ function webjti_register_theme_post_types() {
         'public'             => true,
         'publicly_queryable' => false,
         'show_ui'            => true,
-        'show_in_menu'       => true,
+        'show_in_menu'       => 'edit.php?post_type=study_program',
         'query_var'          => true,
         'rewrite'            => ['slug' => 'profil-lulusan', 'with_front' => false],
         'capability_type'    => 'post',
@@ -970,7 +970,7 @@ function webjti_register_theme_post_types() {
         'back_to_items'     => __('← Kembali ke Tabel', 'webjti'),
     ];
 
-    register_taxonomy('capaian_lulusan_tabel', ['capaian_lulusan'], [
+    register_taxonomy('capaian_lulusan_tabel', ['study_program', 'capaian_lulusan'], [
         'labels'            => $capaian_tabel_labels,
         'hierarchical'      => true,
         'public'            => false,
@@ -1016,7 +1016,7 @@ function webjti_register_theme_post_types() {
         'public'             => true,
         'publicly_queryable' => false,
         'show_ui'            => true,
-        'show_in_menu'       => true,
+        'show_in_menu'       => 'edit.php?post_type=study_program',
         'query_var'          => true,
         'rewrite'            => ['slug' => 'capaian-lulusan', 'with_front' => false],
         'capability_type'    => 'post',
@@ -1042,7 +1042,7 @@ function webjti_register_theme_post_types() {
         ],
         'public'       => true,
         'show_ui'      => true,
-        'show_in_menu' => 'edit.php?post_type=capaian_lulusan',
+        'show_in_menu' => 'edit.php?post_type=study_program',
         'supports'     => ['title'],
         'show_in_rest' => false,
     ]);
@@ -1978,6 +1978,13 @@ add_action('admin_menu', function() {
     remove_menu_page('edit.php?post_type=sertifikasi_dosen');
     remove_menu_page('edit.php?post_type=lecturer_publication');
     remove_menu_page('edit.php?post_type=lecturer_course');
+    remove_menu_page('edit.php?post_type=mata_kuliah');
+    remove_menu_page('edit.php?post_type=mk_spesialis');
+    remove_menu_page('edit.php?post_type=bahan_kajian');
+    remove_menu_page('edit.php?post_type=bidang_keahlian');
+    remove_menu_page('edit.php?post_type=profil_lulusan');
+    remove_menu_page('edit.php?post_type=capaian_lulusan');
+    remove_menu_page('edit.php?post_type=peta_jalan_cpl');
 
     // 2. Clean reconstruction for Prestasi submenu
     if (isset($submenu['edit.php?post_type=achievement'])) {
@@ -2073,6 +2080,78 @@ add_action('admin_menu', function() {
                 'manage_categories',
                 'edit-tags.php?taxonomy=staff_department&post_type=staff',
                 'Departemen Staff'
+            ],
+        ];
+    }
+
+    // 5. Clean reconstruction for Program Studi submenu
+    if (isset($submenu['edit.php?post_type=study_program'])) {
+        $submenu['edit.php?post_type=study_program'] = [
+            0 => [
+                'Semua Program Studi',
+                'edit_posts',
+                'edit.php?post_type=study_program',
+                'Semua Program Studi'
+            ],
+            1 => [
+                'Tambah Program Studi',
+                'edit_posts',
+                'post-new.php?post_type=study_program',
+                'Tambah Program Studi'
+            ],
+            2 => [
+                'Profil Lulusan',
+                'edit_posts',
+                'edit.php?post_type=profil_lulusan',
+                'Profil Lulusan'
+            ],
+            3 => [
+                'Capaian Lulusan',
+                'edit_posts',
+                'edit.php?post_type=capaian_lulusan',
+                'Capaian Lulusan'
+            ],
+            4 => [
+                'Peta Jalan CPL',
+                'edit_posts',
+                'edit.php?post_type=peta_jalan_cpl',
+                'Peta Jalan CPL'
+            ],
+            5 => [
+                'Mata Kuliah',
+                'edit_posts',
+                'edit.php?post_type=mata_kuliah',
+                'Mata Kuliah'
+            ],
+            6 => [
+                'Mata Kuliah Spesialis',
+                'edit_posts',
+                'edit.php?post_type=mk_spesialis',
+                'Mata Kuliah Spesialis'
+            ],
+            7 => [
+                'Bahan Kajian',
+                'edit_posts',
+                'edit.php?post_type=bahan_kajian',
+                'Bahan Kajian'
+            ],
+            8 => [
+                'Bidang Keahlian',
+                'edit_posts',
+                'edit.php?post_type=bidang_keahlian',
+                'Bidang Keahlian'
+            ],
+            9 => [
+                'Kategori Prodi',
+                'manage_categories',
+                'edit-tags.php?taxonomy=kategori_program_studi&post_type=study_program',
+                'Kategori Prodi'
+            ],
+            10 => [
+                'Tabel Capaian',
+                'manage_categories',
+                'edit-tags.php?taxonomy=capaian_lulusan_tabel&post_type=study_program',
+                'Tabel Capaian'
             ],
         ];
     }
