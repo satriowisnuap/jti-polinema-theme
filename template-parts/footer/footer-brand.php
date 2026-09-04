@@ -45,4 +45,38 @@ $footer_email       = get_theme_mod('jti_footer_email', 'jti@polinema.ac.id');
       </a>
     <?php endif; ?>
   </div>
+
+  <div class="ft-social-icons" style="display: flex; gap: 16px; margin-top: 16px; align-items: center;">
+    <?php
+    $instagram_url = get_theme_mod('jti_footer_instagram_url', 'https://www.instagram.com/jtipolinema/');
+    $facebook_url  = get_theme_mod('jti_footer_facebook_url', 'https://www.facebook.com/jtipolinema');
+    $x_url         = get_theme_mod('jti_footer_x_url', 'https://x.com/jtipolinema');
+    $youtube_url   = get_theme_mod('jti_footer_youtube_url', 'https://www.youtube.com/@jtipolinema');
+    $logos_dir     = get_template_directory_uri() . '/assets/images/logos/';
+    ?>
+    
+    <?php if (!empty($instagram_url)) : ?>
+      <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" style="transition: opacity 0.2s; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+        <img src="<?php echo esc_url($logos_dir . 'instagram.png'); ?>" alt="Instagram" style="width: 24px; height: 24px;">
+      </a>
+    <?php endif; ?>
+
+    <?php if (!empty($facebook_url)) : ?>
+      <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" style="transition: opacity 0.2s; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+        <img src="<?php echo esc_url($logos_dir . 'facebook.png'); ?>" alt="Facebook" style="width: 24px; height: 24px;">
+      </a>
+    <?php endif; ?>
+
+    <?php if (!empty($x_url)) : ?>
+      <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer" style="transition: opacity 0.2s; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+        <img src="<?php echo esc_url($logos_dir . 'x.png'); ?>" alt="X" style="width: 24px; height: 24px;">
+      </a>
+    <?php endif; ?>
+
+    <?php if (!empty($youtube_url)) : ?>
+      <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" rel="noopener noreferrer" style="transition: opacity 0.2s; opacity: 0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+        <img src="<?php echo esc_url($logos_dir . 'youtube.png'); ?>" alt="Youtube" style="width: 35px; height: 24px;">
+      </a>
+    <?php endif; ?>
+  </div>
 </div>
