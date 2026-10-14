@@ -482,51 +482,86 @@ if (!empty($pathway_ids) && is_array($pathway_ids)) {
     }
 }
 
-// 12. Guidebook PDF
-$pdf_url = '';
-if ($has_acf && $page_id > 0) {
-    $pdf_value = $get_unified_field('buku_panduan_pdf', 'buku_panduan_pdf', $page_id);
-    $pdf_url = $resolve_image_url($pdf_value);
+// 12. Official documents
+$document_ids = $get_unified_field('dokumen_resmi', 'dokumen_resmi', $page_id);
+if (empty($document_ids) && ($page_id > 0 || !empty($program_slug))) {
+    $tax_slugs = array_unique(array_filter([$program_slug, $lookup_slug, $url_slug]));
+    $document_ids = get_posts([
+        'post_type'      => 'dokumen_resmi',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+        'post_status'    => 'publish',
+        'tax_query'      => [
+            [
+                'taxonomy' => 'kategori_program_studi',
+                'field'    => 'slug',
+                'terms'    => $tax_slugs,
+            ],
+        ],
+    ]);
+}
+
+$official_documents = [];
+if (!empty($document_ids)) {
+    $document_ids = array_filter(array_map(function ($document) {
+        if (is_object($document) && isset($document->ID)) {
+            return absint($document->ID);
+        }
+
+        if (is_array($document) && isset($document['ID'])) {
+            return absint($document['ID']);
+        }
+
+        return absint($document);
+    }, (array) $document_ids));
+
+    if (!empty($document_ids)) {
+        $document_query = new WP_Query([
+            'post_type'      => 'dokumen_resmi',
+            'post__in'       => $document_ids,
+            'orderby'        => 'menu_order title',
+            'order'          => 'ASC',
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+        ]);
+
+        if ($document_query->have_posts()) {
+            while ($document_query->have_posts()) {
+                $document_query->the_post();
+                $document_id = get_the_ID();
+                $file_url = $resolve_image_url(get_field('file_dokumen', $document_id));
+
+                if (empty($file_url)) {
+                    continue;
+                }
+
+                $official_documents[] = [
+                    'name' => trim((string) (get_field('nama_dokumen', $document_id) ?: get_the_title($document_id))),
+                    'url'  => $file_url,
+                ];
+            }
+            wp_reset_postdata();
+        }
+    }
 }
 
 // 13. Profiles (Profil Lulusan)
 $profiles = [];
 if ($has_acf && $page_id > 0) {
     $profiles_raw = $get_unified_field('profiles', 'profiles', $page_id);
-    if (empty($profiles_raw)) {
-        $tax_slugs = array_unique(array_filter([$program_slug, $lookup_slug, $url_slug]));
-        $linked_profiles = get_posts([
-            'post_type'      => 'profil_lulusan',
-            'posts_per_page' => -1,
-            'fields'         => 'ids',
-            'tax_query'      => [
-                [
-                    'taxonomy' => 'kategori_program_studi',
-                    'field'    => 'slug',
-                    'terms'    => $tax_slugs,
-                ],
-            ],
-        ]);
-        if (!empty($linked_profiles)) {
-            $profiles_raw = $linked_profiles;
-        } elseif ($page_id > 0) {
-            $meta_profiles = get_posts([
-                'post_type'      => 'profil_lulusan',
-                'posts_per_page' => -1,
-                'fields'         => 'ids',
-                'meta_query'     => [
-                    [
-                        'key'     => 'study_program',
-                        'value'   => $page_id,
-                        'compare' => '=',
-                    ],
-                ],
-            ]);
-            if (!empty($meta_profiles)) {
-                $profiles_raw = $meta_profiles;
+    $profile_ids = [];
+
+    if (is_array($profiles_raw) && !empty($profiles_raw)) {
+        foreach ($profiles_raw as $value) {
+            if (is_object($value) && isset($value->ID)) {
+                $profile_ids[] = absint($value->ID);
+            } elseif (is_scalar($value)) {
+                $profile_ids[] = absint($value);
             }
         }
     }
+
+    $profile_ids = array_values(array_unique(array_filter(array_map('absint', $profile_ids))));
 
     $parse_sp_competencies = function ($value) {
         $value = trim((string) $value);
@@ -540,42 +575,29 @@ if ($has_acf && $page_id > 0) {
         }));
     };
 
-    if (!empty($profiles_raw)) {
-        if (is_array($profiles_raw) && !empty($profiles_raw) && (is_int($profiles_raw[0]) || is_string($profiles_raw[0]) || (is_object($profiles_raw[0]) && isset($profiles_raw[0]->ID)))) {
-            $profile_ids = [];
-            foreach ($profiles_raw as $value) {
-                if (is_object($value) && isset($value->ID)) {
-                    $profile_ids[] = absint($value->ID);
-                } elseif (is_scalar($value)) {
-                    $profile_ids[] = absint($value);
-                }
+    if (!empty($profile_ids)) {
+        $profile_query = new WP_Query([
+            'post_type'      => 'profil_lulusan',
+            'post__in'       => $profile_ids,
+            'orderby'        => 'post__in',
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+        ]);
+
+        if ($profile_query->have_posts()) {
+            while ($profile_query->have_posts()) {
+                $profile_query->the_post();
+                $pid = get_the_ID();
+
+                $profiles[] = [
+                    'title'        => get_the_title($pid),
+                    'description'  => trim((string) (get_field('description', $pid) ?: get_the_excerpt($pid))),
+                    'competencies' => $parse_sp_competencies(get_field('competencies', $pid)),
+                ];
             }
-            $profile_ids = array_values(array_filter($profile_ids));
-
-            if (!empty($profile_ids)) {
-                $profile_query = new WP_Query([
-                    'post_type'      => 'profil_lulusan',
-                    'post__in'       => $profile_ids,
-                    'orderby'        => 'post__in',
-                    'posts_per_page' => -1,
-                    'post_status'    => 'publish',
-                ]);
-
-                if ($profile_query->have_posts()) {
-                    while ($profile_query->have_posts()) {
-                        $profile_query->the_post();
-                        $pid = get_the_ID();
-
-                        $profiles[] = [
-                            'title'        => get_the_title($pid),
-                            'description'  => trim((string) (get_field('description', $pid) ?: get_the_excerpt($pid))),
-                            'competencies' => $parse_sp_competencies(get_field('competencies', $pid)),
-                        ];
-                    }
-                    wp_reset_postdata();
-                }
-            }
-        } elseif (is_array($profiles_raw)) {
+            wp_reset_postdata();
+        }
+    } elseif (is_array($profiles_raw)) {
             foreach ($profiles_raw as $profile) {
                 if (!is_array($profile)) {
                     continue;
@@ -595,13 +617,12 @@ if ($has_acf && $page_id > 0) {
                     'competencies' => $competencies,
                 ];
             }
-        } elseif (is_string($profiles_raw) && trim($profiles_raw) !== '') {
-            $profiles[] = [
-                'title'        => 'Profil Lulusan',
-                'description'  => trim(wp_strip_all_tags($profiles_raw)),
-                'competencies' => [],
-            ];
-        }
+    } elseif (is_string($profiles_raw) && trim($profiles_raw) !== '') {
+        $profiles[] = [
+            'title'        => 'Profil Lulusan',
+            'description'  => trim(wp_strip_all_tags($profiles_raw)),
+            'competencies' => [],
+        ];
     }
 }
 
@@ -699,8 +720,8 @@ if (!empty($bidang_keahlian_items)) {
     $tabs[] = ['id' => 'bidang-keahlian', 'label' => 'Bidang Keahlian'];
 }
 
-if (!empty($pdf_url)) {
-    $tabs[] = ['id' => 'buku-panduan', 'label' => 'Buku Panduan'];
+if (!empty($official_documents)) {
+    $tabs[] = ['id' => 'dokumen-resmi', 'label' => 'Dokumen Resmi'];
 }
 ?>
 
@@ -1151,19 +1172,6 @@ if (!empty($pdf_url)) {
         </div>
         <?php endif; ?>
 
-        <?php if (!empty($pdf_url)) : ?>
-        <div class="tab-panel" data-panel="buku-panduan" aria-hidden="true">
-            <section class="akademik-program-section">
-                <article class="akademik-program-section__card">
-                    <h2>Buku Panduan Akademik</h2>
-                    <div class="d4-ti-pdf-preview">
-                        <iframe class="d4-ti-pdf-frame" src="<?php echo esc_url($pdf_url); ?>" title="Preview PDF Buku Panduan Akademik"></iframe>
-                    </div>
-                </article>
-            </section>
-        </div>
-        <?php endif; ?>
-
         <?php if (!empty($bahan_kajian_items)) : ?>
         <div class="tab-panel" data-panel="bahan-kajian" aria-hidden="true">
             <section class="akademik-program-section">
@@ -1232,6 +1240,47 @@ if (!empty($pdf_url)) {
             </section>
         </div>
         <?php endif; ?>
+
+        <?php if (!empty($official_documents)) : ?>
+        <div class="tab-panel" data-panel="dokumen-resmi" aria-hidden="true">
+            <section class="akademik-program-section">
+                <article class="akademik-program-section__card akademik-program-section__table-card">
+                    <h2>Dokumen Resmi</h2>
+                    <div class="akademik-program-section__table-wrap">
+                        <table class="akademik-program-section__table akademik-program-section__table--documents">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Dokumen</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($official_documents as $index => $document) : ?>
+                                    <tr>
+                                        <td><?php echo esc_html($index + 1); ?></td>
+                                        <td><strong><?php echo esc_html($document['name']); ?></strong></td>
+                                        <td>
+                                            <div class="akademik-program-section__document-actions">
+                                                <button class="akademik-program-section__document-action akademik-program-section__document-action--preview" type="button" data-document-preview="<?php echo esc_url($document['url']); ?>" data-document-title="<?php echo esc_attr($document['name']); ?>">
+                                                    <i class="ph ph-eye" aria-hidden="true"></i>
+                                                    <span>Lihat</span>
+                                                </button>
+                                                <a class="akademik-program-section__document-action akademik-program-section__document-action--download" href="<?php echo esc_url($document['url']); ?>" download>
+                                                    <i class="ph ph-download-simple" aria-hidden="true"></i>
+                                                    <span>Unduh</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -1240,6 +1289,17 @@ if (!empty($pdf_url)) {
     <div class="d4-ti-modal__content">
         <button class="d4-ti-modal__close" type="button" aria-label="Tutup gambar" data-dismiss="true">×</button>
         <img id="d4-ti-modal-image" src="" alt="Perbesar gambar">
+    </div>
+</div>
+
+<div id="d4-ti-document-modal" class="d4-ti-modal" hidden>
+    <div class="d4-ti-modal__overlay" data-document-dismiss="true"></div>
+    <div class="d4-ti-modal__content d4-ti-document-modal__content">
+        <div class="d4-ti-document-modal__header">
+            <h2 id="d4-ti-document-modal-title">Preview Dokumen</h2>
+            <button class="d4-ti-modal__close" type="button" aria-label="Tutup preview dokumen" data-document-dismiss="true">×</button>
+        </div>
+        <iframe id="d4-ti-document-frame" class="d4-ti-pdf-frame" src="" title="Preview dokumen"></iframe>
     </div>
 </div>
 
@@ -1283,6 +1343,51 @@ if (!empty($pdf_url)) {
         }
 
         if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+})();
+</script>
+
+<script>
+(function () {
+    const modal = document.getElementById('d4-ti-document-modal');
+    if (!modal) {
+        return;
+    }
+
+    const frame = document.getElementById('d4-ti-document-frame');
+    const title = document.getElementById('d4-ti-document-modal-title');
+    const triggers = document.querySelectorAll('[data-document-preview]');
+
+    const closeModal = () => {
+        modal.hidden = true;
+        frame.setAttribute('src', '');
+        document.body.style.overflow = '';
+    };
+
+    triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const url = trigger.getAttribute('data-document-preview');
+            if (!url) {
+                return;
+            }
+
+            frame.setAttribute('src', url);
+            title.textContent = trigger.getAttribute('data-document-title') || 'Preview Dokumen';
+            modal.hidden = false;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    modal.addEventListener('click', (event) => {
+        if (event.target.matches('[data-document-dismiss="true"]')) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (!modal.hidden && event.key === 'Escape') {
             closeModal();
         }
     });

@@ -3710,6 +3710,13 @@ add_filter( 'acf/fields/relationship/query/key=field_d4_sib_profiles', function(
 
 }, 10, 3 );
 
+add_filter( 'acf/fields/relationship/query/key=field_sp_dokumen_resmi', function( $args ) {
+    $args['post_type'] = ['dokumen_resmi'];
+    $args['post_status'] = ['publish', 'draft', 'pending', 'future', 'private'];
+
+    return $args;
+}, 10, 1 );
+
 /* ──────────────────────────────────────────────────────────
    SERVER-SIDE VALIDATION: acf/validate_save_post
    Hard-blocks saving if any lecturer is duplicated across labs.
@@ -4506,6 +4513,45 @@ add_action('acf/init', function() {
     ]);
 
     acf_add_local_field_group([
+        'key' => 'group_dokumen_resmi',
+        'title' => 'Detail Dokumen Resmi',
+        'fields' => [
+            [
+                'key' => 'field_dokumen_resmi_nama',
+                'label' => 'Nama Dokumen',
+                'name' => 'nama_dokumen',
+                'type' => 'text',
+                'required' => 1,
+            ],
+            [
+                'key' => 'field_dokumen_resmi_file',
+                'label' => 'File Dokumen',
+                'name' => 'file_dokumen',
+                'type' => 'file',
+                'instructions' => 'Unggah file dokumen yang dapat dipreview dan diunduh.',
+                'required' => 1,
+                'return_format' => 'array',
+                'library' => 'all',
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'dokumen_resmi',
+                ],
+            ],
+        ],
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
+    ]);
+
+    acf_add_local_field_group([
         'key' => 'group_study_program_page',
         'title' => 'Konten Halaman Program Studi (Unified)',
         'fields' => [
@@ -4661,12 +4707,16 @@ add_action('acf/init', function() {
                 'return_format' => 'id',
             ],
             [
-                'key' => 'field_sp_buku_panduan_pdf',
-                'label' => 'PDF Buku Panduan Akademik',
-                'name' => 'sp_buku_panduan_pdf',
-                'type' => 'file',
-                'return_format' => 'array',
-                'library' => 'all',
+                'key' => 'field_sp_dokumen_resmi',
+                'label' => 'Dokumen Resmi',
+                'name' => 'sp_dokumen_resmi',
+                'type' => 'relationship',
+                'instructions' => 'Pilih dokumen resmi yang akan ditampilkan pada halaman program studi. Dokumen dapat dibatasi berdasarkan kategori program studi.',
+                'post_type' => ['dokumen_resmi'],
+                'filters' => ['search', 'post_type', 'taxonomy'],
+                'min' => 0,
+                'max' => 0,
+                'return_format' => 'id',
             ],
         ],
         'location' => [

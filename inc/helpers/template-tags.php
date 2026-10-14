@@ -236,6 +236,7 @@ function webjti_get_page_header_data() {
 
   $request_uri = $_SERVER['REQUEST_URI'] ?? '';
   $current_slug = trim(parse_url($request_uri, PHP_URL_PATH), '/');
+  $bare_slug = basename($current_slug);
 
   $display_title = '';
 
