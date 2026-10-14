@@ -4,7 +4,11 @@
    ============================================================ */
 
 .site-footer {
+<<<<<<< HEAD
   background: var(--gradient-red);
+=======
+  background: #284C67;
+>>>>>>> origin/main
   color: var(--neutral-00, #ffffff);
   width: 100%;
   position: relative;
@@ -243,7 +247,11 @@
    4. BOTTOM BAR
    ---------------------------------------------------------- */
 .ft-bottom {
+<<<<<<< HEAD
   background: var(--gradient-yellow, linear-gradient(180deg, #FFD81C -119.79%, #FEBF11 98.45%));
+=======
+  background: #FEBE11;
+>>>>>>> origin/main
   padding: 12px 0;
   text-align: center;
 }

@@ -72,6 +72,11 @@ if (is_singular('study_program') || (isset($post) && $post instanceof WP_Post &&
                 'post_type'      => 'study_program',
                 'post_status'    => ['publish', 'draft', 'pending', 'private'],
                 'posts_per_page' => -1,
+<<<<<<< HEAD
+=======
+                'orderby'        => 'modified',
+                'order'          => 'DESC',
+>>>>>>> origin/main
             ]);
 
             foreach ($all_programs as $p) {
@@ -188,6 +193,7 @@ if (in_array($program_slug, ['d4-teknik-informatika', 'sarjana-terapan-teknik-in
 }
 
 $get_unified_field = function($unified_key, $old_key_suffix, $post_id) use ($old_prefix, $has_acf) {
+<<<<<<< HEAD
     if (!$has_acf || !$post_id) return '';
     $value = get_field('sp_' . $unified_key, $post_id);
     if ((empty($value) || (is_array($value) && empty($value)))) {
@@ -197,6 +203,33 @@ $get_unified_field = function($unified_key, $old_key_suffix, $post_id) use ($old
         $value = get_field($old_prefix . $old_key_suffix, $post_id);
     }
     return $value;
+=======
+    if (!$post_id) {
+        return '';
+    }
+
+    $field_names = array_unique(array_filter([
+        'sp_' . $unified_key,
+        $old_prefix ? $old_prefix . $old_key_suffix : $old_key_suffix,
+    ]));
+
+    foreach ($field_names as $field_name) {
+        $value = $has_acf ? get_field($field_name, $post_id) : null;
+
+        if (empty($value) || (is_array($value) && empty($value))) {
+            $value = get_post_meta($post_id, $field_name, true);
+            if (is_string($value) && is_serialized($value)) {
+                $value = maybe_unserialize($value);
+            }
+        }
+
+        if (!empty($value) && !(is_array($value) && empty($value))) {
+            return $value;
+        }
+    }
+
+    return '';
+>>>>>>> origin/main
 };
 
 // 5. Intro Content
@@ -213,6 +246,7 @@ if (empty($intro_content)) {
 
 // 6. Vision, Mission, Goals
 $vision_val = $get_unified_field('vision', 'vision', $page_id);
+<<<<<<< HEAD
 $vision_html = !empty($vision_val) ? $format_wysiwyg_list($vision_val) : $format_wysiwyg_list('', [
     'Menjadi program studi vokasi unggul yang menghasilkan lulusan kompeten, profesional, dan siap bersaing di tingkat nasional maupun internasional.'
 ]);
@@ -230,6 +264,18 @@ $goals_html = !empty($goals_val) ? $format_wysiwyg_list($goals_val) : $format_wy
     'Menghasilkan karya inovatif dan teknologi terapan yang bermanfaat bagi masyarakat dan industri.',
     'Mewujudkan tata kelola program studi yang transparan, akuntabel, dan berorientasi mutu berkelanjutan.'
 ]);
+=======
+$vision_html = !empty($vision_val) ? $format_wysiwyg_list($vision_val) : '';
+
+$mission_val = $get_unified_field('mission', 'mission', $page_id);
+$mission_html = !empty($mission_val) ? $format_wysiwyg_list($mission_val) : '';
+
+$goals_val = $get_unified_field('goals', 'goals', $page_id);
+$goals_html = !empty($goals_val) ? $format_wysiwyg_list($goals_val) : '';
+
+$strategy_val = $get_unified_field('strategy', 'strategy', $page_id);
+$strategy_html = !empty($strategy_val) ? $format_wysiwyg_list($strategy_val) : '';
+>>>>>>> origin/main
 
 // 7. Accreditation
 $accreditation_items = [];
@@ -253,6 +299,7 @@ if ($has_acf && $page_id > 0) {
     }
 }
 
+<<<<<<< HEAD
 if (empty($accreditation_items)) {
     $accreditation_items = [
         [
@@ -262,6 +309,8 @@ if (empty($accreditation_items)) {
     ];
 }
 
+=======
+>>>>>>> origin/main
 // 8. Outcomes (Capaian Lulusan)
 $outcome_ids = $get_unified_field('outcomes', 'outcomes', $page_id);
 if (empty($outcome_ids) && ($page_id > 0 || !empty($program_slug))) {
@@ -377,12 +426,44 @@ if (!empty($selected_course_ids) && is_array($selected_course_ids)) {
     }
 }
 
+<<<<<<< HEAD
 $subjects_by_semester = [];
 foreach (range(1, 8) as $semester_number) {
     $semester_label = 'Semester ' . $semester_number;
     $subjects_by_semester[$semester_label] = [];
 }
 
+=======
+$specialist_courses = [];
+$specialist_ids = $get_unified_field('mata_kuliah_spesialis', 'mata_kuliah_spesialis', $page_id);
+if (is_array($specialist_ids) && !empty($specialist_ids)) {
+    $specialist_ids = array_filter(array_map('absint', $specialist_ids));
+    if (!empty($specialist_ids)) {
+        $specialist_query = new WP_Query([
+            'post_type' => 'mk_spesialis',
+            'post__in' => $specialist_ids,
+            'orderby' => 'post__in',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+        ]);
+
+        if ($specialist_query->have_posts()) {
+            while ($specialist_query->have_posts()) {
+                $specialist_query->the_post();
+                $specialist_id = get_the_ID();
+                $table_title = trim((string) get_the_title($specialist_id));
+                $specialist_courses[$table_title][] = [
+                    'name' => trim((string) get_field('nama_mata_kuliah_spesialis', $specialist_id)),
+                    'sks' => (int) get_field('sks', $specialist_id),
+                ];
+            }
+            wp_reset_postdata();
+        }
+    }
+}
+
+$subjects_by_semester = [];
+>>>>>>> origin/main
 foreach ($courses as $course) {
     $semester_label = $course['semester'] ?: 'Semester 1';
     if (!isset($subjects_by_semester[$semester_label])) {
@@ -397,6 +478,12 @@ foreach ($courses as $course) {
     ];
 }
 
+<<<<<<< HEAD
+=======
+uksort($subjects_by_semester, static function ($first, $second) {
+    return (int) preg_replace('/\D+/', '', $first) <=> (int) preg_replace('/\D+/', '', $second);
+});
+>>>>>>> origin/main
 $subjects_pages = array_chunk($subjects_by_semester, 3, true);
 
 // 10. Tuition (Biaya Perkuliahan)
@@ -454,17 +541,82 @@ if (!empty($pathway_ids) && is_array($pathway_ids)) {
     }
 }
 
+<<<<<<< HEAD
 // 12. Guidebook PDF
 $pdf_url = '';
 if ($has_acf && $page_id > 0) {
     $pdf_value = $get_unified_field('buku_panduan_pdf', 'buku_panduan_pdf', $page_id);
     $pdf_url = $resolve_image_url($pdf_value);
+=======
+// 12. Official documents
+$document_ids = $get_unified_field('dokumen_resmi', 'dokumen_resmi', $page_id);
+if (empty($document_ids) && ($page_id > 0 || !empty($program_slug))) {
+    $tax_slugs = array_unique(array_filter([$program_slug, $lookup_slug, $url_slug]));
+    $document_ids = get_posts([
+        'post_type'      => 'dokumen_resmi',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+        'post_status'    => 'publish',
+        'tax_query'      => [
+            [
+                'taxonomy' => 'kategori_program_studi',
+                'field'    => 'slug',
+                'terms'    => $tax_slugs,
+            ],
+        ],
+    ]);
+}
+
+$official_documents = [];
+if (!empty($document_ids)) {
+    $document_ids = array_filter(array_map(function ($document) {
+        if (is_object($document) && isset($document->ID)) {
+            return absint($document->ID);
+        }
+
+        if (is_array($document) && isset($document['ID'])) {
+            return absint($document['ID']);
+        }
+
+        return absint($document);
+    }, (array) $document_ids));
+
+    if (!empty($document_ids)) {
+        $document_query = new WP_Query([
+            'post_type'      => 'dokumen_resmi',
+            'post__in'       => $document_ids,
+            'orderby'        => 'menu_order title',
+            'order'          => 'ASC',
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+        ]);
+
+        if ($document_query->have_posts()) {
+            while ($document_query->have_posts()) {
+                $document_query->the_post();
+                $document_id = get_the_ID();
+                $file_url = $resolve_image_url(get_field('file_dokumen', $document_id));
+
+                if (empty($file_url)) {
+                    continue;
+                }
+
+                $official_documents[] = [
+                    'name' => trim((string) (get_field('nama_dokumen', $document_id) ?: get_the_title($document_id))),
+                    'url'  => $file_url,
+                ];
+            }
+            wp_reset_postdata();
+        }
+    }
+>>>>>>> origin/main
 }
 
 // 13. Profiles (Profil Lulusan)
 $profiles = [];
 if ($has_acf && $page_id > 0) {
     $profiles_raw = $get_unified_field('profiles', 'profiles', $page_id);
+<<<<<<< HEAD
     if (empty($profiles_raw)) {
         $tax_slugs = array_unique(array_filter([$program_slug, $lookup_slug, $url_slug]));
         $linked_profiles = get_posts([
@@ -496,10 +648,25 @@ if ($has_acf && $page_id > 0) {
             ]);
             if (!empty($meta_profiles)) {
                 $profiles_raw = $meta_profiles;
+=======
+    $profile_ids = [];
+
+    if (is_array($profiles_raw) && !empty($profiles_raw)) {
+        foreach ($profiles_raw as $value) {
+            if (is_object($value) && isset($value->ID)) {
+                $profile_ids[] = absint($value->ID);
+            } elseif (is_scalar($value)) {
+                $profile_ids[] = absint($value);
+>>>>>>> origin/main
             }
         }
     }
 
+<<<<<<< HEAD
+=======
+    $profile_ids = array_values(array_unique(array_filter(array_map('absint', $profile_ids))));
+
+>>>>>>> origin/main
     $parse_sp_competencies = function ($value) {
         $value = trim((string) $value);
         if ($value === '') {
@@ -512,6 +679,7 @@ if ($has_acf && $page_id > 0) {
         }));
     };
 
+<<<<<<< HEAD
     if (!empty($profiles_raw)) {
         if (is_array($profiles_raw) && !empty($profiles_raw) && (is_int($profiles_raw[0]) || is_string($profiles_raw[0]) || (is_object($profiles_raw[0]) && isset($profiles_raw[0]->ID)))) {
             $profile_ids = [];
@@ -548,6 +716,31 @@ if ($has_acf && $page_id > 0) {
                 }
             }
         } elseif (is_array($profiles_raw)) {
+=======
+    if (!empty($profile_ids)) {
+        $profile_query = new WP_Query([
+            'post_type'      => 'profil_lulusan',
+            'post__in'       => $profile_ids,
+            'orderby'        => 'post__in',
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+        ]);
+
+        if ($profile_query->have_posts()) {
+            while ($profile_query->have_posts()) {
+                $profile_query->the_post();
+                $pid = get_the_ID();
+
+                $profiles[] = [
+                    'title'        => get_the_title($pid),
+                    'description'  => trim((string) (get_field('description', $pid) ?: get_the_excerpt($pid))),
+                    'competencies' => $parse_sp_competencies(get_field('competencies', $pid)),
+                ];
+            }
+            wp_reset_postdata();
+        }
+    } elseif (is_array($profiles_raw)) {
+>>>>>>> origin/main
             foreach ($profiles_raw as $profile) {
                 if (!is_array($profile)) {
                     continue;
@@ -567,17 +760,90 @@ if ($has_acf && $page_id > 0) {
                     'competencies' => $competencies,
                 ];
             }
+<<<<<<< HEAD
         } elseif (is_string($profiles_raw) && trim($profiles_raw) !== '') {
             $profiles[] = [
                 'title'        => 'Profil Lulusan',
                 'description'  => trim(wp_strip_all_tags($profiles_raw)),
                 'competencies' => [],
             ];
+=======
+    } elseif (is_string($profiles_raw) && trim($profiles_raw) !== '') {
+        $profiles[] = [
+            'title'        => 'Profil Lulusan',
+            'description'  => trim(wp_strip_all_tags($profiles_raw)),
+            'competencies' => [],
+        ];
+    }
+}
+
+// 14. Bahan Kajian & Bidang Keahlian
+$bahan_kajian_items = [];
+$bidang_keahlian_items = [];
+
+if ($has_acf && $page_id > 0) {
+    // Bahan Kajian
+    $bk_ids = $get_unified_field('bahan_kajian', 'bahan_kajian', $page_id);
+    if (!empty($bk_ids) && is_array($bk_ids)) {
+        $bk_ids = array_filter(array_map('absint', $bk_ids));
+        if (!empty($bk_ids)) {
+            $bk_query = new WP_Query([
+                'post_type'      => 'bahan_kajian',
+                'post__in'       => $bk_ids,
+                'orderby'        => 'post__in',
+                'posts_per_page' => -1,
+                'post_status'    => 'publish',
+            ]);
+            if ($bk_query->have_posts()) {
+                while ($bk_query->have_posts()) {
+                    $bk_query->the_post();
+                    $pid = get_the_ID();
+                    $bahan_kajian_items[] = [
+                        'title'       => get_the_title($pid),
+                        'category'    => get_field('kategori', $pid),
+                        'description' => get_field('description', $pid),
+                    ];
+                }
+                wp_reset_postdata();
+            }
+        }
+    }
+
+    // Bidang Keahlian
+    $bk_ahli_ids = $get_unified_field('bidang_keahlian', 'bidang_keahlian', $page_id);
+    if (!empty($bk_ahli_ids) && is_array($bk_ahli_ids)) {
+        $bk_ahli_ids = array_filter(array_map('absint', $bk_ahli_ids));
+        if (!empty($bk_ahli_ids)) {
+            $bk_ahli_query = new WP_Query([
+                'post_type'      => 'bidang_keahlian',
+                'post__in'       => $bk_ahli_ids,
+                'orderby'        => 'post__in',
+                'posts_per_page' => -1,
+                'post_status'    => 'publish',
+            ]);
+            if ($bk_ahli_query->have_posts()) {
+                while ($bk_ahli_query->have_posts()) {
+                    $bk_ahli_query->the_post();
+                    $pid = get_the_ID();
+                    $bidang_keahlian_items[] = [
+                        'title'       => get_the_title($pid),
+                        'category'    => get_field('kategori', $pid),
+                        'description' => get_field('description', $pid),
+                        'lecturers'   => get_field('lecturers', $pid),
+                    ];
+                }
+                wp_reset_postdata();
+            }
+>>>>>>> origin/main
         }
     }
 }
 
+<<<<<<< HEAD
 // 14. Tab Setup
+=======
+// 15. Tab Setup
+>>>>>>> origin/main
 $tabs = [
     ['id' => 'program', 'label' => 'Program Studi'],
 ];
@@ -590,7 +856,11 @@ if (!empty($outcome_rows)) {
     $tabs[] = ['id' => 'capaian', 'label' => 'Capaian Lulusan'];
 }
 
+<<<<<<< HEAD
 if (!empty($courses)) {
+=======
+if (!empty($courses) || !empty($specialist_courses)) {
+>>>>>>> origin/main
     $tabs[] = ['id' => 'mata-kuliah', 'label' => 'Mata Kuliah'];
 }
 
@@ -602,8 +872,21 @@ if (!empty($pathway_rows)) {
     $tabs[] = ['id' => 'peta-jalan', 'label' => 'Peta Jalan CPL'];
 }
 
+<<<<<<< HEAD
 if (!empty($pdf_url)) {
     $tabs[] = ['id' => 'buku-panduan', 'label' => 'Buku Panduan'];
+=======
+if (!empty($bahan_kajian_items)) {
+    $tabs[] = ['id' => 'bahan-kajian', 'label' => 'Bahan Kajian'];
+}
+
+if (!empty($bidang_keahlian_items)) {
+    $tabs[] = ['id' => 'bidang-keahlian', 'label' => 'Bidang Keahlian'];
+}
+
+if (!empty($official_documents)) {
+    $tabs[] = ['id' => 'dokumen-resmi', 'label' => 'Dokumen Resmi'];
+>>>>>>> origin/main
 }
 ?>
 
@@ -660,6 +943,17 @@ if (!empty($pdf_url)) {
                 </article>
                 <?php endif; ?>
 
+<<<<<<< HEAD
+=======
+                <?php if (!empty($strategy_html)) : ?>
+                <article class="akademik-program-section__card">
+                    <h2>Strategi</h2>
+                    <?php echo $strategy_html; ?>
+                </article>
+                <?php endif; ?>
+
+                <?php if (!empty($accreditation_items)) : ?>
+>>>>>>> origin/main
                 <article class="akademik-program-section__card">
                     <h2>Sertifikat Akreditasi</h2>
                     <div class="d4-ti-accreditation-list">
@@ -704,7 +998,15 @@ if (!empty($pdf_url)) {
                         </div>
                     </div>
                 </article>
+<<<<<<< HEAD
             </section>
+=======
+                <?php endif; ?>
+
+
+            </section>
+
+>>>>>>> origin/main
         </div>
 
         <?php if (!empty($profiles)) : ?>
@@ -767,14 +1069,22 @@ if (!empty($pdf_url)) {
         </div>
         <?php endif; ?>
 
+<<<<<<< HEAD
         <?php if (!empty($courses)) : ?>
+=======
+        <?php if (!empty($courses) || !empty($specialist_courses)) : ?>
+>>>>>>> origin/main
         <div class="tab-panel" data-panel="mata-kuliah" aria-hidden="true">
             <section class="akademik-program-section">
                 <?php if (!empty($subjects_pages)) : ?>
                 <?php foreach ($subjects_pages as $page_index => $page_subjects) : ?>
                     <div class="akademik-program-section__page" data-page="<?php echo esc_attr($page_index); ?>"<?php echo $page_index === 0 ? ' style="display:block;"' : ' style="display:none;"'; ?>>
                         <?php foreach ($page_subjects as $semester_label => $semester_subjects) : ?>
+<<<<<<< HEAD
                             <?php if ($semester_label === 'Semester 6' || $semester_label === 'Semester 7' || $semester_label === 'Semester 8') : ?>
+=======
+                            <?php if ($semester_label === 'Semester 6') : ?>
+>>>>>>> origin/main
                                     <?php
                                         $mandatory = [];
                                         $package1 = [];
@@ -793,9 +1103,12 @@ if (!empty($pdf_url)) {
                                             }
                                         }
 
+<<<<<<< HEAD
                                         while (count($mandatory) < 3) {
                                             $mandatory[] = ['code' => '-', 'name' => '(Belum ada mata kuliah wajib)', 'sks' => '-', 'keterangan' => 'MK Wajib'];
                                         }
+=======
+>>>>>>> origin/main
                                     ?>
 
                                     <article class="akademik-program-section__card akademik-program-section__table-card">
@@ -833,11 +1146,18 @@ if (!empty($pdf_url)) {
                                                         </tr>
                                                     <?php endforeach; ?>
 
+<<<<<<< HEAD
                                                     <tr class="package-header" data-package-label>
                                                         <td colspan="5" class="package-band">Paket Pilihan 1 - Reguler</td>
                                                     </tr>
 
                                                     <?php if (!empty($package1)) : ?>
+=======
+                                                    <?php if (!empty($package1)) : ?>
+                                                        <tr class="package-header" data-package-label>
+                                                            <td colspan="5" class="package-band">Paket Pilihan 1 - Reguler</td>
+                                                        </tr>
+>>>>>>> origin/main
                                                         <?php foreach ($package1 as $p_index => $p) : ?>
                                                             <tr class="package-row package-1" data-package="1">
                                                                 <td><?php echo esc_html(count($mandatory) + $p_index + 1); ?></td>
@@ -847,10 +1167,13 @@ if (!empty($pdf_url)) {
                                                                 <td><?php echo esc_html($p['keterangan']); ?></td>
                                                             </tr>
                                                         <?php endforeach; ?>
+<<<<<<< HEAD
                                                     <?php else : ?>
                                                         <tr class="package-row package-1" data-package="1">
                                                             <td colspan="5">Belum ada mata kuliah pada Paket Pilihan 1 - Reguler.</td>
                                                         </tr>
+=======
+>>>>>>> origin/main
                                                     <?php endif; ?>
 
                                                     <?php if (!empty($package2)) : ?>
@@ -863,10 +1186,13 @@ if (!empty($pdf_url)) {
                                                                 <td><?php echo esc_html($p['keterangan']); ?></td>
                                                             </tr>
                                                         <?php endforeach; ?>
+<<<<<<< HEAD
                                                     <?php else : ?>
                                                         <tr class="package-row package-2" data-package="2" style="display:none;">
                                                             <td colspan="5">Belum ada mata kuliah pada Paket Pilihan 2 - Magang.</td>
                                                         </tr>
+=======
+>>>>>>> origin/main
                                                     <?php endif; ?>
                                                 </tbody>
                                                 <tfoot>
@@ -878,10 +1204,18 @@ if (!empty($pdf_url)) {
                                             </table>
                                         </div>
 
+<<<<<<< HEAD
+=======
+                                        <?php if (!empty($package1) || !empty($package2)) : ?>
+>>>>>>> origin/main
                                         <div class="akademik-program-section__table-actions package-toggle-group">
                                             <button type="button" class="package-toggle-btn active" data-package="1">Paket Pilihan 1 - Reguler</button>
                                             <button type="button" class="package-toggle-btn" data-package="2">Paket Pilihan 2 - Magang</button>
                                         </div>
+<<<<<<< HEAD
+=======
+                                        <?php endif; ?>
+>>>>>>> origin/main
                                     </article>
 
                                 <?php else : ?>
@@ -943,12 +1277,62 @@ if (!empty($pdf_url)) {
                             </button>
                         <?php endforeach; ?>
                     </div>
+<<<<<<< HEAD
                 <?php else : ?>
                     <article class="akademik-program-section__card">
                         <p>Belum ada data mata kuliah yang tersedia untuk <?php echo esc_html($program_title); ?>.</p>
                     </article>
                 <?php endif; ?>
             </section>
+=======
+                <?php endif; ?>
+            </section>
+
+            <?php if (!empty($specialist_courses)) : ?>
+                <div class="akademik-program-section__divider" style="margin: 48px 0; border-top: 2px dashed #e2e8f0;"></div>
+                
+                <div class="akademik-program-section__header" style="margin-bottom: 24px; text-align: center;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Mata Kuliah Spesialisasi</h3>
+                    <p style="color: #64748b;">Daftar mata kuliah berdasarkan spesialisasi yang dipilih.</p>
+                </div>
+
+                <section class="akademik-program-section akademik-program-section--specialist">
+                    <?php foreach ($specialist_courses as $table_title => $specialist_rows) :
+                        $specialist_total_sks = array_sum(array_column($specialist_rows, 'sks'));
+                        ?>
+                        <article class="akademik-program-section__card akademik-program-section__table-card">
+                            <h2><?php echo esc_html($table_title); ?></h2>
+                            <div class="akademik-program-section__table-wrap">
+                                <table class="akademik-program-section__table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%; text-align: center;">No</th>
+                                            <th style="width: 70%;">Nama Mata Kuliah</th>
+                                            <th style="width: 20%; text-align: center;">SKS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($specialist_rows as $index => $specialist_row) : ?>
+                                            <tr>
+                                                <td style="text-align: center;"><?php echo esc_html($index + 1); ?></td>
+                                                <td><?php echo esc_html($specialist_row['name']); ?></td>
+                                                <td style="text-align: center;"><?php echo esc_html($specialist_row['sks']); ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" style="text-align: right; padding-right: 24px;"><strong>Total SKS</strong></td>
+                                            <td style="text-align: center;"><strong><?php echo esc_html($specialist_total_sks); ?></strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </section>
+            <?php endif; ?>
+>>>>>>> origin/main
         </div>
         <?php endif; ?>
 
@@ -1011,6 +1395,7 @@ if (!empty($pdf_url)) {
         </div>
         <?php endif; ?>
 
+<<<<<<< HEAD
         <?php if (!empty($pdf_url)) : ?>
         <div class="tab-panel" data-panel="buku-panduan" aria-hidden="true">
             <section class="akademik-program-section">
@@ -1018,6 +1403,112 @@ if (!empty($pdf_url)) {
                     <h2>Buku Panduan Akademik</h2>
                     <div class="d4-ti-pdf-preview">
                         <iframe class="d4-ti-pdf-frame" src="<?php echo esc_url($pdf_url); ?>" title="Preview PDF Buku Panduan Akademik"></iframe>
+=======
+        <?php if (!empty($bahan_kajian_items)) : ?>
+        <div class="tab-panel" data-panel="bahan-kajian" aria-hidden="true">
+            <section class="akademik-program-section">
+                <div class="akademik-program-section__grid">
+                    <?php foreach ($bahan_kajian_items as $bk) : ?>
+                        <?php
+                        $bk_content_html = '';
+                        if (!empty($bk['category'])) {
+                            $bk_content_html .= '<span style="display: inline-block; background: #f8fafc; color: #64748b; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; border: 1px solid #e2e8f0;">' . esc_html($bk['category']) . '</span>';
+                        }
+                        $bk_content_html .= '<p>' . esc_html($bk['description']) . '</p>';
+                        
+                        get_template_part(
+                            'template-parts/components/content-block',
+                            null,
+                            [
+                                'title'   => (string) ($bk['title'] ?? ''),
+                                'icon'    => 'ph-books',
+                                'content' => $bk_content_html,
+                                'class'   => 'content-block--strong-title',
+                            ]
+                        );
+                        ?>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($bidang_keahlian_items)) : ?>
+        <div class="tab-panel" data-panel="bidang-keahlian" aria-hidden="true">
+            <section class="akademik-program-section">
+                <div class="akademik-program-section__grid">
+                    <?php foreach ($bidang_keahlian_items as $index => $bk_ahli) : ?>
+                        <article class="akademik-program-section__card" style="border: 1px solid #fed7aa; background-color: #fffaf0; padding: 32px;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <i class="ph ph-users-three" style="font-size: 2rem; color: #ea580c;"></i>
+                                <h3 style="font-size: 1.5rem; font-weight: 800; color: #1e293b; margin: 0;"><?php echo esc_html($bk_ahli['title']); ?></h3>
+                            </div>
+                            <p style="color: #334155; margin-bottom: 24px; font-size: 1rem; line-height: 1.6;"><?php echo esc_html($bk_ahli['description']); ?></p>
+                            
+                            <?php if (!empty($bk_ahli['lecturers']) && is_array($bk_ahli['lecturers'])) : ?>
+                                <h4 style="font-size: 1.125rem; font-weight: 700; color: #1e293b; margin-bottom: 16px; border-bottom: 2px dashed #fed7aa; padding-bottom: 8px;">Daftar Dosen</h4>
+                                <ul style="list-style: none; padding-left: 0; margin: 0; color: #475569;">
+                                    <?php foreach ($bk_ahli['lecturers'] as $i => $lecturer) : 
+                                        $lec_name = get_the_title($lecturer->ID);
+                                        $lec_email = get_field('email', $lecturer->ID);
+                                        $lec_expertise = get_field('expertise', $lecturer->ID);
+                                        $display_name = $lec_name . (!empty($lec_email) ? ' (' . $lec_email . ')' : '');
+                                    ?>
+                                        <li style="margin-bottom: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                                            <span style="color: #ea580c; font-weight: 700; font-size: 1rem; margin-top: 2px;"><?php echo $i + 1; ?>.</span>
+                                            <div>
+                                                <strong style="color: #1e293b; font-size: 1rem;"><?php echo esc_html($display_name); ?></strong>
+                                                <?php if (!empty($lec_expertise)) : ?>
+                                                    <p style="margin-top: 8px; font-size: 0.875rem; color: #64748b; line-height: 1.6;"><?php echo esc_html($lec_expertise); ?></p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($official_documents)) : ?>
+        <div class="tab-panel" data-panel="dokumen-resmi" aria-hidden="true">
+            <section class="akademik-program-section">
+                <article class="akademik-program-section__card akademik-program-section__table-card">
+                    <h2>Dokumen Resmi</h2>
+                    <div class="akademik-program-section__table-wrap">
+                        <table class="akademik-program-section__table akademik-program-section__table--documents">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Dokumen</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($official_documents as $index => $document) : ?>
+                                    <tr>
+                                        <td><?php echo esc_html($index + 1); ?></td>
+                                        <td><strong><?php echo esc_html($document['name']); ?></strong></td>
+                                        <td>
+                                            <div class="akademik-program-section__document-actions">
+                                                <button class="akademik-program-section__document-action akademik-program-section__document-action--preview" type="button" data-document-preview="<?php echo esc_url($document['url']); ?>" data-document-title="<?php echo esc_attr($document['name']); ?>">
+                                                    <i class="ph ph-eye" aria-hidden="true"></i>
+                                                    <span>Lihat</span>
+                                                </button>
+                                                <a class="akademik-program-section__document-action akademik-program-section__document-action--download" href="<?php echo esc_url($document['url']); ?>" download>
+                                                    <i class="ph ph-download-simple" aria-hidden="true"></i>
+                                                    <span>Unduh</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+>>>>>>> origin/main
                     </div>
                 </article>
             </section>
@@ -1034,6 +1525,20 @@ if (!empty($pdf_url)) {
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<div id="d4-ti-document-modal" class="d4-ti-modal" hidden>
+    <div class="d4-ti-modal__overlay" data-document-dismiss="true"></div>
+    <div class="d4-ti-modal__content d4-ti-document-modal__content">
+        <div class="d4-ti-document-modal__header">
+            <h2 id="d4-ti-document-modal-title">Preview Dokumen</h2>
+            <button class="d4-ti-modal__close" type="button" aria-label="Tutup preview dokumen" data-document-dismiss="true">×</button>
+        </div>
+        <iframe id="d4-ti-document-frame" class="d4-ti-pdf-frame" src="" title="Preview dokumen"></iframe>
+    </div>
+</div>
+
+>>>>>>> origin/main
 <script>
 (function () {
     const modal = document.getElementById('d4-ti-image-modal');
@@ -1082,6 +1587,54 @@ if (!empty($pdf_url)) {
 
 <script>
 (function () {
+<<<<<<< HEAD
+=======
+    const modal = document.getElementById('d4-ti-document-modal');
+    if (!modal) {
+        return;
+    }
+
+    const frame = document.getElementById('d4-ti-document-frame');
+    const title = document.getElementById('d4-ti-document-modal-title');
+    const triggers = document.querySelectorAll('[data-document-preview]');
+
+    const closeModal = () => {
+        modal.hidden = true;
+        frame.setAttribute('src', '');
+        document.body.style.overflow = '';
+    };
+
+    triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const url = trigger.getAttribute('data-document-preview');
+            if (!url) {
+                return;
+            }
+
+            frame.setAttribute('src', url);
+            title.textContent = trigger.getAttribute('data-document-title') || 'Preview Dokumen';
+            modal.hidden = false;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    modal.addEventListener('click', (event) => {
+        if (event.target.matches('[data-document-dismiss="true"]')) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (!modal.hidden && event.key === 'Escape') {
+            closeModal();
+        }
+    });
+})();
+</script>
+
+<script>
+(function () {
+>>>>>>> origin/main
     const parseSks = (value) => {
         const parsed = parseInt((value || '').toString().replace(/[^0-9\-]/g, ''), 10);
         return Number.isNaN(parsed) ? 0 : parsed;

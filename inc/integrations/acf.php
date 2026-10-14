@@ -80,6 +80,29 @@ add_filter('acf/load_field/type=wysiwyg', function($field) {
 });
 
 /* ========================================
+<<<<<<< HEAD
+=======
+   FORCE DISABLE LEGACY STUDY PROGRAM ACF GROUPS
+   Menonaktifkan grup field lama yang sudah digantikan oleh versi Unified.
+   Ini berguna jika di lokal database masih ada versi lamanya.
+======================================== */
+add_filter('acf/load_field_group', function($field_group) {
+    $legacy_groups = [
+        'group_d4_teknik_informatika_page',
+        'group_d4_sistem_informasi_bisnis_page',
+        'group_s2_rekayasa_teknologi_informasi_page',
+        'group_s2_rekayasa_page',
+        'group_d3_mi_kediri_page',
+        'group_d3_mi_lumajang_page'
+    ];
+    if (in_array($field_group['key'], $legacy_groups)) {
+        $field_group['active'] = false;
+    }
+    return $field_group;
+});
+
+/* ========================================
+>>>>>>> origin/main
    REGISTER GALLERY KEMAHASISWAAN PAGE FIELDS
 ======================================== */
 add_action('acf/init', function() {
@@ -3105,6 +3128,10 @@ add_action('acf/init', function() {
 
     acf_add_local_field_group([
         'key' => 'group_d3_mi_kediri_page',
+<<<<<<< HEAD
+=======
+        'active' => false, // Disabled in favor of unified
+>>>>>>> origin/main
         'title' => 'Konten Halaman D3 MI Kediri',
         'fields' => [
             [
@@ -3261,6 +3288,10 @@ add_action('acf/init', function() {
 
     acf_add_local_field_group([
         'key' => 'group_d3_mi_lumajang_page',
+<<<<<<< HEAD
+=======
+        'active' => false, // Disabled in favor of unified
+>>>>>>> origin/main
         'title' => 'Konten Halaman D3 MI Lumajang',
         'fields' => [
             [
@@ -3688,6 +3719,16 @@ add_filter( 'acf/fields/relationship/query/key=field_d4_sib_profiles', function(
 
 }, 10, 3 );
 
+<<<<<<< HEAD
+=======
+add_filter( 'acf/fields/relationship/query/key=field_sp_dokumen_resmi', function( $args ) {
+    $args['post_type'] = ['dokumen_resmi'];
+    $args['post_status'] = ['publish', 'draft', 'pending', 'future', 'private'];
+
+    return $args;
+}, 10, 1 );
+
+>>>>>>> origin/main
 /* ──────────────────────────────────────────────────────────
    SERVER-SIDE VALIDATION: acf/validate_save_post
    Hard-blocks saving if any lecturer is duplicated across labs.
@@ -4484,6 +4525,48 @@ add_action('acf/init', function() {
     ]);
 
     acf_add_local_field_group([
+<<<<<<< HEAD
+=======
+        'key' => 'group_dokumen_resmi',
+        'title' => 'Detail Dokumen Resmi',
+        'fields' => [
+            [
+                'key' => 'field_dokumen_resmi_nama',
+                'label' => 'Nama Dokumen',
+                'name' => 'nama_dokumen',
+                'type' => 'text',
+                'required' => 1,
+            ],
+            [
+                'key' => 'field_dokumen_resmi_file',
+                'label' => 'File Dokumen',
+                'name' => 'file_dokumen',
+                'type' => 'file',
+                'instructions' => 'Unggah file dokumen yang dapat dipreview dan diunduh.',
+                'required' => 1,
+                'return_format' => 'array',
+                'library' => 'all',
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'dokumen_resmi',
+                ],
+            ],
+        ],
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
+    ]);
+
+    acf_add_local_field_group([
+>>>>>>> origin/main
         'key' => 'group_study_program_page',
         'title' => 'Konten Halaman Program Studi (Unified)',
         'fields' => [
@@ -4528,6 +4611,19 @@ add_action('acf/init', function() {
                 'tabs' => 'visual',
             ],
             [
+<<<<<<< HEAD
+=======
+                'key' => 'field_sp_strategy',
+                'label' => 'Strategi',
+                'name' => 'sp_strategy',
+                'type' => 'wysiwyg',
+                'instructions' => 'Isi strategi program studi.',
+                'media_upload' => 0,
+                'toolbar' => 'basic',
+                'tabs' => 'visual',
+            ],
+            [
+>>>>>>> origin/main
                 'key' => 'field_sp_accreditation_1_description',
                 'label' => 'Deskripsi Sertifikat Akreditasi 1',
                 'name' => 'sp_accreditation_1_description',
@@ -4585,6 +4681,36 @@ add_action('acf/init', function() {
                 'return_format' => 'id',
             ],
             [
+<<<<<<< HEAD
+=======
+                'key' => 'field_sp_mata_kuliah_spesialis',
+                'label' => 'Mata Kuliah Spesialis',
+                'name' => 'sp_mata_kuliah_spesialis',
+                'type' => 'relationship',
+                'post_type' => ['mk_spesialis'],
+                'filters' => ['search', 'post_type'],
+                'return_format' => 'id',
+            ],
+            [
+                'key' => 'field_sp_bahan_kajian',
+                'label' => 'Bahan Kajian',
+                'name' => 'sp_bahan_kajian',
+                'type' => 'relationship',
+                'post_type' => ['bahan_kajian'],
+                'filters' => ['search', 'post_type', 'taxonomy'],
+                'return_format' => 'id',
+            ],
+            [
+                'key' => 'field_sp_bidang_keahlian',
+                'label' => 'Bidang Keahlian',
+                'name' => 'sp_bidang_keahlian',
+                'type' => 'relationship',
+                'post_type' => ['bidang_keahlian'],
+                'filters' => ['search', 'post_type', 'taxonomy'],
+                'return_format' => 'id',
+            ],
+            [
+>>>>>>> origin/main
                 'key' => 'field_sp_tuition',
                 'label' => 'Biaya Perkuliahan',
                 'name' => 'sp_tuition',
@@ -4602,12 +4728,25 @@ add_action('acf/init', function() {
                 'return_format' => 'id',
             ],
             [
+<<<<<<< HEAD
                 'key' => 'field_sp_buku_panduan_pdf',
                 'label' => 'PDF Buku Panduan Akademik',
                 'name' => 'sp_buku_panduan_pdf',
                 'type' => 'file',
                 'return_format' => 'array',
                 'library' => 'all',
+=======
+                'key' => 'field_sp_dokumen_resmi',
+                'label' => 'Dokumen Resmi',
+                'name' => 'sp_dokumen_resmi',
+                'type' => 'relationship',
+                'instructions' => 'Pilih dokumen resmi yang akan ditampilkan pada halaman program studi. Dokumen dapat dibatasi berdasarkan kategori program studi.',
+                'post_type' => ['dokumen_resmi'],
+                'filters' => ['search', 'post_type', 'taxonomy'],
+                'min' => 0,
+                'max' => 0,
+                'return_format' => 'id',
+>>>>>>> origin/main
             ],
         ],
         'location' => [
@@ -4625,5 +4764,9 @@ add_action('acf/init', function() {
         'label_placement' => 'top',
         'instruction_placement' => 'label',
         'active' => true,
+<<<<<<< HEAD
+=======
+        'show_in_rest' => 1,
+>>>>>>> origin/main
     ]);
 });

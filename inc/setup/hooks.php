@@ -229,6 +229,17 @@ add_action('acf/save_post', function($post_id) {
 
 add_action('template_redirect', function() {
 
+<<<<<<< HEAD
+=======
+  // Let real Study Program CPT slugs use single-study_program.php.
+  // This prevents legacy simulated routes from shadowing matching CPT posts.
+  $request_path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+  $request_slug = basename($request_path);
+  if ($request_slug && get_page_by_path($request_slug, OBJECT, 'study_program')) {
+    return;
+  }
+
+>>>>>>> origin/main
   // 1. Automatic Page / Fallback Routing for Akademik Pages (HIGHEST PRIORITY)
   global $wp;
   

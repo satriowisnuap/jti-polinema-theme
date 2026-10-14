@@ -47,4 +47,8 @@ if ($template_path) {
     </main><!-- #primary -->
     <?php
     get_footer();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

@@ -159,6 +159,21 @@ function showTab(container, index) {
 
   });
 
+<<<<<<< HEAD
+=======
+  const activeButton = tabButtons[index];
+  const tabNav = container.querySelector('.akademik-tabs__nav');
+  if (activeButton && tabNav) {
+    tabNav.style.setProperty('--tab-indicator-left', `${activeButton.offsetLeft}px`);
+    tabNav.style.setProperty('--tab-indicator-width', `${activeButton.offsetWidth}px`);
+    activeButton.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest'
+    });
+  }
+
+>>>>>>> origin/main
   tabPanels.forEach((panel, i) => {
 
     const isActive = i === index;
@@ -211,4 +226,19 @@ function getActiveTabIndex(container) {
 
   return tabButtons.indexOf(activeButton);
 
+<<<<<<< HEAD
 }
+=======
+}
+
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.tabs-container').forEach((container) => {
+    const activeButton = container.querySelector('.tab-btn.active');
+    const tabNav = container.querySelector('.akademik-tabs__nav');
+    if (!activeButton || !tabNav) return;
+
+    tabNav.style.setProperty('--tab-indicator-left', `${activeButton.offsetLeft}px`);
+    tabNav.style.setProperty('--tab-indicator-width', `${activeButton.offsetWidth}px`);
+  });
+});
+>>>>>>> origin/main
