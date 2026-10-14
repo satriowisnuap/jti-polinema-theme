@@ -895,7 +895,7 @@ function webjti_register_theme_post_types() {
         'back_to_items'     => __('← Kembali ke Kategori', 'webjti'),
     ];
 
-    register_taxonomy('kategori_program_studi', ['study_program', 'profil_lulusan', 'capaian_lulusan', 'peta_jalan_cpl', 'mata_kuliah'], [
+    register_taxonomy('kategori_program_studi', ['study_program', 'profil_lulusan', 'capaian_lulusan', 'peta_jalan_cpl', 'mata_kuliah', 'dokumen_resmi'], [
         'labels'            => $kat_prodi_labels,
         'hierarchical'      => true,
         'public'            => false,
@@ -1045,6 +1045,32 @@ function webjti_register_theme_post_types() {
         'show_in_menu' => 'edit.php?post_type=study_program',
         'supports'     => ['title'],
         'show_in_rest' => false,
+    ]);
+
+    // Register Dokumen Resmi CPT
+    register_post_type('dokumen_resmi', [
+        'labels' => [
+            'name'          => 'Dokumen Resmi',
+            'singular_name' => 'Dokumen Resmi',
+            'menu_name'     => 'Dokumen Resmi',
+            'add_new'       => 'Tambah Dokumen',
+            'add_new_item'  => 'Tambah Dokumen Resmi',
+            'edit_item'     => 'Edit Dokumen Resmi',
+            'all_items'     => 'Dokumen Resmi',
+        ],
+        'public'             => true,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => 'edit.php?post_type=study_program',
+        'query_var'          => true,
+        'rewrite'            => false,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 31,
+        'menu_icon'          => 'dashicons-media-document',
+        'supports'           => ['title', 'page-attributes'],
+        'show_in_rest'       => true,
     ]);
 
     // Register Beasiswa CPT
@@ -1985,6 +2011,7 @@ add_action('admin_menu', function() {
     remove_menu_page('edit.php?post_type=profil_lulusan');
     remove_menu_page('edit.php?post_type=capaian_lulusan');
     remove_menu_page('edit.php?post_type=peta_jalan_cpl');
+    remove_menu_page('edit.php?post_type=dokumen_resmi');
 
     // 2. Clean reconstruction for Prestasi submenu
     if (isset($submenu['edit.php?post_type=achievement'])) {
@@ -2118,36 +2145,42 @@ add_action('admin_menu', function() {
                 'Peta Jalan CPL'
             ],
             5 => [
+                'Dokumen Resmi',
+                'edit_posts',
+                'edit.php?post_type=dokumen_resmi',
+                'Dokumen Resmi'
+            ],
+            6 => [
                 'Mata Kuliah',
                 'edit_posts',
                 'edit.php?post_type=mata_kuliah',
                 'Mata Kuliah'
             ],
-            6 => [
+            7 => [
                 'Mata Kuliah Spesialis',
                 'edit_posts',
                 'edit.php?post_type=mk_spesialis',
                 'Mata Kuliah Spesialis'
             ],
-            7 => [
+            8 => [
                 'Bahan Kajian',
                 'edit_posts',
                 'edit.php?post_type=bahan_kajian',
                 'Bahan Kajian'
             ],
-            8 => [
+            9 => [
                 'Bidang Keahlian',
                 'edit_posts',
                 'edit.php?post_type=bidang_keahlian',
                 'Bidang Keahlian'
             ],
-            9 => [
+            10 => [
                 'Kategori Prodi',
                 'manage_categories',
                 'edit-tags.php?taxonomy=kategori_program_studi&post_type=study_program',
                 'Kategori Prodi'
             ],
-            10 => [
+            11 => [
                 'Tabel Capaian',
                 'manage_categories',
                 'edit-tags.php?taxonomy=capaian_lulusan_tabel&post_type=study_program',
