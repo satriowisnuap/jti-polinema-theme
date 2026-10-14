@@ -1,0 +1,66 @@
+/* ========================================
+   CAMPUS SECTION STYLES
+   WebJTI Theme
+======================================== */
+
+.campus-section {
+  width: 100%;
+  padding: 100px 60px;
+  background: var(--neutral-00, #FFFFFF);
+}
+
+.campus-section .section-header {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   CONTAINER / GRID
+======================================== */
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 48px;
+  align-items: stretch;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1200px) {
+  .campus-section {
+    padding: 80px 40px;
+  }
+  
+  .campus-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .campus-section {
+    padding: 60px 24px;
+  }
+
+  .campus-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .campus-section {
+    padding: 48px 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .campus-section {
+    padding: 40px 16px;
+  }
+}

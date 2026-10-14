@@ -1,0 +1,809 @@
+/* ============================================================
+   ACHIEVEMENT DETAIL PAGE STYLES (FIGMA HIGH-FIDELITY)
+   WebJTI Theme
+   ============================================================ */
+
+.single-achievement-page {
+  background-color: var(--neutral-00, #ffffff);
+  min-height: 100vh;
+}
+
+/* Centered single column layout wrapper */
+.single-achievement__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+.single-achievement__layout {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.single-achievement__content-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+/* ------------------------------------------------------------
+   1. COMPETITION HEADER SECTION
+   ------------------------------------------------------------ */
+.achievement-header {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.achievement-header__hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
+  background-color: var(--neutral-02, #f5f5f4);
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(12, 10, 9, 0.04);
+}
+
+.achievement-header__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.achievement-header__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.achievement-header__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  border: 1px dashed var(--neutral-04, #d6d3d1);
+}
+
+.achievement-header__placeholder i {
+  font-size: 64px;
+  color: var(--neutral-04, #d6d3d1);
+}
+
+/* Floating Gold Victory Badge */
+.achievement-header__badge {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  z-index: 10;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.achievement-header__badge:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.achievement-header__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Title and Meta Description Area */
+.achievement-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.achievement-header__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.achievement-header__year {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: var(--purple-01, #fbf7fe);
+  border: 1px solid var(--purple-03, #ead5f9);
+  color: var(--purple-07, #8145b5);
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+}
+
+.achievement-header__level {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+}
+
+.achievement-header__level.internasional {
+  background: #fbf7fe !important;
+  border: 1px solid #ead5f9 !important;
+  color: #8145b5 !important;
+}
+
+.achievement-header__level.nasional {
+  background: #eef7ff !important;
+  border: 1px solid #badfff !important;
+  color: #1349ba !important;
+}
+
+.achievement-header__level.regional {
+  background: #fff9ed !important;
+  border: 1px solid #ffdfa9 !important;
+  color: #ee6d08 !important;
+}
+
+.achievement-header__level.lokal {
+  background: #fafaf9 !important;
+  border: 1px solid #d6d3d1 !important;
+  color: #57534d !important;
+}
+
+.achievement-header__title {
+  font-size: var(--h2-size, 32px);
+  font-weight: 500;
+  color: var(--neutral-11, #0c0a09);
+  line-height: var(--h2-line);
+  margin: 0;
+  letter-spacing: var(--h2-spacing);
+}
+
+.achievement-header__date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neutral-06, #79716b);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.achievement-header__date i {
+  font-size: 20px;
+  color: var(--neutral-05, #a6a09b);
+}
+
+/* ------------------------------------------------------------
+   2. TEAM MEMBERS LIST (1038:15912)
+   ------------------------------------------------------------ */
+.achievement-team__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.member-card {
+  background: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  box-shadow: 0px 1px 2px 0px rgba(12, 10, 9, 0.06);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-3px);
+}
+
+.member-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Avatar Frame on Gold background */
+.member-card__avatar-frame {
+  background-color: #febf11; /* Gold */
+  overflow: hidden;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1.5px solid var(--neutral-00, #ffffff);
+  box-shadow: 0px 1px 3px 0px rgba(12, 10, 9, 0.2);
+  flex-shrink: 0;
+}
+
+.member-card__avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.member-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid var(--neutral-04, #d6d3d1);
+  background: var(--neutral-01, #fafaf9);
+  color: var(--neutral-07, #57534d);
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+  white-space: nowrap;
+}
+
+/* Specific Member Badge Styling */
+.member-card__badge.ketua {
+  background: #fff7dc !important;
+  border: 1px solid #ffee83 !important;
+  color: #876803 !important;
+}
+
+.member-card__badge.pembimbing {
+  background: #fbf7fe !important;
+  border: 1px solid #ead5f9 !important;
+  color: #8145b5 !important;
+}
+
+/* Footer Section of Member Card */
+.member-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+}
+
+.member-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.member-card__name {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--neutral-11, #0c0a09);
+  margin: 0;
+  letter-spacing: -0.18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  line-height: 1.3;
+}
+
+.member-card__id {
+  font-size: 15px;
+  color: var(--neutral-07, #57534d) !important;
+  margin: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Linkedin CTA Button */
+.member-card__linkedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  box-shadow: 0px 1px 2px 0px rgba(12, 10, 9, 0.06);
+  color: var(--neutral-07, #57534d);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.member-card__linkedin:hover {
+  background-color: var(--neutral-02, #f5f5f4);
+  border-color: var(--neutral-04, #d6d3d1);
+  color: #0077b5; /* LinkedIn Blue */
+}
+
+.member-card__linkedin--disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   3. CAPAIAN PRESTASI SUMMARY GRID
+   ------------------------------------------------------------ */
+.achievement-summary__grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.achievement-summary__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--neutral-03, #e7e5e4);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.achievement-summary__item:first-child {
+  padding-top: 0;
+}
+
+.achievement-summary__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.achievement-summary__label {
+  width: 200px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--neutral-07, #57534d);
+  line-height: 1.5;
+}
+
+.achievement-summary__value {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--neutral-11, #0c0a09);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .achievement-summary__item {
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  .achievement-summary__label {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------
+   4. DESCRIPTION BLOCK
+   ------------------------------------------------------------ */
+.achievement-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--neutral-08, #44403c);
+  text-align: justify;
+}
+
+.achievement-description p {
+  margin-bottom: 20px;
+}
+
+.achievement-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   5. GALLERY GRID
+   ------------------------------------------------------------ */
+.achievement-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.achievement-gallery__item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  background-color: var(--neutral-02, #f5f5f4);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.achievement-gallery__item:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(12, 10, 9, 0.08);
+}
+
+.achievement-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gallery hover zoom effect overlay */
+.gallery-item-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 10, 9, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.achievement-gallery__item:hover .gallery-item-hover {
+  opacity: 1;
+}
+
+.gallery-item-hover i {
+  color: #ffffff;
+  font-size: 32px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.achievement-gallery__item:hover .gallery-item-hover i {
+  transform: scale(1);
+}
+
+/* Premium Fullscreen Lightbox popup modal (integrated with global gallery-lightbox.js) */
+.gallery-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox[aria-hidden="false"] {
+  display: flex;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(12, 10, 9, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  display: block;
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-lightbox[aria-hidden="false"] .lightbox-content {
+  animation: lightboxFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+  z-index: 3;
+}
+
+.lightbox-close:hover {
+  color: var(--orange-2-07, #ee6d08);
+  transform: scale(1.1);
+}
+
+/* Premium Left/Right carets for navigation */
+.gallery-lightbox .prev,
+.gallery-lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 3;
+  width: 56px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.gallery-lightbox .prev {
+  left: 48px;
+}
+
+.gallery-lightbox .next {
+  right: 48px;
+}
+
+.gallery-lightbox .prev:hover,
+.gallery-lightbox .next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--orange-2-07, #ee6d08);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* ------------------------------------------------------------
+   6. RELATED ACHIEVEMENTS SECTION (1274-24546)
+   ------------------------------------------------------------ */
+.single-achievement__related-section {
+  background-color: #f5f5f4; /* Muted grey background */
+  border-top: 1px solid var(--neutral-03, #e7e5e4);
+  padding: 80px 0 96px 0;
+  width: 100%;
+}
+
+/* Wrap inner grid/header to match container width */
+.single-achievement__related-section .container--wide {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+.single-achievement__related-header {
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: left;
+}
+
+.single-achievement__related-title-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.single-achievement__related-title {
+  font-size: var(--h2-size);
+  font-weight: 500;
+  color: var(--neutral-11, #0c0a09);
+  margin: 0;
+  letter-spacing: var(--h2-spacing);
+  line-height: var(--h2-line);
+}
+
+.single-achievement__related-badge {
+  background-color: var(--orange-2-02, #fff3eb);
+  border: 1px solid var(--orange-2-04, #ffd8be);
+  border-radius: 99px;
+  padding: 4px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+}
+
+.single-achievement__related-badge-text {
+  color: var(--orange-2-07, #ee6d08);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* Grid layout with exactly 3 related cards */
+.single-achievement__related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+.single-achievement__related-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px;
+  color: var(--neutral-06, #79716b);
+  font-size: 16px;
+  border: 1px dashed var(--neutral-04, #d6d3d1);
+  border-radius: 20px;
+  background: var(--neutral-00, #ffffff);
+}
+
+/* Sibling Related Card Component (Inherited from global info-card styling) */
+
+/* related section CTA */
+.single-achievement__related-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+  width: 100%;
+}
+
+/* empty state */
+.achievement-empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.achievement-empty-state i {
+  font-size: 72px;
+  color: var(--neutral-04, #d6d3d1);
+  margin-bottom: 20px;
+}
+
+.achievement-empty-state h2 {
+  font-size: 24px;
+  color: var(--neutral-11, #0c0a09);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.achievement-empty-state p {
+  color: var(--neutral-06, #79716b);
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .single-achievement__container,
+  .single-achievement__related-section .container--wide {
+    padding: 0 40px;
+  }
+
+  .achievement-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .single-achievement__related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .single-achievement__container,
+  .single-achievement__related-section .container--wide {
+    padding: 0 24px;
+  }
+
+  .achievement-header__title {
+    font-size: 30px;
+  }
+
+  .achievement-header__hero {
+    aspect-ratio: 16 / 10;
+  }
+
+  .achievement-header__badge {
+    width: 80px;
+    height: 80px;
+    right: 24px;
+    top: -24px;
+    bottom: auto;
+  }
+
+  .achievement-summary__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .single-achievement__related-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .achievement-team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-header__title {
+    font-size: 24px;
+  }
+
+  .achievement-header__badge {
+    width: 64px;
+    height: 64px;
+    right: 16px;
+    top: -16px;
+    bottom: auto;
+  }
+
+  .member-card {
+    padding: 16px;
+    gap: 24px;
+  }
+}

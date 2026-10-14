@@ -1,0 +1,1061 @@
+/* ============================================================
+   Header CSS — WebJTI Theme
+   Implements Figma design: Navbar (828-20506)
+   + Dropdowns: Tentang Kami (899-5780), Akademik (1256-20330),
+     Kemahasiswaan & Penelitian (1256-20386)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. SITE HEADER WRAPPER
+   ---------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--neutral-00);
+}
+
+/* ----------------------------------------------------------
+   2. TOP HEADER BAR
+   ---------------------------------------------------------- */
+.top-header {
+  background: var(--gradient-yellow);
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--yellow-11);
+  font-size: var(--b4-font-size); /* 14px */
+  line-height: var(--b4-line-height);
+  font-family: var(--font-family-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.top-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.top-header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.top-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Contact items */
+.top-header-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--b4-font-size);
+  color: var(--yellow-11);
+  white-space: nowrap;
+}
+
+.top-header-item i {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.top-header-item a {
+  color: var(--yellow-11);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.top-header-item a:hover {
+  opacity: 0.75;
+}
+
+/* Quick links */
+.top-header-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-header-menu nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-header-menu a {
+  color: var(--yellow-11);
+  text-decoration: none;
+  font-size: var(--b4-font-size);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.top-header-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--yellow-11);
+  transition: width 0.25s ease;
+}
+
+.top-header-menu a:hover::after {
+  width: 100%;
+}
+
+/* Separator */
+.shortcut-separator {
+  color: rgba(72, 33, 0, 0.2);
+  font-weight: 300;
+  user-select: none;
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2px;
+  border-radius: 6px;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.lang-btn.active {
+  background: var(--neutral-00);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.lang-btn img {
+  width: 22px;
+  height: 16px;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  border: 0.5px solid var(--neutral-02);
+}
+
+/* ----------------------------------------------------------
+   3. MAIN NAVIGATION BAR
+   ---------------------------------------------------------- */
+.main-navigation {
+  background-color: var(--neutral-00);
+  border-bottom: 1px solid var(--neutral-03);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  height: 100%;
+  gap: 16px;
+}
+
+/* Logo group */
+.nav-logos {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.nav-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-logo--circle {
+  border-radius: 50%;
+  border: 1px solid var(--neutral-00);
+}
+
+/* ----------------------------------------------------------
+   4. PRIMARY MENU
+   ---------------------------------------------------------- */
+.primary-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  gap: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.menu-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Menu links (both <a> and <button>) */
+:is(.menu-item > a, .menu-link) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  padding: 4px 12px;
+  font-size: var(--b3-font-size); /* 16px */
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  color: var(--neutral-11);
+  text-decoration: none;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; /* overlap nav border */
+  box-sizing: border-box;
+}
+
+@media (hover: hover) {
+  :is(.menu-item > a, .menu-link):hover,
+  .menu-item-has-dropdown:hover > :is(a, .menu-link) {
+    color: var(--orange-2-07) !important;
+    border-bottom: 2px solid var(--orange-2-07) !important;
+  }
+
+  .menu-item-has-dropdown:hover .caret-icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* Active / current page tab or opened dropdown */
+.current-menu-item > :is(a, .menu-link),
+.menu-item.active > :is(a, .menu-link),
+.menu-item-has-dropdown.is-open > :is(a, .menu-link) {
+  color: var(--orange-2-07) !important;
+  border-bottom: 2px solid var(--orange-2-07) !important;
+}
+
+/* Caret icon — rotates up when open, or on current page */
+.caret-icon {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  color: currentColor;
+}
+
+/* CSS-driven rotation: JS .is-open, or current active page */
+.menu-item-has-dropdown.is-open .caret-icon,
+.current-menu-item.menu-item-has-dropdown .caret-icon {
+  transform: rotate(180deg);
+}
+
+/* ----------------------------------------------------------
+   5. MEGA DROPDOWN
+   Triggered by CSS :hover — no JS needed for show/hide.
+   JS is only used as fallback for keyboard/touch.
+   ---------------------------------------------------------- */
+.mega-dropdown {
+  position: absolute;
+  top: 100%; /* flush to bottom of nav bar */
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: max-content;
+  max-width: min(95vw, 1140px);
+  min-width: 620px;
+  background: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-02, #f5f5f4);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex; /* always flex, visibility via opacity */
+  gap: 28px;
+  align-items: flex-start;
+  box-shadow:
+    0px 15px 33px 0px rgba(12, 10, 9, 0.04),
+    0px 60px 60px 0px rgba(12, 10, 9, 0.03),
+    0px 135px 81px 0px rgba(12, 10, 9, 0.02),
+    0px 240px 96px 0px rgba(12, 10, 9, 0.01);
+  z-index: 200;
+  /* Hidden state */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Invisible bridge: covers the gap so mouse can travel from
+   trigger to panel without closing the dropdown */
+.mega-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -24px;   /* covers the 12px visible gap + extra buffer */
+  left: 0;
+  right: 0;
+  height: 24px;
+}
+
+/* SHOW: CSS hover trigger */
+.menu-item-has-dropdown:hover > .mega-dropdown,
+.menu-item-has-dropdown.is-open > .mega-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(12px); /* 12px gap below nav */
+}
+
+/* Wide variant — Akademik and Penelitian */
+.mega-dropdown--wide {
+  min-width: 720px;
+  width: max-content;
+}
+
+/* Left-aligned: 2nd menu item (Tentang Kami) */
+.primary-menu > li:nth-child(2) > .mega-dropdown {
+  left: 0;
+  transform: translateX(0) translateY(20px);
+}
+.primary-menu > li:nth-child(2):hover > .mega-dropdown,
+.primary-menu > li:nth-child(2).is-open > .mega-dropdown {
+  transform: translateX(0) translateY(12px);
+}
+
+/* Right-aligned: last dropdown before Informasi (Penelitian) */
+.primary-menu > li:nth-child(5) > .mega-dropdown {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(20px);
+}
+.primary-menu > li:nth-child(5):hover > .mega-dropdown,
+.primary-menu > li:nth-child(5).is-open > .mega-dropdown {
+  transform: translateX(0) translateY(12px);
+}
+
+/* Standard columns */
+.mega-dropdown__col {
+  flex: 0 0 auto;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+/* Specific column sizing to prevent overflow and overlapping */
+.mega-dropdown__col--prodi {
+  min-width: 220px;
+  max-width: 260px;
+}
+
+.mega-dropdown__col--khusus {
+  min-width: 200px;
+  max-width: 240px;
+}
+
+.mega-dropdown__col--layanan {
+  min-width: 160px;
+  max-width: 200px;
+}
+
+.mega-dropdown__col--info-umum {
+  min-width: 180px;
+  max-width: 230px;
+}
+
+.mega-dropdown__col--pengembangan {
+  min-width: 190px;
+  max-width: 240px;
+}
+
+.mega-dropdown__col--dukungan {
+  min-width: 160px;
+  max-width: 200px;
+}
+
+/* Narrow column (Penelitian: Kegiatan Utama / Dukungan Mahasiswa) */
+.mega-dropdown__col--narrow {
+  flex: 0 0 auto;
+  min-width: 130px;
+  max-width: 160px;
+}
+
+/* Wide / Labs column (Penelitian: Laboratorium Riset) */
+.mega-dropdown__col--wide,
+.mega-dropdown__col--labs {
+  flex: 0 0 auto;
+  min-width: 320px;
+  max-width: 350px;
+}
+
+/* Sub-columns inside a column (Penelitian lab 2-col flex layout) */
+.mega-dropdown__subcols {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.mega-dropdown__subcols .mega-dropdown__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 145px;
+  max-width: 150px;
+}
+
+/* Dynamic 2-column grid for laboratories matching Image 4 (max 2-3 words per line, clean vertical spacing) */
+.mega-dropdown__col--labs > .mega-dropdown__list,
+.mega-dropdown__col--wide > .mega-dropdown__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(135px, 145px));
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+  column-gap: 28px;
+  row-gap: 16px;
+}
+
+/* Vertical divider */
+.mega-dropdown__divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--neutral-03, #e7e5e4);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Section label (CAPS, 12px, muted) */
+.mega-dropdown__label {
+  display: block;
+  font-size: var(--b5-size, 12px);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: 1.5;
+  color: var(--neutral-06, #78716c);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* Sub-label (14px, muted) for diploma level groups */
+.mega-dropdown__sublabel {
+  display: block;
+  font-size: var(--b4-font-size, 14px);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  color: var(--neutral-06, #78716c);
+  margin-bottom: 2px;
+}
+
+/* Link list */
+.mega-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mega-dropdown__list a {
+  display: block;
+  font-size: var(--b3-font-size, 16px);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.4;
+  color: var(--neutral-11, #0c0a09);
+  text-decoration: none;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  transition: color 0.2s ease;
+}
+
+.mega-dropdown__list a:hover {
+  color: var(--orange-2-07, #ee6d08);
+}
+
+/* Specific text wrapping for laboratory links: max ~2-3 words per line matching Image 4 */
+.mega-dropdown__col--labs .mega-dropdown__list a,
+.mega-dropdown__col--wide .mega-dropdown__list a,
+.mega-dropdown__subcols .mega-dropdown__list a {
+  display: block;
+  font-size: var(--b3-font-size, 16px);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.35;
+  color: var(--neutral-11, #0c0a09);
+  text-decoration: none;
+  width: 100%;
+  max-width: 145px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  transition: color 0.2s ease;
+}
+
+/* Highlighted link (e.g. Visi, Misi dan Tujuan) */
+.mega-dropdown__list a.text-orange {
+  color: var(--orange-2-07, #ee6d08);
+}
+
+/* Grouped items with diploma sub-labels */
+.mega-dropdown__list--grouped {
+  gap: 16px;
+}
+
+.mega-dropdown__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.mega-dropdown__group:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ----------------------------------------------------------
+   6. NAV ACTIONS (Search + Mobile Toggle)
+   ---------------------------------------------------------- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Search button */
+.nav-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--neutral-00);
+  border: 1px solid var(--neutral-03);
+  border-radius: 99px;
+  cursor: pointer;
+  color: var(--neutral-11);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-search-btn:hover {
+  background: var(--neutral-02);
+  border-color: var(--neutral-04);
+}
+
+/* Mobile hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: 1px solid var(--neutral-03);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--neutral-02);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--neutral-11);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.is-active .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ----------------------------------------------------------
+   7. SEARCH BAR (slides in below nav)
+   ---------------------------------------------------------- */
+.nav-search-bar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--neutral-00);
+  border-bottom: 1px solid var(--neutral-03);
+  display: none;
+  z-index: 190;
+  box-shadow: 0 4px 16px rgba(12, 10, 9, 0.08);
+}
+
+.nav-search-bar.is-visible {
+  display: block;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.nav-search-input {
+  flex: 1;
+  height: 44px;
+  padding: 0 16px;
+  font-size: var(--b3-font-size);
+  font-family: var(--font-family-primary);
+  color: var(--neutral-11);
+  background: var(--neutral-02);
+  border: 1px solid var(--neutral-03);
+  border-radius: 99px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-search-input:focus {
+  border-color: var(--orange-2-07);
+  box-shadow: 0 0 0 3px rgba(238, 109, 8, 0.12);
+}
+
+.nav-search-input::placeholder {
+  color: var(--neutral-05);
+}
+
+.nav-search-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--orange-2-07);
+  border: none;
+  border-radius: 99px;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.nav-search-submit:hover {
+  background: var(--orange-2-08);
+}
+
+.nav-search-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--neutral-03);
+  border-radius: 8px;
+  color: var(--neutral-07);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-search-close:hover {
+  background: var(--neutral-02);
+  color: var(--neutral-11);
+}
+
+/* The search bar inner uses same .nav-inner styles */
+.nav-search-bar .nav-inner {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  height: auto;
+  gap: 12px;
+}
+
+/* ----------------------------------------------------------
+   8. SCROLL STATE
+   ---------------------------------------------------------- */
+.site-header.scrolled .main-navigation {
+  box-shadow: 0 2px 12px rgba(12, 10, 9, 0.08);
+}
+
+/* ----------------------------------------------------------
+   9. CONTAINER UTILITY (for top-header)
+   ---------------------------------------------------------- */
+.top-header .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  width: 100%;
+}
+
+/* ----------------------------------------------------------
+   10. RESPONSIVE — Tablet & Mobile
+   ---------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-inner {
+    padding: 0 24px;
+  }
+
+  .top-header .container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* ── Mobile: disable CSS hover, use hamburger ──────── */
+
+  /* Topbar Mobile Layout */
+  .top-header {
+    height: auto;
+    padding: 8px 0;
+  }
+  .top-header-content {
+    justify-content: center;
+  }
+  .top-header-left,
+  .top-header-menu,
+  .shortcut-separator {
+    display: none;
+  }
+  .top-header-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* Hide the desktop menu list */
+  .primary-menu {
+    display: flex;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--neutral-00);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100vh;
+    max-height: none;
+    overflow-y: auto;
+    z-index: 2000;
+    padding: 16px 24px 24px 24px;
+    gap: 0;
+    border-top: none;
+    box-shadow: none;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, visibility 0.3s ease;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--neutral-03);
+  }
+  .mobile-menu-title {
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-11);
+  }
+  .mobile-menu-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--neutral-11);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 8px;
+    margin-top: 16px; 
+    border-top: 1px solid var(--neutral-03);
+  }
+  .mobile-contact-info .top-header-item {
+    color: var(--neutral-11);
+  }
+  .mobile-contact-info .top-header-item a {
+    color: var(--neutral-11);
+  }
+
+  .primary-menu.is-open {
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  /* Mobile menu items */
+  .menu-item {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid var(--neutral-03);
+  }
+
+  .menu-item > a,
+  .menu-link {
+    height: 52px;
+    padding: 0 4px;
+    border-bottom: none !important;
+    margin-bottom: 0;
+    justify-content: space-between;
+  }
+
+  /* Mobile: disable CSS hover for dropdowns,
+     use JS .is-open toggle instead */
+  .menu-item-has-dropdown:hover > .mega-dropdown {
+    opacity: 0;
+    pointer-events: none;
+    transform: none;
+  }
+
+  /* Mobile dropdown: hidden by default */
+  .mega-dropdown {
+    display: none;
+    position: static;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    min-width: auto;
+    width: 100%;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: none;
+    background: var(--neutral-02);
+    margin-bottom: 8px;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Mobile dropdown: shown via JS .is-open */
+  .menu-item-has-dropdown.is-open > .mega-dropdown {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none !important;
+  }
+
+  /* Divider becomes horizontal on mobile */
+  .mega-dropdown__divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+
+  /* Columns stack full-width */
+  .mega-dropdown__col,
+  .mega-dropdown__col--narrow,
+  .mega-dropdown__col--wide,
+  .mega-dropdown__col--labs,
+  .mega-dropdown__col--prodi,
+  .mega-dropdown__col--khusus,
+  .mega-dropdown__col--layanan,
+  .mega-dropdown__col--info-umum,
+  .mega-dropdown__col--pengembangan,
+  .mega-dropdown__col--dukungan {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Subcols also stack on mobile */
+  .mega-dropdown__subcols {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .mega-dropdown__subcols .mega-dropdown__list,
+  .mega-dropdown__col--labs .mega-dropdown__list a,
+  .mega-dropdown__col--wide .mega-dropdown__list a,
+  .mega-dropdown__subcols .mega-dropdown__list a {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mega-dropdown__col--wide > .mega-dropdown__list,
+  .mega-dropdown__col--labs > .mega-dropdown__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Show hamburger toggle */
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-inner {
+    padding: 0 16px;
+  }
+
+  .top-header .container {
+    padding: 0 16px;
+  }
+}
+
+/* Base style for mobile contact info and mobile menu header hidden on desktop */
+@media (min-width: 901px) {
+  .mobile-contact-info,
+  .mobile-menu-header {
+    display: none !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   11. SCROLL PROGRESS INDICATOR (Figma 966:25749)
+   ---------------------------------------------------------- */
+.scroll-progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #E7E5E4; /* Neutral/03 */
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #E19000;
+  transition: width 0.1s ease-out;
+}
+
+/* ============================================================
+   STANDARD WORDPRESS SUB-MENU DROPDOWN STYLE
+   ============================================================ */
+.primary-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--neutral-00, #ffffff);
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  box-shadow: 0px 8px 24px rgba(12, 10, 9, 0.08);
+  border-radius: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Invisible bridge to keep hover active */
+.primary-menu .sub-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.primary-menu .menu-item-has-dropdown:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(8px);
+}
+
+.primary-menu .sub-menu li {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.primary-menu .sub-menu a {
+  display: block;
+  padding: 10px 18px;
+  color: var(--neutral-11, #0c0a09) !important;
+  text-decoration: none;
+  font-size: var(--b3-font-size, 16px);
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  text-align: left;
+}
+
+.primary-menu .sub-menu a:hover {
+  background-color: var(--neutral-02, #f5f5f4) !important;
+  color: var(--orange-2-07, #ee6d08) !important;
+}
+

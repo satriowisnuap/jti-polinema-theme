@@ -1,0 +1,111 @@
+/* ========================================
+   UNDER DEVELOPMENT FALLBACK PAGE STYLES
+   WebJTI Theme (Figma High-Fidelity)
+======================================== */
+
+.under-development-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 350px); /* Fill the vertical viewport between header & footer */
+  padding: 80px 24px;
+  background: var(--neutral-01, #FAFAF9);
+  box-sizing: border-box;
+}
+
+.under-development__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  gap: 40px;
+}
+
+.under-development__image-area {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.under-development__img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(12, 10, 9, 0.05));
+}
+
+.under-development__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.under-development__title {
+  color: var(--neutral-11, #0C0A09);
+  font-size: var(--h4-size, 32px);
+  font-weight: var(--fw-medium, 500);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.under-development__subtitle {
+  color: var(--neutral-07, #57534D);
+  font-size: var(--b2-size, 18px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0;
+}
+
+.under-development__action {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.under-development__action .btn {
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-medium, 500);
+  padding: 14px 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(238, 109, 8, 0.15);
+}
+
+.under-development__action .btn i {
+  font-size: 20px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN BREAKPOINTS
+======================================== */
+
+@media (max-width: 768px) {
+  .under-development-page {
+    padding: 60px 20px;
+    min-height: calc(100vh - 400px);
+  }
+
+  .under-development__wrapper {
+    gap: 32px;
+  }
+
+  .under-development__image-area {
+    max-width: 240px;
+  }
+
+  .under-development__title {
+    font-size: 26px;
+  }
+
+  .under-development__subtitle {
+    font-size: 16px;
+  }
+}

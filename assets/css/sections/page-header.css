@@ -1,0 +1,96 @@
+/* ============================================================
+   Page Header Section CSS — WebJTI Theme
+   Implements Figma design: Header (919-2414)
+   ============================================================ */
+
+.page-header--menu {
+  position: relative;
+  height: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.page-header-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.page-header-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.7);
+  z-index: 2;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Badge Hero styling override */
+.page-header-content .badge--hero {
+  margin-bottom: 0;
+}
+
+/* Section Title Hero styling override for Page Header */
+.page-header--menu .section-title--hero {
+  font-family: var(--font-primary);
+  font-size: var(--display-size);
+  font-weight: var(--fw-regular);
+  line-height: var(--display-line);
+  letter-spacing: var(--display-spacing);
+  color: var(--neutral-00, #ffffff);
+  text-align: center;
+  width: auto;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE — Tablet & Mobile
+   ---------------------------------------------------------- */
+@media (max-width: 900px) {
+  .page-header--menu {
+    height: 280px;
+  }
+
+  .page-header--menu .section-title--hero {
+    font-size: clamp(32px, 6vw, 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header--menu {
+    height: 240px;
+  }
+
+  .page-header-content {
+    gap: 12px;
+  }
+
+  .page-header--menu .section-title--hero {
+    font-size: clamp(24px, 8vw, 32px);
+  }
+}

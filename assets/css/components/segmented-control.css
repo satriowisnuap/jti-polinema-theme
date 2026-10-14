@@ -1,0 +1,57 @@
+/* ========================================
+   SEGMENTED CONTROL COMPONENT
+   WebJTI Theme
+======================================== */
+
+/* Segmented Control Pill Wrapper */
+.filter-list.segmented {
+  display: flex;
+  align-items: center;
+
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--neutral-02, #F5F5F4);
+
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filter-list.segmented::-webkit-scrollbar {
+  display: none;
+}
+
+/* Segmented Buttons */
+.filter-list.segmented .filter-btn {
+  height: 36px;
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 8px; /* Nested border-radius matches 12px container beautifully! */
+  background: transparent;
+
+  color: var(--neutral-06, #79716B);
+  font-size: var(--b4-size, 14px);
+  font-weight: var(--fw-regular, 400);
+  white-space: nowrap;
+  
+  cursor: pointer;
+  box-shadow: none;
+
+  transition:
+    background 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-list.segmented .filter-btn:hover {
+  color: var(--neutral-11, #292524);
+}
+
+.filter-list.segmented .filter-btn.active {
+  background: var(--neutral-00, #FFFFFF);
+  color: var(--neutral-11, #0C0A09);
+  font-weight: var(--fw-medium, 500);
+
+  box-shadow: 0px 1px 2px rgba(12, 10, 9, 0.06);
+}

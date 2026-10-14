@@ -1,0 +1,321 @@
+/* ========================================
+   STAFF CARD STYLES
+   WebJTI Theme (Figma High-Fidelity)
+======================================== */
+
+.staff-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  padding: 48px 24px 24px;
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  border-radius: 20px;
+
+  background: var(--neutral-00, #FFFFFF);
+
+  box-shadow: 0 1px 2px rgba(12, 10, 9, 0.06);
+
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover effects */
+.staff-card:hover {
+  transform: translateY(-6px);
+}
+
+.staff-card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   IDENTITY HEADER
+======================================== */
+
+.staff-card__top-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Circular Gold Avatar */
+.staff-card__avatar-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  position: relative;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+  background: var(--yellow-06, #FEBF11);
+
+  box-shadow: 0 1px 2px rgba(12, 10, 9, 0.12);
+}
+
+.staff-card__avatar-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.staff-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Identity Titles */
+.staff-card__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  gap: 4px;
+
+  text-align: center;
+}
+
+.staff-card__name {
+  color: var(--neutral-11, #0C0A09);
+  
+  font-size: var(--b2-size, 18px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.5;
+  letter-spacing: -0.18px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.staff-card__position {
+  color: var(--neutral-07, #57534D);
+
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.5;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Divider Line */
+.staff-card__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--neutral-03, #E7E5E4);
+}
+
+/* NIP Details */
+.staff-card__meta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  text-align: center;
+}
+
+.staff-card__meta-label {
+  color: var(--neutral-06, #79716B);
+  font-size: var(--b4-size, 14px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.5;
+}
+
+.staff-card__meta-val {
+  color: var(--neutral-11, #0C0A09);
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* ========================================
+   STAFF GRID & SLIDER LAYOUTS
+======================================== */
+
+/* Filter & Search Bar Row */
+.staff-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* Section Header */
+.staff-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--neutral-03, #E7E5E4);
+  padding-bottom: 20px;
+}
+
+.staff-section__title-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.staff-section__title {
+  color: var(--neutral-11, #0C0A09);
+  font-size: var(--h5-size, 24px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Total Count Badge */
+.staff-section__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 32px;
+  padding: 0 16px;
+
+  border-radius: 100px;
+  background: var(--neutral-02, #F5F5F4);
+
+  color: var(--neutral-11, #0C0A09);
+  font-size: var(--b4-size, 14px);
+  font-weight: var(--fw-regular, 400);
+}
+
+/* Slider Nav Arrows */
+.staff-section__arrows {
+  display: flex;
+  gap: 8px;
+}
+
+/* ========================================
+   HORIZONTAL SLIDER (MODE 1)
+======================================== */
+
+.staff-slider__container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  padding: 10px 4px 24px 4px;
+  margin: 0 -4px 40px -4px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.staff-slider__container::-webkit-scrollbar {
+  display: none;
+}
+
+.staff-slider__track {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Sneakpeak: Shows exactly 3 cards fully and peeks the 4th card */
+.staff-slider__item {
+  flex: 0 0 calc(30.6% - 8px);
+  scroll-snap-align: start;
+  min-width: 290px;
+  height: auto;
+}
+
+/* ========================================
+   STATIC GRID MODE (MODE 2)
+======================================= */
+
+.staff-section__grid.grid-mode {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  
+  width: 100%;
+  margin-bottom: 50px;
+  align-items: stretch;
+}
+
+.staff-grid__item {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.staff-dept-section {
+  margin-bottom: 48px;
+}
+
+.staff-dept-section:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN BREAKPOINTS
+======================================== */
+
+@media (max-width: 1200px) {
+  /* Sneakpeak: Shows exactly 2 cards fully and peeks the 3rd */
+  .staff-slider__item {
+    flex: 0 0 calc(46% - 8px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .staff-section__grid.grid-mode {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .staff-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Sneakpeak: Shows exactly 1 card fully and peeks the 2nd */
+  .staff-slider__item {
+    flex: 0 0 85%;
+  }
+
+  .staff-section__grid.grid-mode {
+    grid-template-columns: 1fr;
+    margin-bottom: 32px;
+  }
+
+  .staff-section__title {
+    font-size: var(--h6-size, 20px);
+  }
+}

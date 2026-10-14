@@ -1,0 +1,194 @@
+/* ========================================
+   COOPERATION SECTION
+   WebJTI Theme
+======================================== */
+
+.cooperation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.cooperation-section__card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--neutral-00, #ffffff);
+  border: 1.5px solid var(--neutral-03, #E7E5E4);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Header ───────────────────────────────── */
+
+.cooperation-section__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--neutral-03, #E7E5E4);
+}
+
+.cooperation-section__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--orange-1-01, #FEF4EE);
+  border: 1px solid var(--orange-1-03, #FAC8AE);
+  color: var(--orange-1-06, #F05529);
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.cooperation-section__title {
+  font-size: var(--h4-size, 24px);
+  font-weight: var(--fw-bold, 700);
+  color: var(--neutral-10, #1C1917);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ── Image ────────────────────────────────── */
+
+.cooperation-section__image-wrap {
+  width: 100%;
+  max-height: 380px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  background: var(--neutral-02, #F5F5F4);
+}
+
+.cooperation-section__image {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Body Content ─────────────────────────── */
+
+.cooperation-section__body {
+  color: var(--neutral-07, #57534D);
+  font-size: var(--b3-size, 16px);
+  line-height: 1.75;
+}
+
+.cooperation-section__body p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.cooperation-section__body p:last-child {
+  margin-bottom: 0;
+}
+
+.cooperation-section__body ul,
+.cooperation-section__body ol {
+  padding-left: 24px;
+  margin: 0 0 16px;
+}
+
+.cooperation-section__body ul {
+  list-style-type: disc;
+}
+
+.cooperation-section__body ol {
+  list-style-type: decimal;
+}
+
+.cooperation-section__body li {
+  margin-bottom: 8px;
+  color: var(--neutral-07, #57534D);
+}
+
+.cooperation-section__body ul li::marker,
+.cooperation-section__body ol li::marker {
+  color: var(--orange-1-06, #F05529);
+  font-weight: var(--fw-bold, 700);
+}
+
+.cooperation-section__body strong {
+  color: var(--neutral-09, #292524);
+  font-weight: var(--fw-semibold, 600);
+}
+
+.cooperation-section__body a {
+  color: var(--orange-1-06, #F05529);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cooperation-section__body a:hover {
+  color: var(--orange-1-08, #BA2514);
+}
+
+/* ── CTA Redirect Button ─────────────────── */
+
+.cooperation-section__cta {
+  display: flex;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--neutral-03, #E7E5E4);
+}
+
+.cooperation-section__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--orange-1-06, #F05529);
+  color: #ffffff;
+  border-radius: var(--radius-sm, 8px);
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-semibold, 600);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(240, 85, 41, 0.25);
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cooperation-section__btn:hover {
+  background: var(--orange-1-07, #E13415);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(240, 85, 41, 0.35);
+  color: #ffffff;
+}
+
+.cooperation-section__btn i {
+  font-size: 20px;
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 768px) {
+  .cooperation-section__card {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .cooperation-section__header {
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+
+  .cooperation-section__icon-wrap {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .cooperation-section__title {
+    font-size: var(--h5-size, 20px);
+  }
+
+  .cooperation-section__btn {
+    width: 100%;
+  }
+}

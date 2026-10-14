@@ -1,0 +1,47 @@
+/* ========================================
+   ALERT
+======================================== */
+
+.alert {
+  padding: 16px 20px;
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid transparent;
+}
+
+/* ========================================
+   SUCCESS
+======================================== */
+
+.alert-success {
+  background: #ecfdf3;
+
+  border-color: #abefc6;
+
+  color: #067647;
+}
+
+/* ========================================
+   WARNING
+======================================== */
+
+.alert-warning {
+  background: #fffaeb;
+
+  border-color: #fedf89;
+
+  color: #b54708;
+}
+
+/* ========================================
+   DANGER
+======================================== */
+
+.alert-danger {
+  background: #fef3f2;
+
+  border-color: #fecdca;
+
+  color: #b42318;
+}

@@ -1,0 +1,355 @@
+/* ========================================
+   STATS SECTION
+   WebJTI Theme
+======================================== */
+
+.stats-section {
+  width: 100%;
+}
+
+/* ========================================
+   VARIANT
+======================================== */
+
+/* Landing */
+.stats-section.is-landing {
+  background: transparent;
+}
+
+/* Prestasi */
+.stats-section.is-achievement {
+  margin-bottom: 48px;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.stats-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  gap: 0;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-2xl);
+}
+
+/* ========================================
+   LANDING STYLE
+======================================== */
+
+.stats-section.is-landing
+.stats-container {
+  background: linear-gradient(180deg, #164192 59.88%, #0e1f43 145.68%);
+
+  padding: 40px 60px;
+  gap: 40px;
+}
+
+/* ========================================
+   PRESTASI STYLE
+======================================== */
+
+.stats-section.is-achievement
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+
+  background: transparent;
+}
+
+/* ========================================
+   ITEM
+======================================== */
+
+.stats-item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+/* ========================================
+   LANDING ITEM
+======================================== */
+
+.stats-section.is-landing
+.stats-item {
+  flex: 1 0 0;
+
+  padding: 0;
+}
+
+/* ========================================
+   PRESTASI ITEM
+======================================== */
+
+.stats-section.is-achievement
+.stats-item {
+  overflow: hidden;
+
+  border: 1px solid var(--neutral-03);
+  border-radius: var(--radius-2xl);
+
+  background: var(--neutral-00);
+
+  box-shadow:
+    0 1px 2px rgba(12,10,9,0.06);
+}
+
+/* ========================================
+   TOP / HEADER
+======================================== */
+
+.stats-item__top,
+.stats-header {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+/* ========================================
+   PRESTASI HEADER
+======================================== */
+
+.stats-section.is-achievement
+.stats-header {
+  padding: 20px 24px;
+
+  background: var(--neutral-02);
+
+  border-bottom: 1px solid var(--neutral-03);
+}
+
+/* ========================================
+   ICON
+======================================== */
+
+.stats-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+/* ========================================
+   LANDING ICON
+======================================== */
+
+.stats-section.is-landing
+.stats-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.16);
+}
+
+.stats-section.is-landing
+.stats-icon i {
+  color: var(--yellow-05);
+
+  font-size: 20px;
+}
+
+/* ========================================
+   PRESTASI ICON
+======================================== */
+
+.stats-section.is-achievement
+.stats-icon i {
+  color: var(--orange-2-07);
+
+  font-size: 20px;
+}
+
+/* ========================================
+   LABEL
+======================================== */
+
+.stats-label {
+  margin: 0;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   LANDING LABEL
+======================================== */
+
+.stats-section.is-landing
+.stats-label {
+  padding-left: 64px;
+
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  color:
+    rgba(255,255,255,0.6);
+}
+
+/* ========================================
+   PRESTASI LABEL
+======================================== */
+
+.stats-section.is-achievement
+.stats-label {
+  color: var(--neutral-11);
+}
+
+/* ========================================
+   VALUE
+======================================== */
+
+.stats-value {
+  margin: 0;
+}
+
+/* ========================================
+   LANDING VALUE
+======================================== */
+
+.stats-section.is-landing
+.stats-value {
+  margin-top: 0;
+  padding-left: 0;
+
+  font-family: 'Chivo Mono', monospace;
+  font-size: 40px;
+  line-height: 1.2;
+
+  color: #ffffff;
+
+  letter-spacing: -0.8px;
+
+  white-space: nowrap;
+}
+
+/* ========================================
+   PRESTASI VALUE
+======================================== */
+
+.stats-section.is-achievement
+.stats-value {
+  padding:
+    32px 24px;
+
+  color: var(--neutral-11);
+
+  letter-spacing: -0.03em;
+}
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.stats-divider {
+  width: 1px;
+  height: 60px;
+
+  margin: 0;
+
+  border-radius: 4px;
+
+  background:
+    rgba(255,255,255,0.2);
+
+  flex-shrink: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1200px) {
+
+  .stats-section.is-achievement
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  .stats-section.is-landing
+  .stats-container {
+    flex-wrap: wrap;
+
+    gap: 32px;
+  }
+
+  .stats-section.is-landing
+  .stats-item {
+    flex: 0 0 calc(50% - 16px);
+  }
+
+  .stats-divider {
+    display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .stats-section.is-landing
+  .stats-container {
+    padding: 32px;
+  }
+
+  .stats-section.is-achievement
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-section.is-landing
+  .stats-item {
+    flex: 1 1 100%;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .stats-section.is-landing
+  .stats-container {
+    padding: 24px;
+  }
+
+  .stats-section.is-landing
+  .stats-value {
+    padding-left: 0;
+  }
+
+}
+
+@media (max-width: 425px) {
+  .stats-section.is-landing
+  .stats-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .stats-section.is-landing
+  .stats-value {
+    font-size: 32px;
+  }
+}

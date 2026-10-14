@@ -1,0 +1,176 @@
+/* ========================================
+   CAMPUS CARD STYLES
+   WebJTI Theme
+======================================== */
+
+/* ========================================
+   CAMPUS CARD
+======================================== */
+
+.campus-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--neutral-00, #FFFFFF);
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  border-radius: 20px;
+  padding: 4px;
+  box-shadow: 0 1px 2px rgba(12, 10, 9, 0.06);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s ease;
+  height: 100%;
+}
+
+.campus-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--neutral-04, #D6D3D1);
+}
+
+/* Map active state styles */
+.campus-card.campus-card--map-active {
+  border-color: var(--orange-2-07, #EE6D08);
+  box-shadow: 0 8px 16px rgba(238, 109, 8, 0.06);
+}
+
+/* ========================================
+   CARD HEADER
+======================================== */
+
+.campus-card__header {
+  background: var(--neutral-02, #F5F5F4);
+  padding: 16px 24px;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(12, 10, 9, 0.03);
+}
+
+.campus-card__title {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 20px;
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  color: var(--neutral-11, #0C0A09);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   CARD BODY
+======================================== */
+
+.campus-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  flex: 1;
+}
+
+/* ========================================
+   ADDRESS TRIGGER
+======================================== */
+
+.campus-card__address {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--neutral-06, #79716B);
+  transition: color 0.2s ease;
+  outline: none;
+  text-decoration: none;
+}
+
+.campus-card__address:hover {
+  color: var(--orange-2-07, #EE6D08);
+}
+
+/* Icon Wrapper */
+.campus-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--neutral-02, #F5F5F4);
+  color: var(--orange-2-07, #EE6D08);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.campus-card__icon i {
+  font-size: 20px;
+}
+
+.campus-card__address:hover .campus-card__icon {
+  background: var(--orange-2-02, #FFF1D4);
+  color: var(--orange-2-07, #EE6D08);
+}
+
+/* Address Text */
+.campus-card__address-text {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: inherit;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 42px; /* standard height for 2 lines of 14px text */
+}
+
+/* ========================================
+   CARD ELEMENTS (DIVIDER & EMAIL)
+======================================== */
+
+.campus-card__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--neutral-03, #E7E5E4);
+}
+
+.campus-card__email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.campus-card__email-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--neutral-11, #0C0A09);
+}
+
+.campus-card__email-icon i {
+  font-size: 20px;
+}
+
+.campus-card__email-text {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--neutral-11, #0C0A09);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.campus-card__email-text:hover {
+  color: var(--orange-2-07, #EE6D08);
+}

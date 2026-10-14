@@ -1,0 +1,128 @@
+/* Styles for Program Khusus single template */
+.single-program-khusus .single-program__header .entry-title,
+.program-khusus-page .single-program__header .entry-title { font-size: 34px; margin-bottom: 18px; font-weight:700; }
+.program-description { background:#fff; padding:20px; border-radius:8px; margin-bottom:24px; box-shadow:0 1px 0 rgba(0,0,0,0.03); }
+
+/* Biaya */
+.program-biaya { margin: 32px 0; }
+.program-biaya h2 { font-size:22px; color:#0b4ea2; margin-bottom:16px; }
+/* Hero featured biaya */
+.biaya-hero { display:flex; align-items:flex-start; gap:18px; margin-bottom:18px; }
+.biaya-hero__label { font-size:18px; color:#222; font-weight:700; }
+.biaya-hero__value { font-size:36px; color:#0b3b84; font-weight:800; }
+.biaya-hero__value small { display:block; font-size:14px; font-weight:400; color:#666; }
+.biaya-block { background:#fff; border:1px solid #eee; padding:18px; border-radius:10px; margin-bottom:18px; }
+.biaya-block__title { font-size:20px; font-weight:700; margin-bottom:8px; color:#0b3b84; }
+.biaya-block__content { font-size:16px; color:#222; }
+.biaya-block__content table { width:100%; border-collapse:collapse; margin-top:12px; }
+.biaya-block__content table thead th { background:#007bff; color:#fff; padding:12px; text-align:left; }
+.biaya-block__content table tbody td { border:1px solid #e6e6e6; padding:10px; }
+
+/* Small pills inside biaya content */
+.biaya-block__content .pill { display:inline-block; background:#007bff; color:#fff; padding:6px 10px; border-radius:999px; font-size:13px; margin-bottom:8px; }
+
+/* Persyaratan */
+.program-persyaratan h2 { font-size:20px; margin-top:24px; margin-bottom:12px; }
+.program-persyaratan div { background:#fff; padding:16px; border-radius:8px; }
+
+/* PK Vertical Timeline Styling */
+.pk-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    padding-top: 10px;
+}
+.pk-timeline::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    left: 19px;
+    width: 2px;
+    background: #f0c14b; 
+}
+.pk-timeline__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.pk-timeline__item:last-child {
+    margin-bottom: 0;
+}
+.pk-timeline__item:last-child::after {
+    content: '';
+    position: absolute;
+    top: 40px; /* Hide the line after last icon */
+    bottom: 0;
+    left: 19px;
+    width: 2px;
+    background: #fff;
+    z-index: 1;
+}
+.pk-timeline__icon {
+    position: relative;
+    z-index: 2;
+    background: #f4f6f8;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.pk-timeline__dot {
+    width: 14px;
+    height: 14px;
+    background: #e65c00;
+    border: 2px solid #f0c14b;
+    border-radius: 50%;
+}
+.pk-timeline__content {
+    background: transparent;
+    padding-top: 5px;
+}
+.pk-timeline__date {
+    display: inline-block;
+    border: 1px solid #f0c14b;
+    color: #b58000;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.pk-timeline__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+.pk-timeline__desc p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Kontak */
+.program-kontak h2 { font-size:20px; margin-top:24px; margin-bottom:8px; }
+.program-kontak div { background:#fff; padding:12px; border-radius:8px; }
+
+
+
+/* Tabs header and panels */
+.tabs-header { display:flex; gap:12px; background:#f4f6f8; padding:12px; border-radius:12px; margin-bottom:18px; flex-wrap:wrap; }
+.tab-btn { background:transparent; border:0; padding:8px 14px; border-radius:999px; cursor:pointer; font-weight:700; color:#566574; }
+.tab-btn:focus { outline:2px solid rgba(11,62,130,0.12); }
+.tab-btn.active { background:#fff; color:#0b3b84; box-shadow:0 4px 14px rgba(11,62,130,0.08); }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* Ensure tabs-header scroll on small screens */
+@media (max-width:600px) {
+  .tabs-header { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}

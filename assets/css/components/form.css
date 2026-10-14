@@ -1,0 +1,45 @@
+/* ========================================
+   FORM
+======================================== */
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--neutral-11);
+}
+
+/* ========================================
+   INPUT
+======================================== */
+
+.form-control {
+  width: 100%;
+
+  padding: 12px 16px;
+
+  border: 1px solid var(--neutral-03);
+  border-radius: var(--radius-md);
+
+  background: var(--neutral-00);
+
+  color: var(--neutral-11);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+
+  border-color: var(--orange-2-07);
+
+  box-shadow:
+    0 0 0 4px rgba(238, 109, 8, 0.12);
+}

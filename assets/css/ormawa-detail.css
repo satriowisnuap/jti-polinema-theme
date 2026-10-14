@@ -1,0 +1,753 @@
+/* ============================================================
+   ORMAWA DETAIL PAGE STYLES
+   WebJTI Theme
+   ============================================================ */
+
+.single-ormawa-page {
+  background-color: var(--neutral-00, #ffffff);
+  min-height: 100vh;
+}
+
+/* Centered single column layout wrapper */
+.single-ormawa__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+.single-ormawa__layout {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.single-ormawa__content-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+/* ──────────────────────────────────────
+   Override: hero image area untuk logo ormawa
+   Tampilkan logo dengan contain agar tidak terpotong
+────────────────────────────────────── */
+.single-ormawa-page .achievement-header__image {
+  background: #ffffff;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+}
+
+.single-ormawa-page .achievement-header__image img {
+  object-fit: contain;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+/* ──────────────────────────────────────
+   Floating Logo Badge (Header)
+────────────────────────────────────── */
+.ormawa-header-v2__logo-badge {
+  background-color: var(--neutral-00, #ffffff) !important;
+  border: 4px solid var(--neutral-00, #ffffff);
+  box-shadow: 0 8px 32px rgba(12, 10, 9, 0.12);
+  border-radius: 50%;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.ormawa-header-v2__logo-badge:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.ormawa-header-v2__logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
+
+.ormawa-header-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--orange-2-01, #FFF9ED);
+  color: var(--orange-2-07, #EE6D08);
+  font-size: 64px;
+  border-radius: 50%;
+}
+
+/* ──────────────────────────────────────
+   Visi Misi Tujuan inside content block
+────────────────────────────────────── */
+.ormawa-vmt-block-wrapper {
+  width: 100%;
+}
+
+.ormawa-vmt-block-wrapper .content-block__body {
+  padding-top: 24px;
+}
+
+.ormawa-vmt-block-wrapper .ormawa-vmt-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+}
+
+.ormawa-vmt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.ormawa-vmt-block {
+  background: #ffffff;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ormawa-vmt-block--tujuan {
+  width: 100%;
+}
+
+.ormawa-vmt-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  border-color: var(--orange-2-04, #FFC872);
+}
+
+.ormawa-vmt-block h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--neutral-11, #0c0a09);
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ormawa-vmt-block h3 i {
+  color: var(--orange-2-07, #EE6D08);
+  font-size: 18px;
+  padding: 6px;
+  background: var(--orange-2-01, #FFF9ED);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.ormawa-vmt-content {
+  color: var(--neutral-07, #57534D);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ormawa-vmt-content p {
+  margin: 0 0 10px 0;
+}
+
+.ormawa-vmt-content p:last-child {
+  margin-bottom: 0;
+}
+
+.ormawa-vmt-content ul,
+.ormawa-vmt-content ol {
+  margin: 8px 0 10px 0;
+  padding-left: 20px;
+}
+
+.ormawa-vmt-content ul {
+  list-style-type: disc;
+}
+
+.ormawa-vmt-content ol {
+  list-style-type: decimal;
+}
+
+.ormawa-vmt-content li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+  padding-left: 2px;
+}
+
+.ormawa-vmt-content li::marker {
+  color: var(--orange-2-07, #EE6D08);
+  font-weight: 600;
+}
+
+.ormawa-vmt-content li:last-child {
+  margin-bottom: 0;
+}
+
+/* ──────────────────────────────────────
+   Gallery Section Spacing Adjustments
+────────────────────────────────────── */
+.single-ormawa__content-blocks .ormawa-gallery-section {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.ormawa-gallery__topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.ormawa-gallery__heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--neutral-11, #0c0a09);
+  margin: 0;
+  position: relative;
+  padding-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.ormawa-gallery__heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  background: var(--orange-2-07, #EE6D08);
+  border-radius: 99px;
+}
+
+.ormawa-gallery__controls {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.ormawa-gallery__controls button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--neutral-07, #57534D);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ormawa-gallery__controls button:hover {
+  background: var(--neutral-01, #f5f5f4) !important;
+  color: var(--orange-2-07, #EE6D08) !important;
+  border-color: var(--orange-2-04, #FFC872) !important;
+}
+
+.ormawa-gallery .slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.ormawa-gallery .slider-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 8px 0 20px 0;
+}
+
+/* Auto-scroll marquee keyframes */
+@keyframes ormawa-gallery-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(var(--gallery-scroll-dist, -50%)); }
+}
+
+.ormawa-gallery .slider-track.is-auto-scrolling {
+  animation: ormawa-gallery-scroll var(--gallery-scroll-dur, 18s) linear infinite;
+  will-change: transform;
+}
+
+.ormawa-gallery:hover .slider-track.is-auto-scrolling {
+  animation-play-state: paused;
+}
+
+.ormawa-gallery .slider-track.is-centered {
+  width: 100%;
+  justify-content: center;
+  flex-wrap: nowrap;
+  animation: none !important;
+}
+
+.ormawa-gallery .slider-item,
+.ormawa-gallery .ormawa-gallery__item {
+  flex: 0 0 var(--gallery-card-w, 280px);
+  width: var(--gallery-card-w, 280px);
+  max-width: var(--gallery-card-w, 280px);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.ormawa-gallery .slider-track.is-centered .slider-item,
+.ormawa-gallery .slider-track.is-centered .ormawa-gallery__item {
+  flex: 1 1 0px;
+  min-width: 0;
+  max-width: 360px;
+  width: auto;
+}
+
+.ormawa-gallery__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 Aspect Ratio fallback */
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--neutral-02, #f0efee);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+  box-sizing: border-box;
+}
+
+.ormawa-gallery .slider-item:hover .ormawa-gallery__image-wrap,
+.ormawa-gallery .ormawa-gallery__item:hover .ormawa-gallery__image-wrap {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.13);
+}
+
+.ormawa-gallery__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ormawa-gallery .slider-item:hover .ormawa-gallery__img,
+.ormawa-gallery .ormawa-gallery__item:hover .ormawa-gallery__img {
+  transform: scale(1.08);
+}
+
+.ormawa-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.80);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 14px;
+}
+
+.ormawa-gallery .slider-item:hover .ormawa-gallery__overlay,
+.ormawa-gallery .ormawa-gallery__item:hover .ormawa-gallery__overlay {
+  opacity: 1;
+}
+
+.ormawa-gallery__caption {
+  color: #fff;
+  transform: translateY(12px);
+  transition: transform 0.35s ease;
+  width: 100%;
+}
+
+.ormawa-gallery .slider-item:hover .ormawa-gallery__caption,
+.ormawa-gallery .ormawa-gallery__item:hover .ormawa-gallery__caption {
+  transform: translateY(0);
+}
+
+.ormawa-gallery__caption p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: #ffffff;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ormawa-gallery__title-wrap {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 4px 0 4px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ormawa-gallery__title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-09, #292524);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ormawa-gallery .slider-item:hover .ormawa-gallery__title,
+.ormawa-gallery .ormawa-gallery__item:hover .ormawa-gallery__title {
+  color: var(--orange-2-07, #EE6D08);
+}
+
+/* ──────────────────────────────────────
+   RESPONSIVE DESIGN BREAKPOINTS
+   ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .single-ormawa__container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .single-ormawa__container {
+    padding: 0 24px;
+  }
+
+  .ormawa-header-v2__logo-badge {
+    width: 80px !important;
+    height: 80px !important;
+    padding: 6px;
+    border-width: 2px;
+  }
+
+  .ormawa-header-logo-placeholder {
+    font-size: 32px;
+  }
+
+  .ormawa-gallery__topbar {
+    gap: 16px;
+  }
+
+  .ormawa-gallery__controls {
+    position: static;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .ormawa-vmt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ormawa-gallery .slider-item,
+  .ormawa-gallery .ormawa-gallery__item {
+    flex: 0 0 180px;
+    width: 180px;
+    max-width: 180px;
+  }
+
+  .ormawa-gallery .slider-track.is-centered {
+    gap: 14px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ormawa-gallery .slider-track.is-centered .slider-item,
+  .ormawa-gallery .slider-track.is-centered .ormawa-gallery__item {
+    flex: 0 0 75% !important;
+    min-width: 220px !important;
+    max-width: 280px !important;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .ormawa-header-v2__logo-badge {
+    width: 64px !important;
+    height: 64px !important;
+    padding: 4px;
+  }
+
+  .ormawa-header-logo-placeholder {
+    font-size: 24px;
+  }
+}
+
+/* ──────────────────────────────────────
+   Ormawa Header V2 Section (Clean & Modern)
+────────────────────────────────────── */
+.ormawa-header-v2 {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.ormawa-header-v2__hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 440px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  border: 1px solid var(--neutral-03, #e7e5e4);
+  box-shadow: 0 4px 20px rgba(12, 10, 9, 0.04);
+  overflow: hidden;
+}
+
+.ormawa-header-v2__image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.ormawa-header-v2__image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.ormawa-header-v2__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  color: var(--neutral-04, #d6d3d1);
+}
+
+.ormawa-header-v2__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.ormawa-header-v2__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ormawa-header-v2__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ormawa-header-v2__tag--section {
+  background: var(--yellow-01, #FFFDEA);
+  color: var(--yellow-09, #974E09);
+  border: 1px solid var(--yellow-04, #FFE746);
+}
+
+.ormawa-header-v2__tag--category {
+  background: var(--orange-2-01, #FFF9ED);
+  color: var(--orange-2-07, #EE6D08);
+  border: 1px solid var(--orange-2-03, #FFD8A8);
+}
+
+.ormawa-header-v2__title {
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--neutral-11, #0c0a09);
+  margin: 4px 0 0;
+}
+
+/* ──────────────────────────────────────
+   Ormawa Header Action Cards / Links Block
+────────────────────────────────────── */
+.ormawa-header-v2__links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--neutral-03, #e7e5e4);
+}
+
+.ormawa-header-v2__links-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--neutral-06, #79716b);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ormawa-header-v2__links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.ormawa-action-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--neutral-03, #e7e5e4);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--neutral-10, #1c1917);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.ormawa-action-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.ormawa-action-card--website .ormawa-action-card__icon-wrap {
+  background-color: var(--orange-2-01, #FFF9ED);
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.ormawa-action-card--instagram .ormawa-action-card__icon-wrap {
+  background-color: #FFF0F5;
+  color: #E1306C;
+}
+
+.ormawa-action-card--facebook .ormawa-action-card__icon-wrap {
+  background-color: #E6F2FF;
+  color: #1877F2;
+}
+
+.ormawa-action-card--tiktok .ormawa-action-card__icon-wrap {
+  background-color: #F0F0F0;
+  color: #000000;
+}
+
+.ormawa-action-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.ormawa-action-card__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--neutral-11, #0c0a09);
+  line-height: 1.2;
+}
+
+.ormawa-action-card__sub {
+  font-size: 12px;
+  color: var(--neutral-06, #79716b);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ormawa-action-card__arrow {
+  font-size: 16px;
+  color: var(--neutral-05, #a6a09b);
+  transition: transform 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+/* Hover effects */
+.ormawa-action-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(12, 10, 9, 0.08);
+  border-color: var(--orange-2-07, #EE6D08);
+}
+
+.ormawa-action-card:hover .ormawa-action-card__icon-wrap {
+  transform: scale(1.08);
+}
+
+.ormawa-action-card:hover .ormawa-action-card__arrow {
+  transform: translate(3px, -3px);
+  color: var(--orange-2-07, #EE6D08);
+}
+
+.ormawa-action-card--instagram:hover {
+  border-color: #E1306C;
+}
+.ormawa-action-card--instagram:hover .ormawa-action-card__arrow {
+  color: #E1306C;
+}
+
+.ormawa-action-card--facebook:hover {
+  border-color: #1877F2;
+}
+.ormawa-action-card--facebook:hover .ormawa-action-card__arrow {
+  color: #1877F2;
+}
+
+.ormawa-action-card--tiktok:hover {
+  border-color: #000000;
+}
+.ormawa-action-card--tiktok:hover .ormawa-action-card__arrow {
+  color: #000000;
+}
+
+@media (max-width: 576px) {
+  .ormawa-header-v2__links-grid {
+    grid-template-columns: 1fr;
+  }
+}

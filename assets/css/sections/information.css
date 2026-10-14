@@ -1,0 +1,465 @@
+/* ========================================
+   LANDING PAGE INFORMATION SECTION
+   WebJTI Theme
+======================================== */
+
+.information-section {
+  width: 100%;
+  padding: 100px 60px;
+  background: var(--neutral-00, #FFFFFF);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+/* Reset margin-bottom from shared section-header to avoid duplicate spacing */
+.information-section .section-header {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   GRID
+======================================== */
+
+.information-grid {
+  display: grid;
+  grid-template-columns: 680px minmax(0, 475px);
+  gap: 48px;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ========================================
+   SIDE LIST
+======================================== */
+
+.information-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* ========================================
+   META
+======================================== */
+
+.information-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.information-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--neutral-06, #79716B);
+  font-family: var(--font-primary);
+  font-size: 16px;
+}
+
+.information-meta-item i {
+  font-size: 20px;
+  color: var(--neutral-06, #79716B);
+}
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.information-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--neutral-03, #E7E5E4);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.information-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ========================================
+   INFORMATION PAGE & SECTION STYLES
+   WebJTI Theme (Figma High-Fidelity)
+======================================== */
+
+/* Container Layout */
+.information-page {
+  padding-bottom: 120px;
+}
+
+.information-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+}
+
+/* ========================================
+   TOP FILTER & SEARCH BAR
+======================================== */
+
+.information-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+  gap: 24px;
+}
+
+/* Segmented Control Left */
+.information-filter-bar .filter-list.segmented {
+  background: #fafaf9;
+  box-shadow: 0px 1px 1px rgba(12, 10, 9, 0.06);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.information-filter-bar .filter-list.segmented .filter-btn {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.information-filter-bar .filter-list.segmented .filter-btn-text {
+  font-family: var(--font-primary, Helvetica, Arial, sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #79716b;
+  white-space: nowrap;
+}
+
+.information-filter-bar .filter-list.segmented .filter-btn.active {
+  background: #ffffff;
+  box-shadow: 0px 1px 1px rgba(12, 10, 9, 0.06);
+}
+
+.information-filter-bar .filter-list.segmented .filter-btn.active .filter-btn-text {
+  color: #0c0a09;
+  font-weight: 500;
+}
+
+/* Search Bar Right - Handled beautifully by global search-toolbar.css */
+.information-filter-bar .search-toolbar {
+  max-width: 336px;
+}
+
+
+/* ========================================
+   MODE 1: SEMUA VIEW (Spotlight Grid)
+======================================== */
+
+.information-spotlight-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 48px;
+  align-items: start;
+  width: 100%;
+}
+
+.information-spotlight-container {
+  width: 100%;
+}
+
+.information-list-container {
+  width: 100%;
+}
+
+.information-list-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* ========================================
+   CATEGORY SLIDERS
+======================================== */
+
+.information-slider-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  position: relative;
+}
+
+.information-slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.information-slider-title-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.information-slider-title {
+  font-family: var(--font-primary, Helvetica, Arial, sans-serif);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.64px;
+  color: #000000;
+  margin: 0;
+}
+
+.information-slider-badge {
+  background: #f2f2f2;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.information-slider-badge-text {
+  font-family: 'Chivo Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: #79716b;
+  text-transform: uppercase;
+}
+
+/* Arrows Navigation */
+.information-slider-header .slider-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.information-slider-header .slider-arrows button {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 1px 2px rgba(12, 10, 9, 0.05);
+}
+
+.information-slider-header .slider-arrows button:hover {
+  background: #fafaf9;
+  border-color: #d6d3d1;
+  transform: translateY(-1px);
+}
+
+.information-slider-header .slider-arrows button i {
+  font-size: 20px;
+  color: #0c0a09;
+}
+
+/* Horizontal Slider Track */
+.information-slider-container {
+  overflow: hidden;
+  width: 100%;
+  cursor: grab;
+}
+
+.information-slider-container:active {
+  cursor: grabbing;
+}
+
+.information-slider-track {
+  padding: 10px 4px 24px 4px;
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  padding-bottom: 4px;
+}
+
+.information-slider-track::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.information-slider-item {
+  width: 320px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.information-slider-item:hover {
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   MODE 2: FILTERED SPA GRID
+======================================== */
+
+.information-filtered-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.information-pagination-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+  width: 100%;
+}
+
+/* ========================================
+   EMPTY STATE (NO RESULTS)
+======================================= */
+
+.information-no-results {
+  background: #fafaf9;
+  border: 1px dashed #e7e5e4;
+  border-radius: 20px;
+  max-width: 100%;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading Spinner placeholder for AJAX transition */
+.loading-spinner {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 24px;
+  font-size: 18px;
+  color: var(--neutral-06, #79716B);
+  font-family: var(--font-primary, sans-serif);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.loading-spinner::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--yellow-06, #EAB308);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN & LANDING MERGE
+======================================== */
+
+@media (max-width: 1200px) {
+  .information-spotlight-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+  }
+  .information-filtered-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .information-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .information-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .information-filter-bar .search-toolbar {
+    width: 100%;
+  }
+  .information-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .information-section {
+    padding: 80px 24px;
+    gap: 40px;
+  }
+
+  .information-card-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .information-card-image-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .information-slider-item {
+    width: 280px;
+  }
+  .information-filtered-grid {
+    grid-template-columns: 1fr;
+  }
+  .information-slider-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .information-section {
+    padding: 60px 16px;
+  }
+}
+
+@media (max-width: 425px) {
+  .information-slider-item {
+    width: 240px;
+  }
+}
+
+@media (max-width: 375px) {
+  .information-slider-item {
+    width: 220px;
+  }
+  .information-slider-title {
+    font-size: 22px;
+  }
+}

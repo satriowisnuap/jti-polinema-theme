@@ -1,0 +1,160 @@
+/* ========================================
+   AKADEMIK COMING SOON SECTION STYLES
+   WebJTI Theme
+======================================== */
+
+.akademik-coming-soon-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  padding: 64px 24px;
+  box-sizing: border-box;
+}
+
+.akademik-coming-soon__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 520px;
+  text-align: center;
+}
+
+/* ----------------------------------------
+   ICON
+---------------------------------------- */
+
+.akademik-coming-soon__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  background: var(--orange-2-01, #FFF9ED);
+  border: 1.5px solid var(--orange-2-03, #FFDFA9);
+  color: var(--orange-2-07, #EE6D08);
+  flex-shrink: 0;
+}
+
+.akademik-coming-soon__icon i {
+  font-size: 40px;
+  line-height: 1;
+}
+
+/* ----------------------------------------
+   TEXT
+---------------------------------------- */
+
+.akademik-coming-soon__title {
+  font-size: var(--h4-size, 28px);
+  font-weight: var(--fw-semibold, 600);
+  line-height: var(--h4-line, 120%);
+  letter-spacing: var(--h4-spacing, -0.02em);
+  color: var(--neutral-10, #1C1917);
+  margin: 0;
+}
+
+.akademik-coming-soon__description {
+  font-size: var(--b3-size, 16px);
+  font-weight: var(--fw-regular, 400);
+  line-height: 1.65;
+  color: var(--neutral-06, #79716B);
+  margin: 0;
+  max-width: 440px;
+}
+
+/* ----------------------------------------
+   ACTIONS
+---------------------------------------- */
+
+.akademik-coming-soon__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.akademik-coming-soon__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: var(--b4-size, 14px);
+  font-weight: var(--fw-medium, 500);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.akademik-coming-soon__actions .btn i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.akademik-coming-soon__actions .btn--primary {
+  background: var(--orange-2-07, #EE6D08);
+  color: #fff;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 12px rgba(238, 109, 8, 0.18);
+}
+
+.akademik-coming-soon__actions .btn--primary:hover {
+  background: var(--orange-2-08, #C55209);
+  box-shadow: 0 6px 20px rgba(238, 109, 8, 0.28);
+}
+
+.akademik-coming-soon__actions .btn--secondary {
+  background: var(--neutral-00, #ffffff);
+  color: var(--neutral-08, #44403B);
+  border: 1.5px solid var(--neutral-03, #E7E5E4);
+}
+
+.akademik-coming-soon__actions .btn--secondary:hover {
+  background: var(--neutral-01, #FAFAF9);
+  border-color: var(--neutral-05, #A6A09B);
+  color: var(--neutral-10, #1C1917);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 480px) {
+
+  .akademik-coming-soon-section {
+    padding: 48px 16px;
+    min-height: 320px;
+  }
+
+  .akademik-coming-soon__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
+
+  .akademik-coming-soon__icon i {
+    font-size: 30px;
+  }
+
+  .akademik-coming-soon__title {
+    font-size: 22px;
+  }
+
+  .akademik-coming-soon__description {
+    font-size: 14px;
+  }
+
+  .akademik-coming-soon__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .akademik-coming-soon__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

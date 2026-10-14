@@ -1,0 +1,240 @@
+/* ========================================
+   DESIGN TOKENS / VARIABLES
+======================================== */
+
+:root {
+
+  /* ========================================
+     COLORS
+  ======================================== */
+
+  --bg-color: #ffffff;
+  --border-color: #dee2e6;
+
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+
+  /* Neutral */
+  --neutral-00: #ffffff;
+  --neutral-01: #FAFAF9;
+  --neutral-02: #F5F5F4;
+  --neutral-03: #E7E5E4;
+  --neutral-04: #D6D3D1;
+  --neutral-05: #A6A09B;
+  --neutral-06: #79716B;
+  --neutral-07: #57534D;
+  --neutral-08: #44403B;
+  --neutral-09: #292524;
+  --neutral-10: #1C1917;
+  --neutral-11: #0C0A09;
+
+  /* Blue */
+  --blue-01: #EEF7FF;
+  --blue-02: #D8ECFF;
+  --blue-03: #BADFFF;
+  --blue-04: #8BCCFF;
+  --blue-05: #55B1FF;
+  --blue-06: #2D90FF;
+  --blue-07: #1672FA;
+  --blue-08: #0F5BE6;
+  --blue-09: #1349BA;
+  --blue-10: #164192;
+  --blue-11: #0E1F43;
+
+  /* Red */
+  --red-01: #FCF4F4;
+  --red-02: #F9E8E7;
+  --red-03: #F5D4D3;
+  --red-04: #EDB6B4;
+  --red-05: #E18C88;
+  --red-06: #D26661;
+  --red-07: #BD4A45;
+  --red-08: #993935;
+  --red-09: #833431;
+  --red-10: #6E312E;
+  --red-11: #3B1614;
+
+  /* Orange 1 */
+  --orange-1-01: #FEF4EE;
+  --orange-1-02: #FDE6D7;
+  --orange-1-03: #FAC8AE;
+  --orange-1-04: #F7A27A;
+  --orange-1-05: #F37244;
+  --orange-1-06: #F05529;
+  --orange-1-07: #E13415;
+  --orange-1-08: #BA2514;
+  --orange-1-09: #942018;
+  --orange-1-10: #771D17;
+  --orange-1-11: #400C0A;
+
+  /* Orange 2 */
+  --orange-2-01: #FFF9ED;
+  --orange-2-02: #FFF1D4;
+  --orange-2-03: #FFDFA9;
+  --orange-2-04: #FFC872;
+  --orange-2-05: #FEA539;
+  --orange-2-06: #FD8C18;
+  --orange-2-07: #EE6D08;
+  --orange-2-08: #C55209;
+  --orange-2-09: #9C4110;
+  --orange-2-10: #7E3710;
+  --orange-2-11: #441906;
+
+  /* Yellow */
+  --yellow-01: #FFFDEA;
+  --yellow-02: #FFFAC5;
+  --yellow-03: #FFF486;
+  --yellow-04: #FFE746;
+  --yellow-05: #FFD81C;
+  --yellow-06: #FEBF11;
+  --yellow-07: #E19000;
+  --yellow-08: #BB6602;
+  --yellow-09: #974E09;
+  --yellow-10: #7C400B;
+  --yellow-11: #482100;
+
+  /* ========================================
+     GRADIENTS
+  ======================================== */
+
+  --gradient-yellow: linear-gradient(180deg, #FFD81C -119.79%, #FEBF11 98.45%);
+  --gradient-red: linear-gradient(180deg, #993935 -0.15%, #833431 95.29%);
+  --gradient-blue: linear-gradient(180deg, #164192 -59.88%, #0E1F43 145.68%);
+  --gradient-black: linear-gradient(180deg, rgba(0,0,0,0) 0%, #0C0A09 80%);
+  --gradient-orange: linear-gradient(180deg, #FF870C -15.23%, #EE6D08 133.33%);
+  
+  /* ========================================
+     FONT FAMILY
+  ======================================== */
+
+  --font-primary: 'Helvetica', 'Arial', sans-serif;
+  --font-secondary: 'Helvetica Neue', 'Arial', sans-serif;
+
+  /* ========================================
+     FONT WEIGHT
+  ======================================== */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ========================================
+     DISPLAY
+  ======================================== */
+
+  --display-size: 48px;
+  --display-line: 110%;
+  --display-spacing: -0.02em;
+
+  /* ========================================
+     HEADINGS
+  ======================================== */
+
+  --h1-size: 40px;
+  --h1-line: 120%;
+  --h1-spacing: -0.02em;
+
+  --h2-size: 36px;
+  --h2-line: 120%;
+  --h2-spacing: -0.02em;
+
+  --h3-size: 32px;
+  --h3-line: 120%;
+  --h3-spacing: -0.02em;
+
+  --h4-size: 28px;
+  --h4-line: 120%;
+  --h4-spacing: -0.02em;
+
+  --h5-size: 24px;
+  --h5-line: 135%;
+  --h5-spacing: -0.02em;
+
+  --h6-size: 20px;
+  --h6-line: 130%;
+  --h6-spacing: -0.02em;
+
+  /* ========================================
+     BODY
+  ======================================== */
+
+  --b0-size: 24px;
+  --b0-line: 150%;
+
+  --b1-size: 20px;
+  --b1-line: 150%;
+
+  --b2-size: 18px;
+  --b2-line: 150%;
+
+  --b3-size: 16px;
+  --b3-line: 150%;
+
+  --b4-size: 14px;
+  --b4-line: 150%;
+
+  --b5-size: 12px;
+  --b5-line: 150%;
+
+  /* ========================================
+     CAPTION
+  ======================================== */
+
+  --caption-size: 10px;
+  --caption-line: 140%;
+
+  /* ========================================
+     SPACING
+  ======================================== */
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* ========================================
+     BORDER RADIUS
+  ======================================== */
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* ========================================
+     BREAKPOINTS
+  ======================================== */
+
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ========================================
+   RESPONSIVE SCALING (< 480px)
+======================================== */
+@media (max-width: 480px) {
+  :root {
+    --display-size: 36px;
+    --h1-size: 32px;
+    --h2-size: 28px;
+    --h3-size: 24px;
+    --h4-size: 22px;
+    --h5-size: 20px;
+    --h6-size: 18px;
+    
+    --b0-size: 20px;
+    --b1-size: 18px;
+    --b2-size: 16px;
+    --b3-size: 14px;
+    --b4-size: 12px;
+    
+    --spacing-xxl: 2rem;
+    --spacing-xl: 1.5rem;
+  }
+}

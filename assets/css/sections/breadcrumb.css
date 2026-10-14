@@ -1,0 +1,75 @@
+/* ========================================
+   BREADCRUMBS STYLES
+   WebJTI Theme
+======================================== */
+
+.jti-breadcrumb {
+  margin-top: 40px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-primary, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.breadcrumb-item {
+  text-decoration: none;
+  font-weight: var(--fw-regular, 400);
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 1. Menu: Clickable and Hoverable */
+
+.breadcrumb-menu-link:hover {
+  color: var(--orange-2-07, #EE6D08);
+}
+
+/* 2. Submenu: Hoverable & Clickable */
+a.breadcrumb-submenu-active {
+  color: var(--neutral-08, #44403B);
+  cursor: pointer;
+}
+
+a.breadcrumb-submenu-active:hover {
+  color: var(--orange-2-07, #EE6D08);
+}
+
+/* 3. Active Title: Orange & Disabled */
+.breadcrumb-active {
+  color: var(--orange-2-07, #EE6D08);
+  font-weight: var(--fw-medium, 500);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Separator Caret */
+.breadcrumb-sep {
+  font-size: 12px;
+  color: var(--neutral-04, #D6D3D1);
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .jti-breadcrumb {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .breadcrumb-inner {
+    font-size: 12px;
+    gap: 6px;
+  }
+  
+  .breadcrumb-sep {
+    font-size: 10px;
+  }
+}

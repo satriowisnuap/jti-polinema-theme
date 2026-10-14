@@ -1,0 +1,400 @@
+/* ========================================
+   AKADEMIK TABS SECTION
+   WebJTI Theme
+======================================== */
+
+.akademik-tabs {
+  display: grid;
+  gap: 24px;
+}
+
+.akademik-tabs__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px;
+  background: var(--neutral-02, #F5F5F4);
+  border-radius: 16px;
+}
+
+.akademik-tabs__nav .tab-btn {
+  border: none;
+  background: transparent;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: var(--b4-size, 14px);
+  font-weight: var(--fw-semibold, 600);
+  color: var(--neutral-06, #79716B);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.akademik-tabs__nav .tab-btn:hover {
+  background: rgba(238, 109, 8, 0.1);
+}
+
+.akademik-tabs__nav .tab-btn.active {
+  background: var(--neutral-00, #FFFFFF);
+  color: var(--neutral-11, #0C0A09);
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.akademik-program-section__table-wrap {
+  overflow-x: auto;
+}
+
+.akademik-program-section__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  table-layout: fixed;
+}
+
+.akademik-program-section__table th,
+.akademik-program-section__table td {
+  text-align: left;
+  padding: 16px 14px;
+  border-bottom: 1px solid var(--neutral-03, #E7E5E4);
+}
+
+.akademik-program-section__table th:nth-child(1),
+.akademik-program-section__table td:nth-child(1) {
+  width: 8%;
+  text-align: center;
+}
+
+.akademik-program-section__table th:nth-child(2),
+.akademik-program-section__table td:nth-child(2) {
+  width: 14%;
+  text-align: center;
+}
+
+.akademik-program-section__table th:nth-child(3),
+.akademik-program-section__table td:nth-child(3) {
+  width: 44%;
+}
+
+.akademik-program-section__table th:nth-child(4),
+.akademik-program-section__table td:nth-child(4) {
+  width: 10%;
+  text-align: center;
+}
+
+.akademik-program-section__table th:nth-child(5),
+.akademik-program-section__table td:nth-child(5) {
+  width: 24%;
+}
+
+.akademik-program-section__table--3cols th:nth-child(1),
+.akademik-program-section__table--3cols td:nth-child(1) {
+  width: 10%;
+  text-align: center;
+}
+
+.akademik-program-section__table--3cols th:nth-child(2),
+.akademik-program-section__table--3cols td:nth-child(2) {
+  width: 18%;
+  text-align: center;
+}
+
+.akademik-program-section__table--3cols th:nth-child(3),
+.akademik-program-section__table--3cols td:nth-child(3) {
+  width: 72%;
+}
+
+.akademik-program-section__table td {
+  word-break: break-word;
+}
+
+.akademik-program-section__table th {
+  background: var(--neutral-01, #FAFAF9);
+  color: var(--neutral-09, #57534E);
+  font-weight: var(--fw-semibold, 600);
+}
+
+.akademik-program-section__table tr:nth-child(even) {
+  background: rgba(238, 109, 8, 0.04);
+}
+
+.akademik-program-section__table-card {
+  overflow: hidden;
+}
+
+.akademik-program-section__table--course th:nth-child(1),
+.akademik-program-section__table--course td:nth-child(1) {
+  width: 10%;
+  text-align: center;
+}
+
+.akademik-program-section__table--course th:nth-child(2),
+.akademik-program-section__table--course td:nth-child(2) {
+  width: 70%;
+}
+
+.akademik-program-section__table--course th:nth-child(3),
+.akademik-program-section__table--course td:nth-child(3) {
+  width: 20%;
+  text-align: center;
+}
+
+.akademik-program-section__page {
+  display: none;
+}
+
+.akademik-program-section__pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.akademik-program-section__pagination-btn {
+  border: 1px solid var(--neutral-04, #D6D3CE);
+  background: var(--neutral-00, #FFFFFF);
+  color: var(--neutral-07, #57534E);
+  padding: 10px 14px;
+  border-radius: 999px;
+  min-width: 44px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.akademik-program-section__pagination-btn:hover {
+  border-color: var(--orange-2-05, #FF8C42);
+  color: var(--neutral-11, #0C0A09);
+}
+
+.akademik-program-section__pagination-btn.active {
+  border-color: var(--orange-2-05, #FF8C42);
+  background: var(--orange-2-05, #FF8C42);
+  color: var(--neutral-00, #FFFFFF);
+}
+
+.d4-ti-accreditation-list {
+  display: grid;
+  gap: 16px;
+}
+
+.d4-ti-accreditation-item {
+  display: grid;
+  gap: 12px;
+}
+
+.d4-ti-accreditation-preview {
+  margin-top: 24px;
+}
+
+.d4-ti-accreditation-preview__label {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.d4-ti-accreditation-preview-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.d4-ti-accreditation-preview-list .d4-ti-zoom-trigger {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--neutral-00, #FFFFFF);
+  padding: 0;
+}
+
+.d4-ti-accreditation-preview-list .d4-ti-zoom-trigger img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.d4-ti-accreditation-preview-list .d4-ti-zoom-trigger span {
+  display: block;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--neutral-11, #0C0A09);
+}
+
+.d4-ti-zoom-trigger {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.d4-ti-zoom-trigger img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  background: var(--neutral-01, #FAFAF9);
+}
+
+.d4-ti-zoom-trigger--inline img {
+  max-width: 220px;
+}
+
+.d4-ti-pdf-preview {
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--neutral-01, #FAFAF9);
+}
+
+.d4-ti-pdf-frame {
+  display: block;
+  width: 100%;
+  min-height: 720px;
+  border: 0;
+}
+
+.d4-ti-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.d4-ti-modal[hidden] {
+  display: none;
+}
+
+.d4-ti-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.75);
+}
+
+.d4-ti-modal__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 960px);
+  max-height: 90vh;
+  padding: 24px;
+  background: var(--neutral-00, #FFFFFF);
+  border-radius: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.d4-ti-modal__content img {
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+}
+
+.d4-ti-modal__close {
+  justify-self: end;
+  border: 0;
+  background: var(--neutral-01, #FAFAF9);
+  color: var(--neutral-11, #0C0A09);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .akademik-tabs__nav {
+    gap: 10px;
+  }
+
+  .akademik-tabs__nav .tab-btn {
+    flex: 1 1 auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 540px) {
+  .akademik-program-section__table th,
+  .akademik-program-section__table td {
+    padding: 12px 10px;
+  }
+}
+
+/* Paket toggle styles for semester tables */
+.package-header td {
+  padding: 0 !important;
+  border: 0 !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  transform: none !important;
+}
+
+.package-band {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+  padding: 14px 16px !important;
+  background: var(--orange-2-01, #FFF9ED) !important;
+  color: var(--orange-2-07, #EE6D08) !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--orange-2-03, #FFDFA9) !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  transform: none !important;
+  vertical-align: middle !important;
+  line-height: 1.3 !important;
+}
+
+.package-band,
+.package-band * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  transform: none !important;
+  letter-spacing: normal !important;
+}
+
+.package-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.package-toggle-btn {
+  border: 1px solid var(--neutral-03, #E7E5E4);
+  padding: 12px 18px;
+  background: var(--neutral-01, #FAFAF9);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.package-toggle-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(15, 23, 42, 0.15);
+}
+
+.package-toggle-btn.active {
+  background: var(--orange-2-05, #FEA539);
+  color: #fff;
+  border-color: transparent;
+}
+
